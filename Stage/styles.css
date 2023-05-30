@@ -1,14 +1,27 @@
 /*Général*/
 
+body{
+    background-color: #181717;
+}
+
 h1{
     font-size: xx-large;
     text-align: center;
+    color: #F6F1F1;
+    margin: 2% auto;
 }
 
 h2{
     font-size: 30px;
     margin: auto;
     text-align: justify;
+}
+
+h3{
+    font-size: x-large;
+    text-align: center;
+    color: #F6F1F1;
+    margin: 2% auto;
 }
 
 p{
@@ -20,32 +33,51 @@ p{
     font-style: italic;
 }
 
-aside{
-    width: 100%;
-    margin: 2% auto;
-}
-
 /*Article principal*/
 
-#article_principal h2{
+.article_principal h2{
     font-size: 40px;
 }
 
-#article_principal{
-    width: 100%;
+.article_principal{
+    width: 60%;
     display: flex;
+    margin: 2% auto;
+    border: solid #F6F1F1;
+    background-color: #F6F1F1;
+}
+
+.article_principal article{
+    display: block;
     margin: auto;
 }
 
-#article_principal img{
-    margin: auto 100px auto auto;
+.article_principal img{
+    margin: 2% 2% 2% 5%;
+    border-radius: 40px 40px 40px 40px;
+    width: 30%;
 }
 
-#article_principal article{
-    margin: auto auto auto 100px;
-}
 /*Article secondaire*/
 
-.article_secondaire{
-    display: inline-block;
+#article_secondaire p{
+    margin: auto 5%;
+    color: #F6F1F1;
+    text-align: justify;
+}
+
+#article_secondaire img{
+    display: flex;
+    margin: auto;
+    position: static;
+}
+
+.texte_article{
+    margin: 5% auto;
+}
+
+/*footer*/
+
+footer{
+    background-color: #F6F1F1;
 }

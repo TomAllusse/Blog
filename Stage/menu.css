@@ -1,9 +1,9 @@
+header{
+    width: 100%;
+}
 nav{
     text-align: center;
-    background-color: rgb(117, 8, 8);
-    border: 3px solid rgb(71, 3, 3);
-    border-radius: 50px;
-    text-align: center;
+    background-color:  #F6F1F1;
 }
 
 li{
@@ -22,7 +22,7 @@ a:hover{
 a{
     font-weight: bolder;
     text-decoration: none;
-    color: aliceblue;
+    color : #181717
 }
 
 /*Image*/
