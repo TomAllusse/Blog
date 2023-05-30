@@ -1,0 +1,51 @@
+/*Général*/
+
+h1{
+    font-size: xx-large;
+    text-align: center;
+}
+
+h2{
+    font-size: 30px;
+    margin: auto;
+    text-align: justify;
+}
+
+p{
+    font-size: medium;  
+    text-align: justify;
+}
+
+.date{
+    font-style: italic;
+}
+
+aside{
+    width: 100%;
+    margin: 2% auto;
+}
+
+/*Article principal*/
+
+#article_principal h2{
+    font-size: 40px;
+}
+
+#article_principal{
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+
+#article_principal img{
+    margin: auto 100px auto auto;
+}
+
+#article_principal article{
+    margin: auto auto auto 100px;
+}
+/*Article secondaire*/
+
+.article_secondaire{
+    display: inline-block;
+}

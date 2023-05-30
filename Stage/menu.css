@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+}
+nav{
+    text-align: center;
+    background-color: antiquewhite;
+    border: 3px solid red;
+    border-radius: 50px;
+    text-align: center;
+}
+li{ 
+    background-color: rgb(82, 230, 102);
+    display: inline;
+    border: 3px solid rgb(10, 107, 23);
+    border-radius: 50px;
+}
