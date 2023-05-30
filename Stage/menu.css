@@ -5,10 +5,9 @@ header{
     position: absolute;
     /*position: fixed;*/
     background-color:  #F6F1F1;
-}
-
-nav{
-    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: right;
 }
 
 .menu li{
@@ -35,6 +34,17 @@ nav{
 /*Image*/
 
 .menu img{
-    width: 4%;
     border-radius: 100%;
+}
+
+.gauche img{
+    width: 4%;
+    position:  absolute;
+    left : 10px;
+    margin: auto;
+    text-align: left;
+}
+
+.droite img{
+    width: 4%;
 }

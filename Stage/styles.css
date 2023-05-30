@@ -95,6 +95,7 @@ p{
     display: flex;
     margin: auto;
     position: static;
+    border-radius: 40px 40px 40px 40px;
 }
 
 .texte_article{
