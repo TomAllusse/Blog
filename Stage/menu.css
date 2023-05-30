@@ -1,31 +1,39 @@
 header{
-    width: 100%;
-}
-nav{
-    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    /*position: fixed;*/
     background-color:  #F6F1F1;
 }
 
-li{
+nav{
+    text-align: center;
+}
+
+.menu li{
     display: inline;
     border-radius: 50px;
     margin: 2%;
     font-size: xx-large;
 }
 
-a:hover{
-    border-radius: 50px;
-    background-color: rgb(71, 3, 3);
+.menu a{
+    font-weight: bolder;
+    text-decoration: none;
+    color : #181717;
     padding: 1%;
 }
 
-a{
-    font-weight: bolder;
-    text-decoration: none;
-    color : #181717
+.menu a:hover{
+    background-color: #181717;
+    color: #F6F1F1;
+    border-radius: 40px 40px 0px 0px;
+    padding: 1%;
 }
 
 /*Image*/
+
 .menu img{
     width: 4%;
     border-radius: 100%;

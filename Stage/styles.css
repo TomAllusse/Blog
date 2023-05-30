@@ -4,6 +4,10 @@ body{
     background-color: #181717;
 }
 
+main{
+    margin-top: 10%;
+}
+
 h1{
     font-size: xx-large;
     text-align: center;
@@ -19,8 +23,6 @@ h2{
 
 h3{
     font-size: x-large;
-    text-align: center;
-    color: #F6F1F1;
     margin: 2% auto;
 }
 
@@ -58,7 +60,30 @@ p{
     width: 30%;
 }
 
+/*Article principal : Boutton*/
+
+.article_principal button{
+    font-weight: bolder;
+    background-color: #181717;
+    color: #F6F1F1;
+    padding: 2% 10%;
+    border-radius: 40px;
+}
+
+.article_principal button:hover{
+    font-weight: bolder;
+    background-color: #F6F1F1;
+    color:#181717;
+    padding: 2% 10%;
+    border-radius: 40px;
+}
+
 /*Article secondaire*/
+
+#article_secondaire h3{
+    text-align: center;
+    color: #F6F1F1;
+}
 
 #article_secondaire p{
     margin: auto 5%;
@@ -79,5 +104,10 @@ p{
 /*footer*/
 
 footer{
-    background-color: #F6F1F1;
+    padding: 10px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    /*position: fixed;*/
+    background-color:  #F6F1F1;
 }
