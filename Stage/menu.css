@@ -5,31 +5,38 @@ header{
     position: absolute;
     /*position: fixed;*/
     background-color:  #F6F1F1;
-    margin-top: auto;
-    margin-bottom: auto;
+    padding: 3%;
     text-align: right;
+}
+
+.menu ul{
+    display: inline;
+    margin: 0 auto;
 }
 
 .menu li{
     display: inline;
-    border-radius: 50px;
-    margin: 2%;
-    font-size: xx-large;
-    margin: auto;
+    font-size: 110%;
 }
 
 .menu a{
     font-weight: bolder;
     text-decoration: none;
     color : #181717;
-    padding: 2%;
+    padding: 1% 4% 4% 4%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .menu a:hover{
     background-color: #181717;
     color: #F6F1F1;
     border-radius: 40px 40px 0px 0px;
-    padding: 2%;
+    padding: 1% 4% 4% 4%;
+}
+
+.compte{
+    margin-right: 3%;
 }
 
 /*Image*/
@@ -39,12 +46,19 @@ header{
 }
 
 .gauche img{
-    width: 4%;
-    position:  absolute;
-    left : 40px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 5%;
+    margin: 1%;
 }
 
 .droite img{
-    width: 4%;
-    margin: 0% 2% 0% 1%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 5%;
+    margin: 1%;
 }
