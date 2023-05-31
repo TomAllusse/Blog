@@ -73,4 +73,5 @@
         <small>Copyright &copy; 2023. All Rights Reserved</small>
     </footer>
 </body>
+<script src="js/javascript.js"></script>
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/compte.css">
+    <!--<link rel="stylesheet" href="css/compte.css">-->
     <title>Accueil</title>
 </head>
 <body>
@@ -72,8 +72,9 @@
             </div>
         </section>
     </main>
-    <footer>
+    <footer style="bottom: 0;">
         <small>Copyright &copy; 2023. All Rights Reserved</small>
     </footer>
 </body>
+<script src="js/javascript.js"></script>
 </html>
