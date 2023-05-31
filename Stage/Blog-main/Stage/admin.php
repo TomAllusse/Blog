@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="layouts/menu.css">
+    <link rel="stylesheet" href="layouts/nav-bar.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>Accueil</title>
 </head>
@@ -53,7 +54,7 @@
     <main>
         
     </main>
-    <footer style="bottom: 0;">
+    <footer>
         <small>Copyright &copy; 2023. All Rights Reserved</small>
     </footer>
 </body>

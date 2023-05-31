@@ -1,0 +1,35 @@
+/*Général*/
+
+section{
+    display: flex;
+    width: 100%;
+}
+fieldset{
+    text-align: center;
+}
+h2{
+    text-align: center;
+    margin: 5%;
+}
+input{
+    text-align: center;
+}
+label{
+    display: block;
+    margin: 10% 0;
+}
+div{
+    display: flex;
+    margin: 1% auto 4%;
+    border: solid #F6F1F1;
+    background-color: #F6F1F1;
+}
+
+/*password*/
+/*
+input[type="password"] {
+    -webkit-text-security: square;
+}
+form.show-passwords input[type="password"] {
+    -webkit-text-security: none;
+}*/
