@@ -121,7 +121,16 @@ footer{
 
 /*Test Mobile*/
 
+
 @media only screen and (max-width: 760px)
 {
-    #monElement { display: none; }
+    main{
+        margin-top: 20%;
+    }
+    @media only screen and (max-width: 580px)
+    {
+        main{
+            margin-top: 30%;
+        }
+    }
 }

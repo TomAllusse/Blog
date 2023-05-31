@@ -5,49 +5,56 @@ header{
     position: absolute;
     /*position: fixed;*/
     background-color:  #F6F1F1;
-    padding: 2%;
+    padding: 3%;
     text-align: right;
 }
 
-.options-container ul{
+/*Menu 1*/
+
+#nav2{
+    display: none;
+}
+
+.menu ul{
+    display: inline;
     margin: 0 auto;
 }
 
-.options-container li{
-    display: inline-flex;
-    font-size: 120%;
-    padding: 2%;
-    border: 2px solid gray;
+.menu li{
+    display: inline;
+    font-size: 110%;
 }
 
-.options-container a{
-    background-color: #181717;
-    color: #F6F1F1;
-    border-radius: 40px 40px 0px 0px;
+.menu a{
     font-weight: bolder;
     text-decoration: none;
-    /*color : #181717;*/
+    color : #181717;
+    padding: 1% 4% 4% 4%;
     text-align: center;
     margin: 0 auto;
-    border: 2px solid red;
 }
 
-.options-container a:hover{
+.menu a:hover{
     background-color: #181717;
     color: #F6F1F1;
     border-radius: 40px 40px 0px 0px;
+    padding: 1% 4% 4% 4%;
+}
+
+.compte{
+    margin-right: 3%;
 }
 
 /*Image*/
 
-.options-container img{
+.menu img{
     border-radius: 100%;
 }
 
 .gauche img{
     display: flex;
     position: absolute;
-    top: 25%;
+    top: 0;
     left:0;
     width: 5%;
     margin: 1%;
@@ -56,22 +63,22 @@ header{
 .droite img{
     display: flex;
     position: absolute;
-    top: 25%;
-    right: 0;
+    top: 0;
+    right:0;
     width: 5%;
     margin: 1%;
 }
 
-.wrapper{
-    opacity: 0;
-}
-
-/*Test Mobile*/
+/*Test Mobile / Menu 2*/
 
 @media only screen and (max-width: 760px)
 {
-    .wrapper{
-        opacity: 100%;
+    #nav{
+        display: none;
+    }
+    #nav2{
+        display: unset;
+        padding: 1%;
     }
     .burger {
         background-color: #181717;
