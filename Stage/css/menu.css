@@ -163,6 +163,7 @@ header{
     .item:hover{
         background-color: #F6F1F1;
         color: #181717;
+        border-radius: 40px 40px 40px 40px;
     }
     
     p{
