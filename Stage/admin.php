@@ -11,8 +11,8 @@
 <body>
     <?php
         require('layouts/nav-bar.php');
-    ?> 
-    <main>
+    ?>   
+    <main>   
     </main>
     <footer style="bottom: 0;">
         <small>Copyright &copy; 2023. All Rights Reserved</small>

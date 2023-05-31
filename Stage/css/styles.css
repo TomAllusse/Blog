@@ -115,7 +115,6 @@ footer{
 }
 
 /*Test Mobile*/
-
 @media only screen and (max-width: 1000px)
 {
     .article_principal h2{
