@@ -1,28 +1,35 @@
+/*Général*/
+
 section{
     display: flex;
-    border: 5px solid red;
-    margin: auto;
-    padding: 15%;
+    width: 100%;
 }
 fieldset{
-    border: 5px solid red;
     text-align: center;
 }
 h2{
-    border: 5px solid red;
     text-align: center;
     margin: 5%;
 }
 input{
-    border: 5px solid red;
     text-align: center;
 }
 label{
-    border: 5px solid red;
     display: block;
     margin: 10% 0;
 }
 div{
-    border: 5px solid red;
-    margin: auto;
+    display: flex;
+    margin: 1% auto 4%;
+    border: solid #F6F1F1;
+    background-color: #F6F1F1;
 }
+
+/*password*/
+/*
+input[type="password"] {
+    -webkit-text-security: square;
+}
+form.show-passwords input[type="password"] {
+    -webkit-text-security: none;
+}*/

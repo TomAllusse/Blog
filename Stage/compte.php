@@ -60,12 +60,9 @@
                             Mots de passe (8 caractères minimum):
                         </label>
                         <input type="password" id="password" name="password" required="required" minlength="8" size="15"> <br>
-                    </fieldset>         
-                    <input class="buttonform" type="submit" value="Envoyer" >
+                    </fieldset>
                 </form>
-            </div>
             <!--Login-->
-            <div>
                 <form method="post" action="login.php" >
                     <fieldset>
                         <h2>
@@ -79,8 +76,7 @@
                             Mots de passe :
                         </label>
                         <input type="password" id="pass" name="pass" autocomplete="on" required="required"> <br>
-                    </fieldset>         
-                    <input class="buttonform" type="submit" value="Envoyer" >
+                    </fieldset>
                 </form>
             </div>
         </section>

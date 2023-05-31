@@ -21,6 +21,35 @@
             </ul> 
         </nav>
     </header>
+    <header>
+    <div class="wrapper">
+        <button class="burger">
+            <div class="container-lignes">
+                <div class="ligne"></div>
+                <div class="ligne"></div>
+                <div class="ligne"></div>
+            </div>
+        </button>
+    </div>
+    <div class="options-container">
+        <a class="item" href="index.php">
+            <div class="bar"></div>
+            <p>Home</p>
+        </a>
+        <a class="item" href="page2.php">
+            <div class="bar"></div>
+            <p>Page 2</p>
+        </a>
+        <a class="item" href="admin.php">
+            <div class="bar"></div>
+            <p>Admin</p>
+        </a>
+        <a class="item" href="compte.php">
+            <div class="bar"></div>
+            <p>Mon compte</p>
+        </a>
+    </div>
+</header>
     <main>
         
     </main>

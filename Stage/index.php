@@ -28,7 +28,7 @@
             <article class="articlePrincipal">
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat. Etiam cursus nisl arcu. Sed vel tempus elit, nec finibus quam. Praesent non diam mollis, semper nisl non, convallis lorem. Etiam semper auctor mi, sed pharetra ligula tincidunt sit amet. Phasellus nunc odio, mollis non massa at, mattis volutpat quam. Suspendisse vitae sapien efficitur purus commodo luctus varius quis nunc. In ultrices tellus ex, pulvinar euismod eros cursus a. Donec posuere neque eu iaculis mattis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
                 <a href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
@@ -37,7 +37,7 @@
             <article class="articlePrincipal">
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat. Etiam cursus nisl arcu. Sed vel tempus elit, nec finibus quam. Praesent non diam mollis, semper nisl non, convallis lorem. Etiam semper auctor mi, sed pharetra ligula tincidunt sit amet. Phasellus nunc odio, mollis non massa at, mattis volutpat quam. Suspendisse vitae sapien efficitur purus commodo luctus varius quis nunc. In ultrices tellus ex, pulvinar euismod eros cursus a. Donec posuere neque eu iaculis mattis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
                 <a href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
@@ -46,7 +46,7 @@
             <article class="articlePrincipal">
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat. Etiam cursus nisl arcu. Sed vel tempus elit, nec finibus quam. Praesent non diam mollis, semper nisl non, convallis lorem. Etiam semper auctor mi, sed pharetra ligula tincidunt sit amet. Phasellus nunc odio, mollis non massa at, mattis volutpat quam. Suspendisse vitae sapien efficitur purus commodo luctus varius quis nunc. In ultrices tellus ex, pulvinar euismod eros cursus a. Donec posuere neque eu iaculis mattis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
                 <a href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
@@ -55,7 +55,7 @@
             <article class="articlePrincipal">
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat. Etiam cursus nisl arcu. Sed vel tempus elit, nec finibus quam. Praesent non diam mollis, semper nisl non, convallis lorem. Etiam semper auctor mi, sed pharetra ligula tincidunt sit amet. Phasellus nunc odio, mollis non massa at, mattis volutpat quam. Suspendisse vitae sapien efficitur purus commodo luctus varius quis nunc. In ultrices tellus ex, pulvinar euismod eros cursus a. Donec posuere neque eu iaculis mattis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
                 <a href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
@@ -64,7 +64,7 @@
             <article class="articlePrincipal">
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat. Etiam cursus nisl arcu. Sed vel tempus elit, nec finibus quam. Praesent non diam mollis, semper nisl non, convallis lorem. Etiam semper auctor mi, sed pharetra ligula tincidunt sit amet. Phasellus nunc odio, mollis non massa at, mattis volutpat quam. Suspendisse vitae sapien efficitur purus commodo luctus varius quis nunc. In ultrices tellus ex, pulvinar euismod eros cursus a. Donec posuere neque eu iaculis mattis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
                 <a href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
@@ -73,7 +73,7 @@
             <article class="articlePrincipal">
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat. Etiam cursus nisl arcu. Sed vel tempus elit, nec finibus quam. Praesent non diam mollis, semper nisl non, convallis lorem. Etiam semper auctor mi, sed pharetra ligula tincidunt sit amet. Phasellus nunc odio, mollis non massa at, mattis volutpat quam. Suspendisse vitae sapien efficitur purus commodo luctus varius quis nunc. In ultrices tellus ex, pulvinar euismod eros cursus a. Donec posuere neque eu iaculis mattis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
                 <a href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>

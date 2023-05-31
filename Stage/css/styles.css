@@ -58,6 +58,7 @@ p{
     margin: 5%;
     border-radius: 40px 40px 40px 40px;
     width: 25%;
+    height: 100%;
 }
 
 /*Article principal : Boutton*/
@@ -98,8 +99,9 @@ p{
 .texte_article img{
     display: flex;
     margin: 4% auto;
-    position: static;
     border-radius: 40px 40px 40px 40px;
+    width: 40%;
+    height: auto;
 }
 
 .texte_article{
