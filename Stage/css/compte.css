@@ -1,0 +1,28 @@
+section{
+    display: flex;
+    border: 5px solid red;
+    margin: auto;
+    padding: 15%;
+}
+fieldset{
+    border: 5px solid red;
+    text-align: center;
+}
+h2{
+    border: 5px solid red;
+    text-align: center;
+    margin: 5%;
+}
+input{
+    border: 5px solid red;
+    text-align: center;
+}
+label{
+    border: 5px solid red;
+    display: block;
+    margin: 10% 0;
+}
+div{
+    border: 5px solid red;
+    margin: auto;
+}
