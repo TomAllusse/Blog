@@ -1,0 +1,238 @@
+/*Général*/
+
+body{
+    background-color: #181717;
+}
+
+main{
+    margin-top: 10%;
+}
+
+h1{
+    font-size: xx-large;
+    text-align: center;
+    color: #F6F1F1;
+    margin: 2% auto;
+}
+
+h2{
+    font-size: 30px;
+    margin: auto;
+    text-align: justify;
+}
+
+h3{
+    font-size: x-large;
+    margin: 2% auto;
+}
+
+p{
+    font-size: medium;  
+    text-align: justify;
+}
+
+/*Article principal*/
+
+.article_principal h2{
+    font-size: 40px;
+}
+
+.article_principal{
+    width: 80%;
+    display: flex;
+    margin: 2% auto;
+    border: solid #F6F1F1;
+    background-color: #F6F1F1;
+}
+
+.article_principal article{
+    display: block;
+    margin: auto;
+}
+
+.article_principal img{
+    margin: 4%;
+    border-radius: 40px 40px 40px 40px;
+    width: 25%;
+}
+
+/*Article principal : Boutton*/
+
+.article_principal button{
+    font-weight: bolder;
+    background-color: #181717;
+    color: #F6F1F1;
+    padding: 1% 10%;
+    border-radius: 40px;
+    font-size: small;
+}
+
+.article_principal button:hover{
+    font-weight: bolder;
+    background-color: #F6F1F1;
+    color:#181717;
+    padding: 1% 10%;
+    border-radius: 40px;
+}
+
+.articlePrincipal{
+    padding: 4%;
+}
+
+/*Article secondaire*/
+
+.texte_article h3{
+    text-align: center;
+    color: #F6F1F1;
+}
+
+.texte_article p{
+    margin: auto 5%;
+    color: #F6F1F1;
+    text-align: justify;
+}
+
+.texte_article img{
+    display: flex;
+    margin: 4% auto;
+    border-radius: 40px 40px 40px 40px;
+    width: 40%;
+    height: auto;
+}
+
+.texte_article{
+    margin: 5% auto;
+}
+
+/*footer*/
+
+footer{
+    left: 0;
+    right: 0;
+    display: block;
+    position: absolute;
+    /*position: fixed;*/
+    background-color:  #F6F1F1;
+}
+
+/*Test Mobile*/
+@media only screen and (max-width: 1000px)
+{
+    .article_principal h2{
+        font-size: 20px;
+    }
+
+    h3{
+        font-size: small;
+    }
+
+    p{
+        font-size: x-small;
+    }
+
+    @media only screen and (max-width: 760px)
+    {
+        .article_principal h2{
+            font-size: 16px;
+        }
+
+        main{
+            margin-top: 22%;
+        }
+
+        .articlePrincipal{
+            padding: 2%;
+        }
+
+        .article_principal button{
+            font-weight: bolder;
+            background-color: #181717;
+            color: #F6F1F1;
+            padding: 1% 5%;
+            border-radius: 40px;
+            font-size: x-small;
+        }
+        
+        .article_principal button:hover{
+            font-weight: bolder;
+            background-color: #F6F1F1;
+            color:#181717;
+            padding: 1% 5%;
+            border-radius: 40px;
+        }
+
+        @media only screen and (max-width: 500px)
+        {
+            .article_principal h2{
+                font-size: 10px;
+            }
+
+            h3{
+                font-size: x-small;
+            }
+
+            p{
+                font-size: xx-small;
+            }
+
+            .articlePrincipal{
+                padding: 1%;
+            }
+            
+            .article_principal button{
+                font-weight: bolder;
+                background-color: #181717;
+                color: #F6F1F1;
+                padding: 0 5%;
+                border-radius: 40px;
+                font-size: 5px;
+            }
+            
+            .article_principal button:hover{
+                font-weight: bold;
+                background-color: #F6F1F1;
+                color:#181717;
+                padding: 0 5%;
+                border-radius: 40px;
+            }
+
+            .bouton_index{
+                border: 2px solid red;
+                font-size: xx-small;
+            }
+
+            @media only screen and (max-width: 380px)
+            {
+            .article_principal h2{
+                font-size: 8px;
+            }
+
+            h3{
+                font-size: 7px;
+            }
+
+            p{
+                font-size: 5px;
+                margin-bottom: 0;
+            }
+
+            .article_principal button{
+                font-weight: bolder;
+                background-color: #181717;
+                color: #F6F1F1;
+                padding: 0 5%;
+                border-radius: 40px;
+                font-size: 4px;
+            }
+            
+            .article_principal button:hover{
+                font-weight: bold;
+                background-color: #F6F1F1;
+                color:#181717;
+                padding: 0 5%;
+                border-radius: 40px;
+            }
+            }
+        }
+    }
+}
