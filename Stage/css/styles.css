@@ -6,6 +6,7 @@ body{
 
 main{
     margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 h1{
@@ -107,9 +108,11 @@ p{
 /*footer*/
 
 footer{
+    margin-top: 10%;
+    padding: 1%;
     left: 0;
     right: 0;
-    display: block;
+    display: flex;
     position: absolute;
     /*position: fixed;*/
     background-color:  #F6F1F1;
@@ -197,7 +200,6 @@ footer{
             }
 
             .bouton_index{
-                border: 2px solid red;
                 font-size: xx-small;
             }
 
