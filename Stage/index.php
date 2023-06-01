@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php
-        require('layouts/nav-bar.php');
+        require_once('layouts/nav-bar.php');
     ?>
     <main>
         <h1>Mon Blog</h1>
@@ -20,7 +20,7 @@
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a href="article.php"><button>Lire la suite ...</button></a>
+                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
         <div class="article_principal">
@@ -29,7 +29,7 @@
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a href="article.php"><button>Lire la suite ...</button></a>
+                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
         <div class="article_principal">
@@ -38,7 +38,7 @@
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a href="article.php"><button>Lire la suite ...</button></a>
+                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
         <div class="article_principal">
@@ -47,7 +47,7 @@
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a href="article.php"><button>Lire la suite ...</button></a>
+                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
         <div class="article_principal">
@@ -56,7 +56,7 @@
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a href="article.php"><button>Lire la suite ...</button></a>
+                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
         <div class="article_principal">
@@ -65,13 +65,13 @@
                 <h2>Titre de l'article</h2>
                 <h3>Catégorie</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a href="article.php"><button>Lire la suite ...</button></a>
+                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
             </article>
         </div>
     </main>
-    <footer>
-        <small>Copyright &copy; 2023. All Rights Reserved</small>
-    </footer>
+    <?php
+        require_once('layouts/footer.php');
+    ?>
 </body>
 <script src="js/javascript.js"></script>
 </html>

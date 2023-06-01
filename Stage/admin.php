@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
     <title>Accueil</title>
 </head>
 <body>
     <?php
-        require('layouts/nav-bar.php');
+        require_once('layouts/nav-bar.php');
     ?>   
     <main>   
     </main>
-    <footer style="bottom: 0;">
-        <small>Copyright &copy; 2023. All Rights Reserved</small>
-    </footer>
+    <?php
+        require_once('layouts/footer.php');
+    ?>
 </body>
 <script src="js/javascript.js"></script>
 </html>
