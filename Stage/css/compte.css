@@ -25,6 +25,12 @@ div{
     background-color: #F6F1F1;
 }
 
+footer{
+    display: block;
+    position: relative;
+    bottom: 0;
+}
+
 /*password*/
 /*
 input[type="password"] {

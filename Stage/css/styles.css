@@ -1,5 +1,10 @@
 /*Général*/
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-color: #181717;
 }
@@ -108,14 +113,15 @@ p{
 /*footer*/
 
 footer{
-    margin-top: 10%;
-    padding: 1%;
+    display: block;
+    position: relative;
     left: 0;
     right: 0;
-    display: flex;
-    position: absolute;
-    /*position: fixed;*/
+    bottom: 0;
+    padding: 0.5%;
     background-color:  #F6F1F1;
+    font-style: italic;
+    font-size: small;
 }
 
 /*Test Mobile*/
