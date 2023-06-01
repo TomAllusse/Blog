@@ -11,7 +11,7 @@ body{
 
 main{
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 h1{
@@ -90,9 +90,11 @@ p{
 .texte_article h3{
     text-align: center;
     color: #F6F1F1;
+    font-size: x-large;
 }
 
 .texte_article p{
+    font-size: medium;
     margin: auto 5%;
     color: #F6F1F1;
     text-align: justify;
@@ -115,8 +117,6 @@ p{
 footer{
     display: block;
     position: relative;
-    left: 0;
-    right: 0;
     bottom: 0;
     padding: 0.5%;
     background-color:  #F6F1F1;
