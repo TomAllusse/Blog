@@ -1,3 +1,15 @@
+<?php
+    require_once('session/session.php');
+    if ($_SESSION['Role'] == 'ROLE_ADMIN') {
+        header('Location: admin.php');
+    }
+    else
+    {
+        header('Location: index.php');
+    }
+    exit();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -20,20 +20,23 @@
                 $prep->execute();
                 $rsid= $prep->fetchAll();
                 foreach($rsid as $resultat){
-                    echo "<p>Nom : ".$resultat["Name_User"]." / Prenom : ".$resultat["FirstName"]." / Role : ".$resultat["Roles"].".</p>";
+                    $id = $identifiant;
+                    $nom = $resultat["Name_User"].' '.$resultat["FirstName"];
+                    $role = $resultat["Roles"];
+                    $hash = $rsuser["Passwords"];
+                    require_once('..\session\session.php');
                 }    
             }
             else
             {
-                echo "mots de passe invalide";
+                echo "mots de passe invalide !<br>";
             }
         }
         else
         {
-            echo "Identifiant invalide";
+            echo "Identifiant invalide !<br>";
         }
         // Fermer la connexion à la base de données
         $bdd = null;
-        header('Location: ..\index.php');
     }
 ?>

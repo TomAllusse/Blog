@@ -28,88 +28,65 @@ if (!empty($_POST['email']) && !empty($_POST['password'] && !empty($_POST['pass'
     $nbr=$prep->rowCount();
 
     if($rsusers){
-        if($nbr > 0){
-            foreach($rsusers as $rsuser){
-                if($rsuser['E_mail'] != $email){
-                    if(password_verify($pwd, $hash) == 1 && verifEmail($email) == 1){
-                        $prep = $bdd->prepare("INSERT INTO users (FirstName, Name_User, Date_Of_Birth, E_mail, Phone, Passwords, Roles) VALUES (:firstname, :name, :dateN, :email, :numero, :passwords, :roles)");
-                        $prep->bindValue(":firstname", $firstname);
-                        $prep->bindValue(":name", $name);
-                        $prep->bindValue(":dateN", $date);
-                        $prep->bindValue(":email", $email);
-                        $prep->bindValue(":numero", $numero);
-                        $prep->bindValue(":passwords", $hash);
-                        $prep->bindValue(":roles", $role);
-                        $prep->execute();
-                        echo "Utilisateur ajoutée !";
-                    }
-                    else
-                    {
-                        if(password_verify($pwd, $hash) == 0){
-                            echo "Le mots de passe n'est pas le même !";
-                        }
-                        if(verifEmail($email) == 0){
-                            echo "L'email n'est pas valide !";
-                        }
-                    }
+        foreach($rsusers as $rsuser){
+            if($rsuser['E_mail'] != $email){
+                if(password_verify($pwd, $hash) == 1 && verifEmail($email) == 1){
+                    $prep = $bdd->prepare("INSERT INTO users (FirstName, Name_User, Date_Of_Birth, E_mail, Phone, Passwords, Roles) VALUES (:firstname, :name, :dateN, :email, :numero, :passwords, :role)");
+                    $prep->bindValue(":firstname", $firstname);
+                    $prep->bindValue(":name", $name);
+                    $prep->bindValue(":dateN", $date);
+                    $prep->bindValue(":email", $email);
+                    $prep->bindValue(":numero", $numero);
+                    $prep->bindValue(":passwords", $hash);
+                    $prep->bindValue(":role", $role);
+                    $prep->execute();
+                    echo "Utilisateur ajoutée !<br>";
                 }
                 else
                 {
-                    echo "Cette utilisateur existe déjà !";
+                    if(password_verify($pwd, $hash) == 0){
+                        echo "Le mots de passe n'est pas le même !<br>";
+                    }
+                    if(verifEmail($email) == 0){
+                        echo "L'email n'est pas valide !<br>";
+                    }
                 }
-            }
-        }
-        else
-        {
-            if(password_verify($pwd, $hash) == 1 && verifEmail($email) == 1){
-                $prep = $bdd->prepare("INSERT INTO users (FirstName, Name_User, Date_Of_Birth, E_mail, Phone, Passwords, Roles) VALUES (:firstname, :name, :dateN, :email, :numero, :passwords, :roles)");
-                $prep->bindValue(":firstname", $firstname);
-                $prep->bindValue(":name", $name);
-                $prep->bindValue(":dateN", $date);
-                $prep->bindValue(":email", $email);
-                $prep->bindValue(":numero", $numero);
-                $prep->bindValue(":passwords", $hash);
-                $prep->bindValue(":role", $roles);
-                $prep->execute();
-                echo "Utilisateur ajoutée !";
             }
             else
             {
-                if(password_verify($pwd, $hash) == 0){
-                    echo "Le mots de passe n'est pas le même !";
-                }
-                if(verifEmail($email) == 0){
-                    echo "L'email n'est pas valide !";
-                }
+                echo "Cette utilisateur existe déjà !<br>";
             }
         }
     }
     else
     {
         if(password_verify($pwd, $hash) == 1 && verifEmail($email) == 1){
-            $prep = $bdd->prepare("INSERT INTO users (FirstName, Name_User, Date_Of_Birth, E_mail, Phone, Passwords, Roles) VALUES (:firstname, :name, :dateN, :email, :numero, :passwords, :roles)");
+            $prep = $bdd->prepare("INSERT INTO users (FirstName, Name_User, Date_Of_Birth, E_mail, Phone, Passwords, Roles) VALUES (:firstname, :name, :dateN, :email, :numero, :passwords, :role)");
             $prep->bindValue(":firstname", $firstname);
             $prep->bindValue(":name", $name);
             $prep->bindValue(":dateN", $date);
             $prep->bindValue(":email", $email);
             $prep->bindValue(":numero", $numero);
             $prep->bindValue(":passwords", $hash);
-            $prep->bindValue(":roles", $role);
+            $prep->bindValue(":role", $role);
             $prep->execute();
-            echo "Utilisateur ajoutée !";
+            echo "Utilisateur ajoutée !<br>";
         }
         else
         {
             if(password_verify($pwd, $hash) == 0){
-                echo "Le mots de passe n'est pas le même !";
+                echo "Le mots de passe n'est pas le même !<br>";
             }
             if(verifEmail($email) == 0){
-                echo "L'email n'est pas valide !";
+                echo "L'email n'est pas valide !<br>";
             }
         }
     }
     // Fermer la connexion à la base de données
     $bdd = null;
-    header('Location: ..\index.php');
+    $id = $email;
+    $nom = $name.' '.$firstname;
+    $role = $role;
+    require_once('..\session\session.php');
 }
 ?>

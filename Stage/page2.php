@@ -1,3 +1,7 @@
+<?php
+    require_once('session/session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +18,7 @@
         require_once('layouts/nav-bar.php');
     ?>
     <main>
-        
+
     </main>
     <?php
         require_once('layouts/footer.php');
