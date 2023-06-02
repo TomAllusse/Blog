@@ -1,38 +1,39 @@
 <?php
     require_once('..\BDD\connexionBDD.php');
     $bdd = connexionBDD();
-    $OK = false;
-    if (isset($_POST['identifiant']) && isset($_POST['password'])) {
+
+    if (!empty($_POST['identifiant']) && !empty($_POST['password'])) {
         // Récupération des champs saisis
-        $user = $_POST['identifiant'];
-        $password = $_POST['password'];
-        $prep = $bdd->prepare("SELECT * FROM `users` where E_mail=:user");
-        $prep->bindValue(":user", $user);
+        $identifiant = htmlspecialchars(strip_tags($_POST["identifiant"]));
+        $password = htmlspecialchars(strip_tags($_POST["password"]));
+        $prep = $bdd->prepare("SELECT * FROM `users` where E_mail=:identifiant");
+        $prep->bindValue(":identifiant", $identifiant);
         $prep->execute();
         $rsuser= $prep->fetch();
 
         if($rsuser){
             $pass = password_verify($password, $rsuser["Passwords"]);
             if($pass){
-                $prep = $bdd->prepare("SELECT * FROM `users` where E_mail=:user and Passwords=:passwords");
-                $prep->bindValue(":user", $user);
+                $prep = $bdd->prepare("SELECT * FROM `users` where E_mail=:identifiant and Passwords=:passwords");
+                $prep->bindValue(":identifiant", $identifiant);
                 $prep->bindValue(":passwords", $rsuser["Passwords"]);
                 $prep->execute();
                 $rsid= $prep->fetchAll();
                 foreach($rsid as $resultat){
-                    echo "<p style=\"padding:1000px\">Nom : ".$resultat["Name_User"]." / Prenom : ".$resultat["FirstName"]." / Role : ".$resultat["Roles"].".</p>";
+                    echo "<p>Nom : ".$resultat["Name_User"]." / Prenom : ".$resultat["FirstName"]." / Role : ".$resultat["Roles"].".</p>";
                 }    
-            }else{
-                echo "Identifiant ou mots de passe invalide";
+            }
+            else
+            {
+                echo "mots de passe invalide";
             }
         }
-
-        /*$prep = $bdd->prepare("SELECT * FROM `users` where E_mail=\"$user\" and Passwords=\"$pass\"");
-        $prep->execute();
-        $rsid= $prep->fetchAll();
-        $nbr=$prep->rowCount();*/
+        else
+        {
+            echo "Identifiant invalide";
+        }
         // Fermer la connexion à la base de données
         $bdd = null;
-        $OK = true; // Variable drapeau indiquant le succès de l'ajout
+        header('Location: ..\index.php');
     }
 ?>

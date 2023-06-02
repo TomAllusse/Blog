@@ -19,23 +19,15 @@
                 <h2>
                     Cliquez sur le bouton pour l'inscription
                 </h2>
-                <input id="buttonform" type="submit" value="Envoyer" >
+                <input id="buttonform" type="submit" value="Inscription" >
             </fieldset>
         </form>
-        <form method="post" action="Connexion/connexion.php" >
+        <form method="post" action="Connexion/formConnexion.php" >
             <fieldset>
                 <h2>
-                    Connexion
+                    Cliquez sur le bouton pour la connexion
                 </h2>
-                <label for="login">
-                    Identifiant ou Email :
-                </label>
-                <input type="text" id="login" name="identifiant" autocomplete="on" required="required"> <br>
-                <label for="pass">
-                    Mots de passe :
-                </label>
-                <input type="password" id="password" name="password" required="required" minlength="8" size="15"> <br>
-                <input id="buttonform" type="submit" value="Envoyer" >
+                <input id="buttonform" type="submit" value="Connexion" >
             </fieldset>
         </form>
     </main>

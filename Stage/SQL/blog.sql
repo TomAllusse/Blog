@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 02 juin 2023 à 12:03
+-- Généré le : ven. 02 juin 2023 à 13:19
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -43,7 +43,7 @@ CREATE TABLE `post` (
   `Title` varchar(50) NOT NULL,
   `Picture` varchar(50) NOT NULL,
   `Contained` text NOT NULL,
-  `Created_at` datetime NOT NULL DEFAULT '1900-01-01 00:00:00'
+  `Created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -67,12 +67,11 @@ CREATE TABLE `users` (
   `Id_User` int(11) NOT NULL,
   `FirstName` varchar(50) NOT NULL,
   `Name_User` varchar(50) NOT NULL,
-  `Username` varchar(50) NOT NULL,
-  `Date_Of_Birth` date NOT NULL DEFAULT '0000-00-00',
+  `Date_Of_Birth` date NOT NULL,
   `E_mail` varchar(255) NOT NULL,
   `Phone` varchar(50) NOT NULL,
   `Passwords` varchar(255) NOT NULL,
-  `Roles` varchar(50) NOT NULL DEFAULT 'User',
+  `Roles` varchar(50) NOT NULL,
   `Id_Post` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
