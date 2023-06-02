@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +20,15 @@
         require_once('layouts/nav-bar.php');
     ?>
     <main>
-        
+        <?php
+            foreach($_SESSION['user'] as $nb => $infos){
+                $nb++;
+                foreach($infos as $clef => $valeur){
+                    echo 'Mail : '.$clef. ' - Nom : ' .$valeur. ' <br>';
+                }
+            }
+            
+        ?>
     </main>
     <?php
         require_once('layouts/footer.php');

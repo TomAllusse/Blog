@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    $role = $_SESSION['Role'];
+    if ( $role != 'ROLE_ADMIN') {
+        header('Location: index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

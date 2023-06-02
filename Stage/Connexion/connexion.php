@@ -1,54 +1,47 @@
 <?php
     require_once('..\BDD\connexionBDD.php');
     $bdd = connexionBDD();
-    $OK = false;
-    if (isset($_POST['identifiant']) && isset($_POST['pass'])) {
+
+    if (!empty($_POST['identifiant']) && !empty($_POST['password'])) {
         // Récupération des champs saisis
-        $user = $_POST['identifiant'];
-        $password = $_POST['pass'];
-        $req = "SELECT * FROM `user_` where E_mail=\"$user\"";
-        $prep = $bdd->prepare($req);
+        $identifiant = htmlspecialchars(strip_tags($_POST["identifiant"]));
+        $password = htmlspecialchars(strip_tags($_POST["password"]));
+        $prep = $bdd->prepare("SELECT * FROM `users` where E_mail=:identifiant");
+        $prep->bindValue(":identifiant", $identifiant);
         $prep->execute();
         $rsuser= $prep->fetch();
 
         if($rsuser){
-            $pass = password_verify($password, $rsuser["Password"]);
-            $pwd = $rsuser["Password"];
-            echo"ok 1";
+            $pass = password_verify($password, $rsuser["Passwords"]);
             if($pass){
-                $requete = "SELECT * FROM `user_` where E_mail=\"$user\" and Password=\"$pwd\"";
-                $prep = $bdd->prepare($requete);
+                $prep = $bdd->prepare("SELECT * FROM `users` where E_mail=:identifiant and Passwords=:passwords");
+                $prep->bindValue(":identifiant", $identifiant);
+                $prep->bindValue(":passwords", $rsuser["Passwords"]);
                 $prep->execute();
-                $rsid= $prep->fetchAll();
-                foreach($rsid as $visuel){
-                    echo "ok 2";
-                }    
+                $rsid= $prep->fetch();
+
+                session_start();
+                $_SESSION['user'] = [$identifiant => [$rsuser["Name_User"].' '.$rsuser["FirstName"], $identifiant => $rsuser["Roles"], $identifiant => $rsuser["Passwords"]]];
+        
+                if ($_SESSION['Role'] == 'ROLE_ADMIN') {
+                    header('Location: ..\admin.php');
+                }
+                else
+                {
+                    header('Location: ..\index.php');
+                }
+                exit();
+            }
+            else
+            {
+                echo "mots de passe invalide !<br>";
             }
         }
-
-        $requete = "SELECT * FROM `user_` where E_mail=\"$user\" and Password=\"$pass\"";
-        $prep = $bdd->prepare($requete);
-        $prep->execute();
-        $rsid= $prep->fetchAll();
-        $nbr=$prep->rowCount();
+        else
+        {
+            echo "Identifiant invalide !<br>";
+        }
         // Fermer la connexion à la base de données
         $bdd = null;
-        $OK = true; // Variable drapeau indiquant le succès de l'ajout
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-</head>
-<body>
-    <?php 
-        //header('Location: ..\admin.php');
-
-    ?>
-</body>
-</html>
