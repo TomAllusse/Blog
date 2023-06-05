@@ -26,22 +26,9 @@
         }
     ?>
     <main>
-        <form method="post" action="Inscription/formInscription.php" >
-            <fieldset>
-                <h2>
-                    Cliquez sur le bouton pour l'inscription
-                </h2>
-                <input id="buttonform" type="submit" value="Inscription" >
-            </fieldset>
-        </form>
-        <form method="post" action="Connexion/formConnexion.php" >
-            <fieldset>
-                <h2>
-                    Cliquez sur le bouton pour la connexion
-                </h2>
-                <input id="buttonform" type="submit" value="Connexion" >
-            </fieldset>
-        </form>
+        <?php
+            require_once('utilisateur.php');
+        ?>
     </main>
     <?php
         require_once('layouts/footer.php');

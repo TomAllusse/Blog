@@ -1,7 +1,6 @@
 <?php
 
     session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +24,12 @@
     ?>
     <main>
         <?php
+        /*
             echo $_SESSION['user']['mail'].'<br>';
             echo $_SESSION['user']['name'].'<br>';
             echo $_SESSION['user']['pwd'].'<br>';
             echo $_SESSION['user']['role'].'<br>';
-
+        */
         ?>
     </main>
     <?php
