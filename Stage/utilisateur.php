@@ -1,8 +1,8 @@
-<?php
-    $mail = $_SESSION['user']['mail'];
+<?php    
     if(isset($_SESSION['user'])){
+        $mail = $_SESSION['user']['mail'];
         echo "
-            <form method=\"post\" action=\"Informations/Informations.php\" >
+            <form method=\"post\" action=\"Informations/Informations.php\" enctype=\"multipart/form-data\">
                 <h2>
                     Remplissez vos informations
                 </h2>
@@ -11,15 +11,15 @@
                     <label for=\"prenom\">
                         Prénom :
                     </label>
-                    <input type=\"text\" id=\"prenom\" name=\"prenom\" autocomplete=\"on\" placeholder=\"Ex : Paul\" required=\"required\"> <br>
+                    <input type=\"text\" id=\"prenom\" name=\"prenom\" autocomplete=\"on\" placeholder=\"Ex : Paul\"> <br>
                     <label for=\"nom\">
                         Nom :
                     </label>
-                    <input type=\"text\" id=\"nom\" name=\"nom\" autocomplete=\"on\" placeholder=\"Ex : Germain\" required=\"required\"> <br> 
+                    <input type=\"text\" id=\"nom\" name=\"nom\" autocomplete=\"on\" placeholder=\"Ex : Germain\"> <br> 
                     <label for=\"date\">
                         Date de naissance:
                     </label>
-                    <input type=\"date\" id=\"date\" name=\"date\" required=\"required\"> <br>
+                    <input type=\"date\" id=\"date\" name=\"date\"> <br>
                     <label for=\"email\">
                         Email :
                     </label>
@@ -33,10 +33,9 @@
                     <label for=\"image_User\">
                         Charger une image (Max 5Mo) :
                     </label>
-                    <!-- <input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"5000000\" /> -->
                     <input type=\"file\" name=\"image_User\" id=\"image_User\">
                 </fieldset>
-                <input id=\"buttonform\" type=\"submit\" value=\"Inscription\" >
+                <input id=\"buttonform\" type=\"submit\" value=\"Information\" >
             </form>";
     }else{
         echo "
