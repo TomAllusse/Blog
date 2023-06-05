@@ -24,7 +24,7 @@
         }
     ?>
     <main>
-        <form method="post" action="Inscription/formInscription.php" >
+        <form method="post" action="Informations/Informations.php" >
             <h2>
                 Remplissez vos informations
             </h2>
@@ -54,8 +54,9 @@
             <fieldset>
                 <h3></h3>
                 <label for="prenom">
-                    Image :
+                    Charger une image (Max 5Mo) :
                 </label>
+                <!-- <input type="hidden" name="MAX_FILE_SIZE" value="5000000" /> -->
                 <input type="file" name="image_User" id="image_User">
             </fieldset>
             <input id="buttonform" type="submit" value="Inscription" >
