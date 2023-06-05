@@ -1,13 +1,10 @@
 <?php
-    require_once('session/session.php');
-    if ($_SESSION['Role'] == 'ROLE_ADMIN') {
-        header('Location: admin.php');
-    }
-    else
-    {
+    session_start();
+
+    $role = $_SESSION['user']['role'];
+    if ( $role != 'ROLE_ADMIN') {
         header('Location: index.php');
     }
-    exit();
 ?>
 
 <!DOCTYPE html>

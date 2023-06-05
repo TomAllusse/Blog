@@ -8,14 +8,10 @@ $bdd = connexionBDD();
 if (!empty($_POST['email']) && !empty($_POST['password'] && !empty($_POST['pass']))) {
     // Récupération des champs saisis
     //$name = htmlspecialchars(strip_tags($_POST['nom']));
-    $name = '0';
     //$firstname= htmlspecialchars(strip_tags($_POST["prenom"]));
-    $firstname = '0';
     //$date = htmlspecialchars(strip_tags($_POST["date"]));
-    $date = '0000-00-00';
     $email = htmlspecialchars(strip_tags($_POST["email"]));
     //$numero = htmlspecialchars(strip_tags($_POST["numero"]));
-    $numero = '0';
     $password = htmlspecialchars(strip_tags($_POST["password"]));
     $pwd = htmlspecialchars(strip_tags($_POST['pass']));
     $role = "ROLE_USER";
@@ -25,7 +21,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'] && !empty($_POST['pass'
     $prep = $bdd->prepare("SELECT * FROM `users`");
     $prep->execute();
     $rsusers= $prep->fetchall();
-    $nbr=$prep->rowCount();
 
     if($rsusers){
         foreach($rsusers as $rsuser){

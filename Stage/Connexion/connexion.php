@@ -18,23 +18,33 @@
                 $prep->bindValue(":identifiant", $identifiant);
                 $prep->bindValue(":passwords", $rsuser["Passwords"]);
                 $prep->execute();
-                $rsid= $prep->fetchAll();
-                foreach($rsid as $resultat){
-                    $id = $identifiant;
-                    $nom = $resultat["Name_User"].' '.$resultat["FirstName"];
-                    $role = $resultat["Roles"];
-                    $hash = $rsuser["Passwords"];
-                    require_once('..\session\session.php');
-                }    
+                $rsid= $prep->fetch();
+
+                session_start();
+                
+                $NomPrenom = $rsuser["Name_User"].' '.$rsuser["FirstName"];
+
+                $_SESSION = ['user' => ['mail' => $identifiant, 'name'=> $NomPrenom, 'pwd' => $rsuser["Passwords"], 'role' => $rsuser["Roles"]]];        
+                
+                if ($_SESSION['user']['role'] == 'ROLE_ADMIN') {
+                    header('Location: ..\admin.php');
+                }
+                else
+                {
+                    header('Location: ..\index.php');
+                }
+                exit();
             }
             else
             {
                 echo "mots de passe invalide !<br>";
+                header('Location: formConnexion.php');
             }
         }
         else
         {
             echo "Identifiant invalide !<br>";
+            header('Location: formConnexion.php');
         }
         // Fermer la connexion à la base de données
         $bdd = null;

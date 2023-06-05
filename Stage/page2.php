@@ -1,5 +1,7 @@
 <?php
-    require_once('session/session.php');
+
+    session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +20,13 @@
         require_once('layouts/nav-bar.php');
     ?>
     <main>
+        <?php
+            echo $_SESSION['user']['mail'].'<br>';
+            echo $_SESSION['user']['name'].'<br>';
+            echo $_SESSION['user']['pwd'].'<br>';
+            echo $_SESSION['user']['role'].'<br>';
 
+        ?>
     </main>
     <?php
         require_once('layouts/footer.php');

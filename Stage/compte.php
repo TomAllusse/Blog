@@ -1,5 +1,7 @@
 <?php
-    require_once('session/session.php');
+
+    session_start();
+
 ?>
 
 <!DOCTYPE html>
