@@ -1,4 +1,5 @@
 <?php
+    $mail = $_SESSION['user']['mail'];
     if(isset($_SESSION['user'])){
         echo "
             <form method=\"post\" action=\"Informations/Informations.php\" >
@@ -22,7 +23,7 @@
                     <label for=\"email\">
                         Email :
                     </label>
-                    <input type=\"email\" id=\"email\" name=\"email\" autocomplete=\"on\" placeholder=\"<?php echo '\$_SESSION['user']['mail'] *; ?>\'> <br>
+                    <input type=\"email\" id=\"email\" name=\"email\" autocomplete=\"on\" placeholder=\"$mail *\"> <br>
                     <label for=\"numero\">
                         Numéro de téléphone :
                     </label>
