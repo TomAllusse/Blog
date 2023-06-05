@@ -17,17 +17,19 @@
 </head>
 <body>
     <?php
-        require_once('layouts/nav-bar.php');
+        if($_SESSION['user']['role'] != "ROLE_ADMIN"){
+            require_once('layouts/nav-bar.php');
+        }else{
+            require_once('layouts/nav-bar-admin.php');
+        }
     ?>
     <main>
         <?php
-            foreach($_SESSION['user'] as $nb => $infos){
-                $nb++;
-                foreach($infos as $clef => $valeur){
-                    echo 'Mail : '.$clef. ' - Nom : ' .$valeur. ' <br>';
-                }
-            }
-            
+            echo $_SESSION['user']['mail'].'<br>';
+            echo $_SESSION['user']['name'].'<br>';
+            echo $_SESSION['user']['pwd'].'<br>';
+            echo $_SESSION['user']['role'].'<br>';
+
         ?>
     </main>
     <?php

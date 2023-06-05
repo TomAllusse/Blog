@@ -1,41 +1,39 @@
-/*Général*/
 
-section{
-    display: flex;
-    width: 100%;
+/* Bordered form */
+form {
+    width:50%;
+    margin: auto;
+    padding: 30px;
+    background: #F6F1F1;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-fieldset{
-    text-align: center;
-}
+
 h2{
-    text-align: center;
     margin: 5%;
-}
-input{
     text-align: center;
 }
-label{
-    display: block;
-    margin: 10% 0;
-}
-div{
-    display: flex;
-    margin: 1% auto 4%;
-    border: solid #F6F1F1;
-    background-color: #F6F1F1;
+
+
+input[type=submit] {
+    width: 100%;
+    margin: auto;
+    color: #181717;
+    padding: 14px;
+    cursor: pointer;
+    border:  2px solid #181717;  
+    border-radius: 40px;
+    text-align: center;
 }
 
-footer{
-    display: block;
-    position: relative;
-    bottom: 0;
+input[type=submit]:hover {
+    width: 100%;
+    margin: auto;
+    background-color: F6F1F1;
+    color: #53af57;
+    border: 2px solid #53af57;
+    border-radius: 40px;
 }
 
-/*password*/
-/*
-input[type="password"] {
-    -webkit-text-security: square;
+fieldset{
+    border: none;
 }
-form.show-passwords input[type="password"] {
-    -webkit-text-security: none;
-}*/

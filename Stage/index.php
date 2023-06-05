@@ -16,7 +16,11 @@
 </head>
 <body>
     <?php
-        require_once('layouts/nav-bar.php');
+        if($_SESSION['user']['role'] != "ROLE_ADMIN"){
+            require_once('layouts/nav-bar.php');
+        }else{
+            require_once('layouts/nav-bar-admin.php');
+        }
     ?>
     <main>
         <h1>Mon Blog</h1>
