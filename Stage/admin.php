@@ -28,5 +28,8 @@
         require_once('layouts/footer.php');
     ?>
 </body>
+<?php
+    require_once('layouts/footer.php');
+?>
 <script src="js/javascript.js"></script>
 </html>

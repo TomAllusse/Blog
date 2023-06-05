@@ -8,7 +8,7 @@
                 </h2>
                 <fieldset>
                     <h3>Vos Informations personnelles (Information déjà remplie :  *)</h3>
-                    <label for=\"prenom\">
+                    <label for=\"prenom\"> 
                         Prénom :
                     </label>
                     <input type=\"text\" id=\"prenom\" name=\"prenom\" autocomplete=\"on\" placeholder=\"Ex : Paul\"> <br>
@@ -28,18 +28,16 @@
                         Numéro de téléphone :
                     </label>
                     <input type=\"text\" id=\"numero\" name=\"numero\" placeholder=\"Ex : +33 6 95 55 45 56\"> <br>
-                </fieldset>
-                <fieldset>
                     <label for=\"image_User\">
                         Charger une image (Max 5Mo) :
                     </label>
                     <input type=\"file\" name=\"image_User\" id=\"image_User\">
+                    <input id=\"buttonform\" type=\"submit\" value=\"Valider\" >
                 </fieldset>
-                <input id=\"buttonform\" type=\"submit\" value=\"Information\" >
             </form>";
     }else{
         echo "
-            <form method=\"post\" action=\"Inscription/formInscription.php\" >
+            <form id=\"formCompte\" method=\"post\" action=\"Inscription/formInscription.php\" >
                 <fieldset>
                     <h2>
                         Cliquez sur le bouton pour l'inscription
@@ -47,7 +45,7 @@
                     <input id=\"buttonform\" type=\"submit\" value=\"Inscription\" >
                 </fieldset>
             </form>
-            <form method=\"post\" action=\"Connexion/formConnexion.php\" >
+            <form id=\"formCompte2\" method=\"post\" action=\"Connexion/formConnexion.php\" >
                 <fieldset>
                     <h2>
                         Cliquez sur le bouton pour la connexion

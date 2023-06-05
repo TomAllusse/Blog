@@ -45,7 +45,7 @@
                 Répéter le mots de passe (8 caractères minimum):
             </label>
             <input type="password" id="pass" name="pass" required="required" minlength="8" size="15"> <br>
-            <input id="buttonform" type="submit" value="Envoyer" >
+            <input id="buttonform" type="submit" value="Inscription" >
         </fieldset>
     </form>
     <?php

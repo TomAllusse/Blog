@@ -4,7 +4,6 @@ if ($_FILES['image_User']['size'] > 5000000) {
     }
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["image_User"]["name"]);
-    $uploadOk = 1;
 
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -30,8 +29,10 @@ if ($_FILES['image_User']['size'] > 5000000) {
     $date = htmlspecialchars(strip_tags($_POST['date']));
     $numero = htmlspecialchars(strip_tags($_POST['numero']));
 
-    $prep = $bdd->prepare("SELECT * FROM `users`");
+    $prep = $bdd->prepare("SELECT * FROM `users` WHERE `E_mail` = :email;");
+    $prep->bindValue(":email", $_SESSION['user']['mail']);
     $prep->execute();
+    $user= $prep->fetch();
 
     if (!empty($_POST['prenom'])){
         $prep = $bdd->prepare("UPDATE `users` SET `FirstName` = :prenom WHERE `E_mail` = :email;");
@@ -58,6 +59,7 @@ if ($_FILES['image_User']['size'] > 5000000) {
         $prep->execute();
     }
     if (!empty($lien)) {
+        unlink($user['Picture_User']);
         $prep = $bdd->prepare("UPDATE `users` SET `Picture_User` = :image WHERE `E_mail` = :email;");
         $prep->bindValue(":email", $_SESSION['user']['mail']);
         $prep->bindValue(":image", $lien);
