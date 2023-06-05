@@ -1,41 +1,100 @@
-/*Général*/
 
-section{
-    display: flex;
-    width: 100%;
+/* Bordered form */
+form {
+    width:60%;
+    margin: 20% auto;
+    padding: 30px;
+    background: #F6F1F1;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 40px;
 }
-fieldset{
-    text-align: center;
+
+#formCompte{
+    margin-bottom: 0%;
+    border-radius: 40px 40px 0 0;
 }
+
+#formCompte2{
+    margin-top: 0%;
+    border-radius: 0 0 40px 40px;
+}
+
 h2{
-    text-align: center;
     margin: 5%;
-}
-input{
     text-align: center;
 }
+
+h3{
+    text-align: center;
+}
+
 label{
     display: block;
-    margin: 10% 0;
-}
-div{
-    display: flex;
-    margin: 1% auto 4%;
-    border: solid #F6F1F1;
-    background-color: #F6F1F1;
+    text-align: center;
 }
 
-footer{
+input{
+    width: 80%;
+    padding: 1%;
+    margin: 2% auto;
     display: block;
-    position: relative;
-    bottom: 0;
+    text-align: center;
+    border-radius: 40px;
 }
 
-/*password*/
-/*
-input[type="password"] {
-    -webkit-text-security: square;
+input:hover{
+    background-color: #181717;
+    color: #F6F1F1;
+    border-radius: 40px;
 }
-form.show-passwords input[type="password"] {
-    -webkit-text-security: none;
-}*/
+
+#image_User:hover{
+    background-color: #F6F1F1;
+    color: #181717;
+}
+
+input[type=submit] {
+    width: 80%;
+    margin: 2% auto;
+    color: #181717;
+    padding: 1%;
+    cursor: pointer;
+    border:  2px solid #181717;  
+    border-radius: 40px;
+    text-align: center;
+}
+
+input[type=submit]:hover {
+    width: 80%;
+    margin: 2% auto;
+    background-color: #181717;
+    color: #F6F1F1;
+    border: 2px solid;
+    border-radius: 40px;
+}
+
+fieldset{
+    border: none;
+}
+
+input[type="file"] {
+    font-size: medium;
+    border: 2px solid #181717;
+    width: 80%;
+    vertical-align: middle;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: #181717;  
+    color: #F6F1F1;
+    margin: auto;
+    border: none;
+    float: right;
+    outline: 15px solid #181717;
+    
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    opacity: 70%;
+    cursor: pointer;
+}

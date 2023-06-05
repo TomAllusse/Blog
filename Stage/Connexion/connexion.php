@@ -1,5 +1,5 @@
 <?php
-    require_once('..\BDD\connexionBDD.php');
+    require_once('../BDD/connexionBDD.php');
     $bdd = connexionBDD();
 
     if (!empty($_POST['identifiant']) && !empty($_POST['password'])) {
@@ -21,25 +21,30 @@
                 $rsid= $prep->fetch();
 
                 session_start();
-                $_SESSION['user'] = [$identifiant => [$rsuser["Name_User"].' '.$rsuser["FirstName"], $identifiant => $rsuser["Roles"], $identifiant => $rsuser["Passwords"]]];
-        
-                if ($_SESSION['Role'] == 'ROLE_ADMIN') {
-                    header('Location: ..\admin.php');
+                
+                $NomPrenom = $rsuser["Name_User"].' '.$rsuser["FirstName"];
+
+                $_SESSION = ['user' => ['mail' => $identifiant, 'name'=> $NomPrenom, 'pwd' => $rsuser["Passwords"], 'role' => $rsuser["Roles"]]];        
+                
+                if ($_SESSION['user']['role'] == 'ROLE_ADMIN') {
+                    header('Location: ../admin.php');
                 }
                 else
                 {
-                    header('Location: ..\index.php');
+                    header('Location: ../index.php');
                 }
                 exit();
             }
             else
             {
                 echo "mots de passe invalide !<br>";
+                header('Location: formConnexion.php');
             }
         }
         else
         {
             echo "Identifiant invalide !<br>";
+            header('Location: formConnexion.php');
         }
         // Fermer la connexion à la base de données
         $bdd = null;

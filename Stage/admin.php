@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    $role = $_SESSION['Role'];
+    $role = $_SESSION['user']['role'];
     if ( $role != 'ROLE_ADMIN') {
         header('Location: index.php');
     }
@@ -20,7 +20,7 @@
 </head>
 <body>
     <?php
-        require_once('layouts/nav-bar.php');
+        require_once('layouts/nav-bar-admin.php');
     ?>   
     <main>   
     </main>
@@ -28,5 +28,8 @@
         require_once('layouts/footer.php');
     ?>
 </body>
+<?php
+    require_once('layouts/footer.php');
+?>
 <script src="js/javascript.js"></script>
 </html>

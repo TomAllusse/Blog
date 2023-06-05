@@ -1,7 +1,6 @@
 <?php
 
     session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -17,17 +16,24 @@
 </head>
 <body>
     <?php
-        require_once('layouts/nav-bar.php');
+        $role = "ROLE_USER";
+        if(!empty($_SESSION['user']['role'])){
+            $role = $_SESSION['user']['role'];
+        }
+        if($role == "ROLE_ADMIN"){
+            require_once('layouts/nav-bar.php');
+        }else{
+            require_once('layouts/nav-bar-admin.php');
+        }
     ?>
     <main>
         <?php
-            foreach($_SESSION['user'] as $nb => $infos){
-                $nb++;
-                foreach($infos as $clef => $valeur){
-                    echo 'Mail : '.$clef. ' - Nom : ' .$valeur. ' <br>';
-                }
-            }
-            
+        /*
+            echo $_SESSION['user']['mail'].'<br>';
+            echo $_SESSION['user']['name'].'<br>';
+            echo $_SESSION['user']['pwd'].'<br>';
+            echo $_SESSION['user']['role'].'<br>';
+        */
         ?>
     </main>
     <?php
