@@ -45,15 +45,14 @@
                 <label for="email">
                     Email :
                 </label>
-                <input type="email" id="email" name="email" autocomplete="on" placeholder="<?php echo $_SESSION['user']['mail'].' *'; ?>" required="required" size="30"> <br>
+                <input type="email" id="email" name="email" autocomplete="on" placeholder="<?php echo $_SESSION['user']['mail'].' *'; ?>"> <br>
                 <label for="numero">
                     Numéro de téléphone :
                 </label>
                 <input type="text" id="numero" name="numero" placeholder="Ex : +33 6 95 55 45 56"> <br>
             </fieldset>
             <fieldset>
-                <h3></h3>
-                <label for="prenom">
+                <label for="image_User">
                     Charger une image (Max 5Mo) :
                 </label>
                 <!-- <input type="hidden" name="MAX_FILE_SIZE" value="5000000" /> -->

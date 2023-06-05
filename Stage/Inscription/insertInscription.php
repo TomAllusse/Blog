@@ -1,7 +1,7 @@
 <?php
 
-require_once '..\BDD\connexionBDD.php';
-require_once '..\VerificationEmail.php';
+require_once '../BDD/connexionBDD.php';
+require_once '../VerificationEmail.php';
 
 $bdd = connexionBDD();
 
