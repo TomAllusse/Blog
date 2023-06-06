@@ -1,0 +1,15 @@
+/*#corps{
+    --bs-body-bg: #181717;
+}*/
+
+table{
+    margin: 5% auto;
+    border: 2px solid #181717;
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.AffichageUser{
+    border: 2px solid #181717;
+}
