@@ -1,15 +1,65 @@
-/*#corps{
-    --bs-body-bg: #181717;
-}*/
-
-table{
-    margin: 5% auto;
-    border: 2px solid #181717;
-    text-align: center;
-    border-collapse: collapse;
-    width: 100%;
+*, *::before, *::after{
+    box-sizing: border-box;
 }
 
-.AffichageUser{
-    border: 2px solid #181717;
+body{
+    font-family: sans-serif;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,td{
+    padding: 5px;
+    text-align: left !important;
+    border: 1px solid #181717 !important;
+}
+
+th{
+    background-color: #F6F1F1;
+    color: #181717;
+}
+
+td{
+    background-color: #f6f1f1bd;
+    color: #181717;
+}
+
+
+@media only screen  and (max-width:700px){
+    .TableResponsive table, .TableResponsive thead, .TableResponsive tbody, .TableResponsive tr, .TableResponsive th ,.TableResponsive td{
+        display: block;
+    }
+
+    .TableResponsive thead{
+        display: none;
+    }
+
+    .TableResponsive td{
+        margin-top: -1px;
+        padding-left: 150px;
+        position: relative;
+    }
+
+    .TableResponsive td::before{
+        padding: 10px;
+        content: attr(data-label);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 130px;
+        bottom: 0;
+        background-color: #F6F1F1;
+        color: #181717;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+
+    }
+
+    .TableResponsive tr{
+        margin-bottom: 1rem;
+    }
 }

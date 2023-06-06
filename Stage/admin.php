@@ -30,23 +30,24 @@
         require_once('layouts/nav-bar-admin.php');
     ?>
     <main>
-        <table id="Tab1">
+        <table class="TableResponsive">
             <thead>
                 <tr>
-                    <th colspan="8">Tous les utilisateurs</th>
+                    <th colspan="9">Tous les utilisateurs</th>
+                <tr>
+                </tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Passwords</th>
+                    <th>Roles</th>
+                    <th>Picture</th>
                 </tr>
             </thead>    
             <tbody>
-                <tr>
-                    <td class="AffichageUser">FirstName</td>
-                    <td class="AffichageUser">Name</td>
-                    <td class="AffichageUser">Date Of Birth</td>
-                    <td class="AffichageUser">Email</td>
-                    <td class="AffichageUser">Phone</td>
-                    <td class="AffichageUser">Passwords</td>
-                    <td class="AffichageUser">Roles</td>
-                    <td class="AffichageUser">Picture</td>
-                </tr>
                 <?php
                     $prep = $bdd->prepare("SELECT * FROM `users`");
                     $prep->execute();
@@ -54,59 +55,59 @@
                     foreach($users as $user){
                         echo '
                         <tr>
-                            <td class="AffichageUser">' .$user['FirstName']. '</td>
-                            <td class="AffichageUser">' .$user['Name_User']. '</td>
-                            <td class="AffichageUser">' .$user['Date_Of_Birth'].  '</td>
-                            <td class="AffichageUser">' .$user['E_mail']. '</td>
-                            <td class="AffichageUser">' .$user['Phone'].  '</td>
-                            <td class="AffichageUser">' .$user['Passwords'].  '</td>
-                            <td class="AffichageUser">' .$user['Roles'].  '</td>
-                            <td class="AffichageUser">' .$user['Picture_User'].  '</td>
+                            <td data-label="ID">' .$user['Id_User']. '</td>
+                            <td data-label="FirstName">' .$user['FirstName']. '</td>
+                            <td data-label="Name">' .$user['Name_User']. '</td>
+                            <td data-label="Date Of Birth">' .$user['Date_Of_Birth']. '</td>
+                            <td data-label="Email">' .$user['E_mail']. '</td>
+                            <td data-label="Phone">' .$user['Phone'].  '</td>
+                            <td data-label="Passwords">' .$user['Passwords'].  '</td>
+                            <td data-label="Roles">' .$user['Roles']. '</td>
+                            <td data-label="Picture">' .$user['Picture_User'].  '</td>
                         </tr>';
                     }
                  ?>
             </tbody>
-        </table>  
-        <table id="Tab2">
-            <thead>
-                <tr>
-                    <th  colspan="6">Article liées aux utilisateurs</th>
-                </tr>
-            </thead>   
-            <tbody>
-                <tr>
-                    <td class="AffichageUser">FirstName</td>
-                    <td class="AffichageUser">Name</td>
-                    <td class="AffichageUser">Title</td>
-                    <td class="AffichageUser">Picture</td>
-                    <td class="AffichageUser">Contained</td>
-                    <td class="AffichageUser">Created at</td>
-                </tr>
-                <?php
-                    $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post;");
-                    $prep->execute();
-                    $users= $prep->fetchall();
-                    foreach($users as $user){
-                        echo '
-                        <tr>
-                            <td class="AffichageUser">' .$user['FirstName']. '</td>
-                            <td class="AffichageUser">' .$user['Name_User']. '</td>
-                            <td class="AffichageUser">' .$user['Title'].  '</td>
-                            <td class="AffichageUser">' .$user['Picture'].  '</td>
-                            <td class="AffichageUser">' .$user['Contained'].  '</td>
-                            <td class="AffichageUser">' .$user['Created_at'].  '</td>
-                        </tr>';
-                    }
-                 ?>
-            </tbody>
-        </table>   
+        </table>
+        <!--<div>
+            <table>
+                <thead>
+                    <tr>
+                        <th  colspan="6">Article liées aux utilisateurs</th>
+                    </tr>
+                    <tr>
+                        <th class="Title">FirstName</th>
+                        <th class="Title">Name</th>
+                        <th class="Title">Title</th>
+                        <th class="Title">Picture</th>
+                        <th class="Title">Contained</th>
+                        <th class="Title">Created at</th>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <?php
+                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post;");
+                        $prep->execute();
+                        $users= $prep->fetchall();
+                        foreach($users as $user){
+                            echo '
+                            <tr>
+                                <td class="AffichageUser">' .$user['FirstName']. '</td>
+                                <td class="AffichageUser">' .$user['Name_User']. '</td>
+                                <td class="AffichageUser">' .$user['Title'].  '</td>
+                                <td class="AffichageUser">' .$user['Picture'].  '</td>
+                                <td class="AffichageUser">' .$user['Contained'].  '</td>
+                                <td class="AffichageUser">' .$user['Created_at'].  '</td>
+                            </tr>';
+                        }
+                     ?>
+                </tbody>
+            </table>   
+        </div>-->
     </main>
     <?php
         require_once('layouts/footer.php');
     ?>
 </body>
-<?php
-    require_once('layouts/footer.php');
-?>
 <script src="js/javascript.js"></script>
 </html>
