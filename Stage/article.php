@@ -10,7 +10,15 @@
 </head>
 <body>
     <?php
-        require_once('layouts/nav-bar.php');
+        $role = "ROLE_USER";
+        if(!empty($_SESSION['user']['role'])){
+            $role = $_SESSION['user']['role'];
+        }
+        if($role == "ROLE_ADMIN"){
+            require_once('layouts/nav-bar.php');
+        }else{
+            require_once('layouts/nav-bar-admin.php');
+        }
     ?>
     <main>
         <article class="texte_article">

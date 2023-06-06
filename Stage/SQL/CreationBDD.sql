@@ -20,13 +20,14 @@ CREATE TABLE Post(
 
 CREATE TABLE Users(
    Id_User INT NOT NULL AUTO_INCREMENT,
-   FirstName VARCHAR(50) NOT NULL,
-   Name_User VARCHAR(50) NOT NULL,
-   Date_Of_Birth DATE NOT NULL,
+   FirstName VARCHAR(50) NULL,
+   Name_User VARCHAR(50) NULL,
+   Date_Of_Birth DATE NULL,
    E_mail VARCHAR(255) NOT NULL,
-   Phone VARCHAR(50) NOT NULL,
+   Phone VARCHAR(50) NULL,
    Passwords VARCHAR(255) NOT NULL,
    Roles VARCHAR(50) NOT NULL,
+   Picture_User VARCHAR(255) NULL,
    Id_Post INT,
    CONSTRAINT PK_Users PRIMARY KEY(Id_User),
    CONSTRAINT FK_Users_Post FOREIGN KEY (Id_Post) REFERENCES Post (Id_Post)

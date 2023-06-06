@@ -1,5 +1,5 @@
 <?php
-    require_once('..\BDD\connexionBDD.php');
+    require_once('../BDD/connexionBDD.php');
     $bdd = connexionBDD();
 
     if (!empty($_POST['identifiant']) && !empty($_POST['password'])) {
@@ -27,11 +27,11 @@
                 $_SESSION = ['user' => ['mail' => $identifiant, 'name'=> $NomPrenom, 'pwd' => $rsuser["Passwords"], 'role' => $rsuser["Roles"]]];        
                 
                 if ($_SESSION['user']['role'] == 'ROLE_ADMIN') {
-                    header('Location: ..\admin.php');
+                    header('Location: ../admin.php');
                 }
                 else
                 {
-                    header('Location: ..\index.php');
+                    header('Location: ../index.php');
                 }
                 exit();
             }
