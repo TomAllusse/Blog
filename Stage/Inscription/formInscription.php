@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/compte.css">
+    <!--Boostrap CSS-->
+    <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <title>Formulaire inscription</title>
 </head>
-<body>
+<body id="corps">
     <form method="post" action="insertInscription.php" >
         <fieldset>
             <h2>

@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/compte.css">
+    <!--Boostrap CSS-->
+    <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <title>Formulaire connexion</title>
 </head>
-<body>
+<body  id="corps">
     <form method="post" action="connexion.php" >
         <fieldset>
             <h2>
@@ -18,7 +20,7 @@
             <label for="email">
                 Email :
             </label>
-            <input type="email" id="amail" name="identifiant" autocomplete="on" required="required"> <br>
+            <input type="email" id="email" name="identifiant" autocomplete="on" required="required"> <br>
             <label for="pass">
                 Mots de passe :
             </label>

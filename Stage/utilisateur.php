@@ -31,7 +31,7 @@
                     <label for=\"image_User\">
                         Charger une image (Max 5Mo) :
                     </label>
-                    <input type=\"file\" name=\"image_User\" id=\"image_User\">
+                    <input type=\"file\" name=\"image_User\" id=\"image_User\"  accept=\".jpg, .jpeg, .png\">
                     <input id=\"buttonform\" type=\"submit\" value=\"Valider\" >
                 </fieldset>
             </form>";
