@@ -2,8 +2,8 @@
     if(isset($_SESSION['user'])){
         $mail = $_SESSION['user']['mail'];
         echo "
-            <form method=\"post\" action=\"Informations/Informations.php\" enctype=\"multipart/form-data\">
-                <h2>
+            <form id=\"FromInfos\" method=\"post\" action=\"Informations/Informations.php\" enctype=\"multipart/form-data\">
+                <h2 id=\"titreInfos\">
                     Remplissez vos informations
                 </h2>
                 <fieldset>
@@ -31,7 +31,7 @@
                     <label for=\"image_User\">
                         Charger une image (Max 5Mo) :
                     </label>
-                    <input type=\"file\" name=\"image_User\" id=\"image_User\">
+                    <input type=\"file\" name=\"image_User\" id=\"image_User\"  accept=\".jpg, .jpeg, .png\">
                     <input id=\"buttonform\" type=\"submit\" value=\"Valider\" >
                 </fieldset>
             </form>";
@@ -39,7 +39,7 @@
         echo "
             <form id=\"formCompte\" method=\"post\" action=\"Inscription/formInscription.php\" >
                 <fieldset>
-                    <h2>
+                    <h2 class=\"titreForm\">
                         Cliquez sur le bouton pour l'inscription
                     </h2>
                     <input id=\"buttonform\" type=\"submit\" value=\"Inscription\" >
@@ -47,7 +47,7 @@
             </form>
             <form id=\"formCompte2\" method=\"post\" action=\"Connexion/formConnexion.php\" >
                 <fieldset>
-                    <h2>
+                    <h2 class=\"titreForm\">
                         Cliquez sur le bouton pour la connexion
                     </h2>
                     <input id=\"buttonform\" type=\"submit\" value=\"Connexion\" >
