@@ -59,7 +59,9 @@ if ($_FILES['image_User']['size'] > 5000000) {
         $prep->execute();
     }
     if (!empty($lien)) {
-        unlink($user['Picture_User']);
+        if('../'.$user['Picture_User'] != '../images/account.png'){
+            unlink($user['Picture_User']);
+        }
         $prep = $bdd->prepare("UPDATE `users` SET `Picture_User` = :image WHERE `E_mail` = :email;");
         $prep->bindValue(":email", $_SESSION['user']['mail']);
         $prep->bindValue(":image", $lien);

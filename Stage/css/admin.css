@@ -7,7 +7,9 @@ body{
 }
 
 table{
-    width: 100%;
+    font-size: small;
+    width: 80%;
+    margin: auto;
     border-collapse: collapse;
 }
 
@@ -27,8 +29,16 @@ td{
     color: #181717;
 }
 
+Button{
+    display: none;
+}
 
-@media only screen  and (max-width:700px){
+@media only screen  and (max-width:900px){
+
+    #top{
+        margin-top: 10%;
+    }
+
     .TableResponsive table, .TableResponsive thead, .TableResponsive tbody, .TableResponsive tr, .TableResponsive th ,.TableResponsive td{
         display: block;
     }
@@ -39,8 +49,12 @@ td{
 
     .TableResponsive td{
         margin-top: -1px;
-        padding-left: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+        padding-left: 130px;
         position: relative;
+        overflow-x: auto;
     }
 
     .TableResponsive td::before{
@@ -49,7 +63,7 @@ td{
         position: absolute;
         top: 0;
         left: 0;
-        width: 130px;
+        width: 110px;
         bottom: 0;
         background-color: #F6F1F1;
         color: #181717;
@@ -62,4 +76,21 @@ td{
     .TableResponsive tr{
         margin-bottom: 1rem;
     }
+
+    button{
+        display: unset;
+    }
+
+    @media only screen  and (max-width:700px){
+       .TableResponsive td{
+           width: 300px;
+       }
+
+       @media only screen  and (max-width:300px){
+           .TableResponsive td{
+               width: 220px;
+           }
+       }
+    }
+
 }

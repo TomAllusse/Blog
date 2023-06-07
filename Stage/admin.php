@@ -42,7 +42,6 @@
                     <th>Date Of Birth</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Passwords</th>
                     <th>Roles</th>
                     <th>Picture</th>
                 </tr>
@@ -55,13 +54,12 @@
                     foreach($users as $user){
                         echo '
                         <tr>
-                            <td data-label="ID">' .$user['Id_User']. '</td>
+                            <td data-label="ID" id="top">' .$user['Id_User']. '</td>
                             <td data-label="FirstName">' .$user['FirstName']. '</td>
                             <td data-label="Name">' .$user['Name_User']. '</td>
                             <td data-label="Date Of Birth">' .$user['Date_Of_Birth']. '</td>
                             <td data-label="Email">' .$user['E_mail']. '</td>
                             <td data-label="Phone">' .$user['Phone'].  '</td>
-                            <td data-label="Passwords">' .$user['Passwords'].  '</td>
                             <td data-label="Roles">' .$user['Roles']. '</td>
                             <td data-label="Picture">' .$user['Picture_User'].  '</td>
                         </tr>';
@@ -69,7 +67,20 @@
                  ?>
             </tbody>
         </table>
-        <!--<div>
+
+        <div id="Button">
+            <button><---</button>
+            <button>---></button>
+        </div>
+    </main>
+    <?php
+        require_once('layouts/footer.php');
+    ?>
+</body>
+<script src="js/javascript.js"></script>
+</html>
+
+<!--<div>
             <table>
                 <thead>
                     <tr>
@@ -85,7 +96,7 @@
                     </tr>
                 </thead>   
                 <tbody>
-                    <?php
+                <?php /*
                         $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post;");
                         $prep->execute();
                         $users= $prep->fetchall();
@@ -99,15 +110,8 @@
                                 <td class="AffichageUser">' .$user['Contained'].  '</td>
                                 <td class="AffichageUser">' .$user['Created_at'].  '</td>
                             </tr>';
-                        }
+                        }*/
                      ?>
                 </tbody>
             </table>   
         </div>-->
-    </main>
-    <?php
-        require_once('layouts/footer.php');
-    ?>
-</body>
-<script src="js/javascript.js"></script>
-</html>
