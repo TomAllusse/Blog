@@ -10,6 +10,7 @@
     if ( $role != 'ROLE_ADMIN') {
         header('Location: index.php');
     }
+    $test = $_POST['Button'];
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +49,40 @@
             </thead>    
             <tbody>
                 <?php
-                    $prep = $bdd->prepare("SELECT * FROM `users`");
+                    var_dump($test );
+                    $prep = $bdd->prepare("SELECT MAX(Id_User) FROM `users`");
+                    $prep->execute();
+                    $id= $prep->fetchColumn();
+                    if(empty($_SESSION['max'])){
+                        $_SESSION['max'] = 10;
+                        $_SESSION['min'] = 0;
+                        $max = $_SESSION['max'];
+                        $min = $_SESSION['min'];
+                    }else if($_SESSION['max'] >= $id || $_SESSION['max'] <=0) {
+                        $_SESSION['max'] = 10;
+                        $_SESSION['min'] = 0;
+                        $max = $_SESSION['max'];
+                        $min = $_SESSION['min'];
+                    }else if(isset($_POST['Button']) && $_POST['Button'] == 'before'){
+                        $_SESSION['max'] = $_SESSION['max'] - 10;
+                        $_SESSION['min'] = $_SESSION['min'] - 10;
+                        $max = $_SESSION['max'];
+                        $min = $_SESSION['min'];
+                    }else{
+                        $_SESSION['max'] = $_SESSION['max'] + 10;
+                        $_SESSION['min'] = $_SESSION['min'] + 10;
+                        $max = $_SESSION['max'];
+                        $min = $_SESSION['min'];
+                    }
+
+                    echo $id;
+                    echo $max."-".$min;
+
+                    if($max < $id){
+                        $prep = $bdd->prepare("SELECT * FROM `users` WHERE `Id_User`>= $min AND `Id_User`<= $max");
+                    }else{
+                        $prep = $bdd->prepare("SELECT * FROM `users` WHERE `Id_User`>= $min AND `Id_User`<= $id");
+                    }
                     $prep->execute();
                     $users= $prep->fetchall();
                     foreach($users as $user){
@@ -67,10 +101,11 @@
                  ?>
             </tbody>
         </table>
-
         <div id="Button">
-            <button><---</button>
-            <button>---></button>
+            <form method="post" action="admin.php">    
+                <button name="Button" value="before"><-</button>
+                <button name="Button" value="after">-></button>
+            </form>
         </div>
     </main>
     <?php
