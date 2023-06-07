@@ -29,52 +29,67 @@ td{
     color: #181717;
 }
 
-Button{
-    display: none;
+#button{
+    display: -ms-inline-grid;
+    border: 5px solid red;
+    margin: 50px auto;
+    text-align: center;
 }
 
-@media only screen  and (max-width:1530px){
+@media only screen  and (max-width:900px){
+
+    #top{
+        margin-top: 10%;
+    }
+
+    .TableResponsive table, .TableResponsive thead, .TableResponsive tbody, .TableResponsive tr, .TableResponsive th ,.TableResponsive td{
+        display: block;
+    }
+
+    .TableResponsive thead{
+        display: none;
+    }
+
+    .TableResponsive td{
+        margin-top: -1px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+        padding-left: 130px;
+        position: relative;
+        overflow-x: auto;
+    }
+
+    .TableResponsive td::before{
+        padding: 10px;
+        content: attr(data-label);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 110px;
+        bottom: 0;
+        background-color: #F6F1F1;
+        color: #181717;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+
+    }
+
+    .TableResponsive tr{
+        margin-bottom: 1rem;
+    }
 
     @media only screen  and (max-width:700px){
+       .TableResponsive td{
+           width: 300px;
+       }
 
-        .TableResponsive table, .TableResponsive thead, .TableResponsive tbody, .TableResponsive tr, .TableResponsive th ,.TableResponsive td{
-            display: block;
-        }
-    
-        .TableResponsive thead{
-            display: none;
-        }
-    
-        .TableResponsive td{
-            margin-top: -1px;
-            width: 390px;
-            padding-left: 130px;
-            position: relative;
-            overflow-x: scroll;
-        }
-    
-        .TableResponsive td::before{
-            padding: 10px;
-            content: attr(data-label);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 110px;
-            bottom: 0;
-            background-color: #F6F1F1;
-            color: #181717;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-    
-        }
-    
-        .TableResponsive tr{
-            margin-bottom: 1rem;
-        }
-    
-        button{
-            display: unset;
-        }
+       @media only screen  and (max-width:300px){
+           .TableResponsive td{
+               width: 220px;
+           }
+       }
     }
+
 }
