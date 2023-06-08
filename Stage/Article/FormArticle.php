@@ -24,7 +24,7 @@
     <title>Formulaire inscription</title>
 </head>
 <body id="corps">
-    <form method="post" action="InsertArticle.php" >
+    <form method="post" action="InsertArticle.php" enctype="multipart/form-data">
         <fieldset>
             <h2>
                 Informations Article
@@ -36,7 +36,7 @@
             <label for="image_Article">
                 Charger une image (Max 10Mo) :
             </label>
-            <input type="file" name="image_Article" id="image_Article" required="required" accept=".jpg, .jpeg, .png">
+            <input type="file" name="image_Article" id="image_Article" accept=".jpg, .jpeg, .png">
             <label for="Contained">
                 Contenue de l'article (Minimum 200 caractères):
             </label>

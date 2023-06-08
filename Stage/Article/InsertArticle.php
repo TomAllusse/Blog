@@ -17,7 +17,7 @@
     )) {
         throw new RuntimeException('Failed to move uploaded file.');
     }
-    echo 'File is uploaded successfully.';
+    echo 'File is uploaded successfully.<br>';
 
     require_once '../BDD/connexionBDD.php';
 
@@ -27,27 +27,34 @@
     $title = htmlspecialchars(strip_tags($_POST["title"]));
     $Contained = htmlspecialchars(strip_tags($_POST["Contained"]));
 
-    $prep = $bdd->prepare("SELECT * FROM `post`");
-    $prep->execute();
-    $post= $prep->fetchall();
-
-    $prep = $bdd->prepare("INSERT INTO users (Id_Post, Picture, Contained, Created_at) VALUES (:title, :images, :image_Article, now())");
-    $prep->bindValue(":title", $title);
-    $prep->bindValue(":Contained", $Contained);
-    $prep->bindValue(":images", $lien);
-    $prep->execute();
-    echo "Utilisateur ajoutée !<br>";
-
-    $prep = $bdd->prepare("SELECT `Id_Post` FROM `post` WHERE `Title`=:title");
+    $prep = $bdd->prepare("SELECT * FROM `post` WHERE `Title`=:title");
     $prep->bindValue(":title", $title);
     $prep->execute();
-    $id_post= $prep->fetchColumn();
-
-    $prep = $bdd->prepare("UPDATE `users` SET `Id_Post` =:id_post WHERE `E_mail` = :email;");
-    $prep->bindValue(":email", $_SESSION['user']['mail']);
-    $prep->bindValue(":id_post", $id_post);
-    $prep->execute();
+    $post= $prep->fetch();
+    if(empty($post)){
+        $prep = $bdd->prepare("INSERT INTO post (Title, Picture, Contained, Created_at) VALUES (:title, :images, :Contained, now())");
+        $prep->bindValue(":title", $title);
+        $prep->bindValue(":Contained", $Contained);
+        $prep->bindValue(":images", $lien);
+        $prep->execute();
+        echo "Post ajoutée !<br>";
+    
+        $prep = $bdd->prepare("SELECT `Id_Post` FROM `post` WHERE `Title`=:title");
+        $prep->bindValue(":title", $title);
+        $prep->execute();
+        $id_post= $prep->fetchColumn();
+    
+        $prep = $bdd->prepare("UPDATE `users` SET `Id_Post` =:id_post WHERE `E_mail` = :email;");
+        $prep->bindValue(":email", $_SESSION['user']['mail']);
+        $prep->bindValue(":id_post", $id_post);
+        $prep->execute();
+    }else{
+        header('Location:FormArticle.php');
+        exit();
+    }
     // Fermer la connexion à la base de données
     $bdd = null;
+    /*header('Location:FormArticle.php');
+    exit();*/
 
 ?>
