@@ -74,12 +74,9 @@
                         $_SESSION['max'] = 10;
                         $_SESSION['min'] = 0;
                     }
-                    
                     if($_SESSION['max'] <=0 || $_SESSION['max'] >= $id && ($id % 10) == 0 || $_SESSION['max'] >= ($id + 10)) {
                         $_SESSION['max'] = 10;
                         $_SESSION['min'] = 0;
-                        $max = $_SESSION['max'];
-                        $min = $_SESSION['min'];
                     }
                     $max = $_SESSION['max'];
                     $min = $_SESSION['min'];
@@ -122,22 +119,14 @@
                 </svg>
             </a>
         </div>
-    </main>
-    <?php
-        require_once('layouts/footer.php');
-    ?>
-
-</body>
-<script src="js/javascript.js"></script>
-</html>
-
-<!--<div>
+        <div>
             <table>
                 <thead>
                     <tr>
-                        <th  colspan="6">Article liées aux utilisateurs</th>
+                        <th  colspan="7">Article liées aux utilisateurs</th>
                     </tr>
                     <tr>
+                        <th class="Title">ID Post</th>
                         <th class="Title">FirstName</th>
                         <th class="Title">Name</th>
                         <th class="Title">Title</th>
@@ -147,22 +136,85 @@
                     </tr>
                 </thead>   
                 <tbody>
-                <?php /*
+                <?php
+                    function beforeArticle() {
+                        $_SESSION['maxArticle'] = $_SESSION['maxArticle'] - 10;
+                        $_SESSION['minArticle'] = $_SESSION['minArticle'] - 10;
+                    }
+                    function afterArticle() {
+                        $_SESSION['maxArticle'] = $_SESSION['maxArticle'] + 10;
+                        $_SESSION['minArticle'] = $_SESSION['minArticle'] + 10;
+                    }
+
+                    if(isset($_GET['beforeArticle'])){
+                        beforeArticle();
+                    }else if (isset($_GET['afterArticle'])){
+                        afterArticle();
+                    }
+
+                    if(empty($_SESSION['maxArticle'])){
+                        $_SESSION['maxArticle'] = 10;
+                        $_SESSION['minArticle'] = 0;
+                    }
+
+                    if($_SESSION['maxArticle'] <=0 || $_SESSION['maxArticle'] >= $id && ($id % 10) == 0 || $_SESSION['maxArticle'] >= ($id + 10)) {
+                        $_SESSION['maxArticle'] = 10;
+                        $_SESSION['minArticle'] = 0;
+                    }
+
+                    $maxArticle = $_SESSION['maxArticle'];
+                    $minArticle = $_SESSION['minArticle'];
+
+                    $prep = $bdd->prepare("SELECT MAX(Id_Post) FROM `post`");
+                    $prep->execute();
+                    $idArticle= $prep->fetchColumn();
+
+                    if($maxArticle <= $idArticle){
+                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post AND p.Id_Post > $minArticle AND p.Id_Post<= $maxArticle");
                         $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post;");
-                        $prep->execute();
-                        $users= $prep->fetchall();
-                        foreach($users as $user){
-                            echo '
-                            <tr>
-                                <td class="AffichageUser">' .$user['FirstName']. '</td>
-                                <td class="AffichageUser">' .$user['Name_User']. '</td>
-                                <td class="AffichageUser">' .$user['Title'].  '</td>
-                                <td class="AffichageUser">' .$user['Picture'].  '</td>
-                                <td class="AffichageUser">' .$user['Contained'].  '</td>
-                                <td class="AffichageUser">' .$user['Created_at'].  '</td>
-                            </tr>';
-                        }*/
-                     ?>
+                    }else{
+                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post AND p.Id_Post > $minArticle AND p.Id_Post <= $idArticle");
+                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post;");
+                    }
+
+                    $prep->execute();
+                    $users= $prep->fetchall();
+                    foreach($users as $user){
+                        echo '
+                        <tr>
+                            <td class="AffichageUser">' .$user['Id_Post']. '</td>
+                            <td class="AffichageUser">' .$user['FirstName']. '</td>
+                            <td class="AffichageUser">' .$user['Name_User']. '</td>
+                            <td class="AffichageUser">' .$user['Title'].  '</td>
+                            <td class="AffichageUser">' .$user['Picture'].  '</td>
+                            <td class="AffichageUser">' .$user['Contained'].  '</td>
+                            <td class="AffichageUser">' .$user['Created_at'].  '</td>
+                        </tr>';
+                    }
+                ?>
                 </tbody>
-            </table>   
-        </div>-->
+            </table>
+            <div id="button2"> 
+            <a href="test.php?beforeArticle=true">
+                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path class="arrow" d="M12.25 8.25C10.6879 9.8121 9.8121 10.6879 8.25 12.25L12.25 16.25" stroke="#F6F1F1" stroke-width="1.00088" />
+                    </g>
+                </svg>
+            </a>
+            <a href="test.php?afterArticle=true">
+                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path class="arrow2" d="M11.75 8.25C13.3121 9.8121 14.1879 10.6879 15.75 12.25L11.75 16.25" stroke="#F6F1F1" stroke-width="1.00088"/>
+                    </g>
+                </svg>
+            </a>
+        </div> 
+        </div>
+    </main>
+    <?php
+        require_once('layouts/footer.php');
+    ?>
+</body>
+<script src="js/javascript.js"></script>
+</html>
