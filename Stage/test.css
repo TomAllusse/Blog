@@ -1,15 +1,17 @@
-th{
-    text-align: center !important;
-}
-
-#button2 a{
-    text-decoration: none;
-    margin: 10%;
+#button2 .svg-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 #button2{
-    margin: 5%;
+    margin: 4%;
     text-align: center;
+}
+
+.arrow-svg, .arrow2-svg{
+    cursor: pointer;
 }
 
 svg{
