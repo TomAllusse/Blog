@@ -1,0 +1,64 @@
+h2, p{
+    color:#F6F1F1;
+}
+h2{
+    margin: auto;
+    padding: 10px;
+    width: 500px;
+    opacity: 90%;
+}
+p{
+    margin: auto;
+    padding: 10px;
+    background-color: #F6F1F1;
+    color: #181717;
+    width: 500px;
+    text-align: center;
+}
+
+.user{
+    margin: 100px;
+    text-align: center;
+}
+
+img{
+    margin: 5% auto;
+    border: 1px solid #F6F1F1;
+}
+
+/*Bouton utilisateur*/
+
+#button a{
+    text-decoration: none;
+    border: 5px dotted #F6F1F1;
+    color: #F6F1F1;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+#button{
+    text-align: center;
+}
+
+#button a:hover{
+    border: none;
+}
+
+#button a:hover {
+    animation: arrow-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+
+@keyframes arrow-anim {
+    0% {
+        opacity: 0;
+        font-size: large;
+    }
+    50% {
+        opacity: 0.5;
+        font-size: xx-large;
+    }
+    100% {
+        opacity: 1;
+        font-size: xx-large;
+    }
+}

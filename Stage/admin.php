@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="test.css">
     <!--Boostrap CSS-->
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <title>Accueil</title>
@@ -138,12 +137,12 @@
                 <tbody>
                 <?php
                     function beforeArticle() {
-                        $_SESSION['maxArticle'] = $_SESSION['maxArticle'] - 10;
-                        $_SESSION['minArticle'] = $_SESSION['minArticle'] - 10;
+                        $_SESSION['maxArticle'] = $_SESSION['maxArticle'] - 5;
+                        $_SESSION['minArticle'] = $_SESSION['minArticle'] - 5;
                     }
                     function afterArticle() {
-                        $_SESSION['maxArticle'] = $_SESSION['maxArticle'] + 10;
-                        $_SESSION['minArticle'] = $_SESSION['minArticle'] + 10;
+                        $_SESSION['maxArticle'] = $_SESSION['maxArticle'] + 5;
+                        $_SESSION['minArticle'] = $_SESSION['minArticle'] + 5;
                     }
 
                     if(isset($_GET['beforeArticle'])){
@@ -153,12 +152,12 @@
                     }
 
                     if(empty($_SESSION['maxArticle'])){
-                        $_SESSION['maxArticle'] = 10;
+                        $_SESSION['maxArticle'] = 5;
                         $_SESSION['minArticle'] = 0;
                     }
 
-                    if($_SESSION['maxArticle'] <=0 || $_SESSION['maxArticle'] >= $id && ($id % 10) == 0 || $_SESSION['maxArticle'] >= ($id + 10)) {
-                        $_SESSION['maxArticle'] = 10;
+                    if($_SESSION['maxArticle'] <=0 || $_SESSION['maxArticle'] >= $id && ($id % 5) == 0 || $_SESSION['maxArticle'] >= ($id + 5)) {
+                        $_SESSION['maxArticle'] = 5;
                         $_SESSION['minArticle'] = 0;
                     }
 
@@ -168,13 +167,14 @@
                     $prep = $bdd->prepare("SELECT MAX(Id_Post) FROM `post`");
                     $prep->execute();
                     $idArticle= $prep->fetchColumn();
-
-                    if($maxArticle <= $idArticle){
-                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post AND p.Id_Post > $minArticle AND p.Id_Post<= $maxArticle");
-                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post;");
+                    if($idArticle == 0){
+                        $prep = $bdd->prepare("SELECT * FROM `post`");
+                    }else if($maxArticle <= $idArticle){
+                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $minArticle AND p.Id_Post<= $maxArticle");
+                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User;");
                     }else{
-                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post AND p.Id_Post > $minArticle AND p.Id_Post <= $idArticle");
-                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_Post=p.Id_Post;");
+                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $minArticle AND p.Id_Post <= $idArticle");
+                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User;");
                     }
 
                     $prep->execute();
@@ -195,21 +195,21 @@
                 </tbody>
             </table>
             <div id="button2"> 
-            <a href="admin.php?beforeArticle=true">
-                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                        <path class="arrow" d="M12.25 8.25C10.6879 9.8121 9.8121 10.6879 8.25 12.25L12.25 16.25" stroke="#F6F1F1" stroke-width="1.00088" />
-                    </g>
-                </svg>
-            </a>
-            <a href="admin.php?afterArticle=true">
-                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                        <path class="arrow2" d="M11.75 8.25C13.3121 9.8121 14.1879 10.6879 15.75 12.25L11.75 16.25" stroke="#F6F1F1" stroke-width="1.00088"/>
-                    </g>
-                </svg>
-            </a>
-        </div> 
+                <a href="admin.php?beforeArticle=true">
+                    <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path class="arrow" d="M12.25 8.25C10.6879 9.8121 9.8121 10.6879 8.25 12.25L12.25 16.25" stroke="#F6F1F1" stroke-width="1.00088" />
+                        </g>
+                    </svg>
+                </a>
+                <a href="admin.php?afterArticle=true">
+                    <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path class="arrow2" d="M11.75 8.25C13.3121 9.8121 14.1879 10.6879 15.75 12.25L11.75 16.25" stroke="#F6F1F1" stroke-width="1.00088"/>
+                        </g>
+                    </svg>
+                </a>
+            </div> 
         </div>
     </main>
     <?php
