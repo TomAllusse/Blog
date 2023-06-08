@@ -29,6 +29,13 @@ td{
     color: #181717;
 }
 
+#button{
+    display: -ms-inline-grid;
+    border: 5px solid red;
+    margin: 50px auto;
+    text-align: center;
+}
+
 @media only screen  and (max-width:900px){
 
     #top{
