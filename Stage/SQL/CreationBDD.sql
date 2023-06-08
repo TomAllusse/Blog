@@ -1,21 +1,12 @@
-DROP TABLE if exists Users;
+/*DROP TABLE if exists Users;
 DROP TABLE if exists to_have;
 DROP TABLE if exists Categories;
-DROP TABLE if exists Post;
+DROP TABLE if exists Post;*/
 
 CREATE TABLE Categories(
    Id_Categories INT NOT NULL AUTO_INCREMENT,
    Name_Categories VARCHAR(50) NOT NULL,
    CONSTRAINT PK_Categories PRIMARY KEY(Id_Categories)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-CREATE TABLE Post(
-   Id_Post INT NOT NULL AUTO_INCREMENT,
-   Title VARCHAR(50) NOT NULL,
-   Picture VARCHAR(50) NOT NULL,
-   Contained TEXT NOT NULL,
-   Created_at DATETIME NOT NULL,
-   CONSTRAINT PK_Post PRIMARY KEY(Id_Post)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 CREATE TABLE Users(
@@ -28,9 +19,18 @@ CREATE TABLE Users(
    Passwords VARCHAR(255) NOT NULL,
    Roles VARCHAR(50) NOT NULL,
    Picture_User VARCHAR(255) NULL DEFAULT 'images/account.png',
-   Id_Post INT,
-   CONSTRAINT PK_Users PRIMARY KEY(Id_User),
-   CONSTRAINT FK_Users_Post FOREIGN KEY (Id_Post) REFERENCES Post (Id_Post)
+   CONSTRAINT PK_Users PRIMARY KEY(Id_User)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE Post(
+   Id_Post INT NOT NULL AUTO_INCREMENT,
+   Title VARCHAR(50) NOT NULL,
+   Picture VARCHAR(50) NOT NULL,
+   Contained TEXT NOT NULL,
+   Created_at DATETIME NOT NULL,
+   Id_User INT NOT NULL,
+   CONSTRAINT PK_Post PRIMARY KEY(Id_Post),
+   CONSTRAINT FK_Post_Users FOREIGN KEY (Id_User) REFERENCES Users (Id_User)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 CREATE TABLE to_have(

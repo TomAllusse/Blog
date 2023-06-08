@@ -34,6 +34,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'] && !empty($_POST['pass'
             $prep->bindValue(":role", $role);
             $prep->execute();
             echo "Utilisateur ajoutée !<br>";
+            header('Location: ../compte.php');
+            exit();
         }
         else
         {
@@ -46,6 +48,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'] && !empty($_POST['pass'
         }
     }else{
         header('Location: formInscription.php');
+        exit();
     }
     // Fermer la connexion à la base de données
     $bdd = null;

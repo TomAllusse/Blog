@@ -76,4 +76,7 @@ if ($_FILES['image_User']['size'] > 5000000) {
 
     // Fermer la connexion à la base de données
     $bdd = null;
+
+    header('Location:../compte.php');
+    exit();
 ?>

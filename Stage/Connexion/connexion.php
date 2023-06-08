@@ -28,10 +28,12 @@
                 
                 if ($_SESSION['user']['role'] == 'ROLE_ADMIN') {
                     header('Location: ../admin.php');
+                    exit();
                 }
                 else
                 {
-                    header('Location: ../index.php');
+                    header('Location: ../user.php');
+                    exit();
                 }
                 exit();
             }
@@ -45,6 +47,7 @@
         {
             echo "Identifiant invalide !<br>";
             header('Location: formConnexion.php');
+            exit();
         }
         // Fermer la connexion à la base de données
         $bdd = null;
