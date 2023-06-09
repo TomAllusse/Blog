@@ -171,10 +171,8 @@
                         $prep = $bdd->prepare("SELECT * FROM `post`");
                     }else if($maxArticle <= $idArticle){
                         $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $minArticle AND p.Id_Post<= $maxArticle");
-                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User;");
                     }else{
                         $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $minArticle AND p.Id_Post <= $idArticle");
-                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User;");
                     }
 
                     $prep->execute();

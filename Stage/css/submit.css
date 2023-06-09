@@ -1,0 +1,28 @@
+input[type="submit"] {
+    display: block !important;
+    font-family: Verdana,"Rockwell",Helvetica,Serif !important;
+    font-size: 20px !important;
+    width: 120px !important;
+    height: 120px !important;
+    padding: 10px !important;
+    margin: 20px auto !important;
+    border: 0!important;
+    outline: 0 !important;
+    border-radius: 50% !important;
+    color: #181717 !important;
+    transition: all 200ms !important;
+    cursor: pointer !important;
+}
+input[type="submit"]:hover {
+    background: #F6F1F1 !important;
+    border: none;
+    border-top: dotted 3px #181717 !important;
+    border-left: dotted 3px #181717 !important;
+    animation: spin 5s linear infinite !important;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

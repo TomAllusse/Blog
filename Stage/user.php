@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/submit.css">
     <?php
         if(isset($_GET['modif'])){
             echo "<link rel=\"stylesheet\" href=\"css/compte.css\">";
@@ -64,10 +65,8 @@
                             Charger une image (Max 5Mo) :
                         </label>
                         <input type=\"file\" name=\"image_User\" id=\"image_User\"  accept=\".jpg, .jpeg, .png\">
-                        <div id=\"button\"> 
-                            <a href=\"user.php?valider=true\">
-                                
-                            </a>
+                        <div id=\"button\">
+                            <input type=\"submit\" value=\"✔\">
                         </div>
                     </fieldset>
                 </form>";

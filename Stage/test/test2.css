@@ -1,0 +1,141 @@
+svg{
+    overflow: visible;
+}
+
+svg:hover{
+    border: none;
+}
+
+div svg:hover .check{
+    animation: check-anim 5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+    z-index: 1;
+}
+
+div svg:hover .checkNode{
+    animation: checkNode-anim 5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+    z-index: 1;
+    display:unset;
+}
+
+.checkNode{
+    display: none;
+}
+
+@keyframes check-anim {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    30% {
+        opacity: 0.7;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 0.3;
+    }
+    70% {
+        opacity: 0.1;
+    }
+    80%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes checkNode-anim {
+    0% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    80% {
+        font-size: 25px;
+    }
+    81% {
+        font-size: 26px;
+    }
+    82% {
+        font-size: 27px;
+    }
+    83% {
+        font-size: 28px;
+    }
+    84% {
+        font-size: 29px;
+    }
+    85% {
+        font-size: 30px;
+    }
+    86% {
+        font-size: 31px;
+    }
+    87% {
+        font-size: 32px;
+    }
+    88% {
+        font-size: 33px;
+    }
+    89% {
+        font-size: 34px;
+    }
+    90% {
+        font-size: 35px;
+    }
+    91% {
+        font-size: 36px;
+    }
+    92% {
+        font-size: 37px;
+    }
+    93% {
+        font-size: 38px;
+    }
+    94% {
+        font-size: 39px;
+    }
+    95% {
+        font-size: 40px;
+    }
+    100% {
+        font-size: 40px;
+    }
+}
+input[type="submit"] {
+    display: block;
+    font-family: Verdana,"Rockwell",Helvetica,Serif;
+    font-size: 20px;
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    padding: 10px;
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    color: #171717;
+    transition: all 200ms;
+    cursor: pointer;
+}
+input[type="submit"]:focus {
+    background: transparent;
+    color: transparent;
+    border: none;
+    border-top: solid 3px #f8a;
+    border-left: solid 3px #fff;
+    animation: spin 700ms linear infinite;
+}
+@keyframes spin {
+    to {transform: rotate(360deg);}
+}
