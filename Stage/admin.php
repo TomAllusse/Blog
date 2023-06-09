@@ -183,10 +183,10 @@
                             <td data-label="ID Post" class="top">' .$user['Id_Post']. '</td>
                             <td data-label="FirstName">' .$user['FirstName']. '</td>
                             <td data-label="Name">' .$user['Name_User']. '</td>
-                            <td data-label="Title">' .$user['Title'].  '</td>
-                            <td data-label="Picture">' .$user['Picture'].  '</td>
-                            <td data-label="Contained">' .$user['Contained'].  '</td>
-                            <td data-label="Created at">' .$user['Created_at'].  '</td>
+                            <td data-label="Title" class="contenue">' .$user['Title'].  '</td>
+                            <td data-label="Picture" class="contenue">' .$user['Picture'].  '</td>
+                            <td data-label="Contained" class="contenue">' .$user['Contained'].  '</td>
+                            <td data-label="Created at" class="contenue">' .$user['Created_at'].  '</td>
                         </tr>';
                     }
                 ?>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/compte.css">
+    <link rel="stylesheet" href="../css/submit.css">
     <!--Boostrap CSS-->
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <title>Formulaire inscription</title>
@@ -47,7 +48,16 @@
                 Répéter le mots de passe (8 caractères minimum):
             </label>
             <input type="password" id="pass" name="pass" required="required" minlength="8" size="15"> <br>
-            <input id="buttonform" type="submit" value="Valider" >
+            <button id="button" type="submit">
+                <svg width="196px" height="70px" viewPort="0 0 196 70" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <text class="check" x="96" y="40" font-family="Montserrat" font-size="22" fill-opacity="1" text-anchor="middle" fill=#181717>
+                        VALIDER
+                    </text>
+                    <text class="checkNode" x="96" y="40" font-family="Montserrat" font-size="22" fill-opacity="1" text-anchor="middle" fill=#181717>
+                        ✔
+                    </text> 
+                </svg>
+            </button>
         </fieldset>
     </form>
     <?php

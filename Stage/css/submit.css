@@ -1,28 +1,101 @@
-input[type="submit"] {
-    display: block !important;
-    font-family: Verdana,"Rockwell",Helvetica,Serif !important;
-    font-size: 20px !important;
-    width: 120px !important;
-    height: 120px !important;
-    padding: 10px !important;
-    margin: 20px auto !important;
-    border: 0!important;
-    outline: 0 !important;
-    border-radius: 50% !important;
-    color: #181717 !important;
-    transition: all 200ms !important;
-    cursor: pointer !important;
-}
-input[type="submit"]:hover {
-    background: #F6F1F1 !important;
+#button{
+    display: flex;
+    margin: 25px auto;
+    background-color: #F6F1F1;
     border: none;
-    border-top: dotted 3px #181717 !important;
-    border-left: dotted 3px #181717 !important;
-    animation: spin 5s linear infinite !important;
+}
+svg{
+    display: flex;
+    overflow: visible;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+svg:hover{
+    border: none;
+}
+
+svg:hover .check{
+    animation: check-anim 2.25s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+
+svg:hover .checkNode{
+    animation: checkNode-anim 2.25s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+    display:unset;
+}
+
+.checkNode{
+    display: none;
+}
+
+@keyframes check-anim {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    20% {
+        opacity: 0.6;
+    }
+    30% {
+        opacity: 0.4;
+    }
+    40% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    80%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes checkNode-anim {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.25;
+    }
+    60% {
+        fill: rgb(0, 88, 0);
+        opacity: 0.5;
+    }
+    70% {
+        fill: rgb(0, 88, 0);
+        opacity: 0.75;
+    }
+    80%{
+        fill: rgb(0, 88, 0);
+        opacity: 1;
+    }
+    90%{
+        fill: rgb(0, 88, 0);
+        opacity: 1;
+    }
+    100% {
+        fill: rgb(0, 88, 0);
+        opacity: 0;
     }
 }

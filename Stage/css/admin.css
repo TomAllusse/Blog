@@ -15,8 +15,10 @@ table{
 
 th,td{
     padding: 5px;
+    height: 40px;
     text-align: left !important;
     border: 1px solid #181717 !important;
+    overflow: hidden;
 }
 
 th{
@@ -27,6 +29,11 @@ th{
 td{
     background-color: #f6f1f1bd;
     color: #181717;
+}
+
+.contenue{
+    height: 60px;
+    overflow-y: auto;
 }
 
 #button{
