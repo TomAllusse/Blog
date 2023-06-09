@@ -1,22 +1,4 @@
 <?php
-if ($_FILES['image_User']['size'] > 5000000) {
-        throw new RuntimeException('Exceeded filesize limit.');
-    }
-    $target_dir = "../uploads/";
-    $target_file = $target_dir . basename($_FILES["image_User"]["name"]);
-
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-    if (!move_uploaded_file(
-        $_FILES['image_User']['tmp_name'],
-        $lien = sprintf('../uploads/%s.%s',
-            sha1_file($_FILES['image_User']['tmp_name']),
-            $imageFileType
-        )
-    )) {
-        throw new RuntimeException('Failed to move uploaded file.');
-    }
-    echo 'File is uploaded successfully.';
 
     require_once '../BDD/connexionBDD.php';
     require_once '../VerificationEmail.php';
@@ -58,14 +40,41 @@ if ($_FILES['image_User']['size'] > 5000000) {
         $prep->bindValue(":numero", $numero);
         $prep->execute();
     }
-    if (!empty($lien)) {
-        if('../'.$user['Picture_User'] != '../images/account.png'){
-            unlink($user['Picture_User']);
+    if(!empty($_FILES['image_User']['size'])){
+        if ($_FILES['image_User']['size'] > 5000000) {
+            header('Location:../user.php?modif=true');
+            exit();
+            throw new RuntimeException('Exceeded filesize limit.');
         }
-        $prep = $bdd->prepare("UPDATE `users` SET `Picture_User` = :image WHERE `E_mail` = :email;");
-        $prep->bindValue(":email", $_SESSION['user']['mail']);
-        $prep->bindValue(":image", $lien);
-        $prep->execute();
+        $target_dir = "../uploads/";
+        $target_file = $target_dir . basename($_FILES["image_User"]["name"]);
+    
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    
+        if (!move_uploaded_file(
+            $_FILES['image_User']['tmp_name'],
+                $lien = sprintf('../uploads/%s.%s',
+                sha1_file($_FILES['image_User']['tmp_name']),
+                $imageFileType
+            )
+        )) {
+           /* header('Location:../user.php?modif=true');
+            exit();*/
+            throw new RuntimeException('Failed to move uploaded file.');
+        }
+        for($i = 3; $i < strlen($lien); $i++){
+            $lien2 = $lien2.$lien[$i];
+        }
+        echo 'File is uploaded successfully.';
+        if (!empty($lien2)) {
+            if('../'.$user['Picture_User'] != '../images/account.png'){
+                unlink($user['Picture_User']);
+            }
+            $prep = $bdd->prepare("UPDATE `users` SET `Picture_User` = :image WHERE `E_mail` = :email;");
+            $prep->bindValue(":email", $_SESSION['user']['mail']);
+            $prep->bindValue(":image", $lien2);
+            $prep->execute();
+        }
     }
     if(!empty($_POST['email'])){
         $prep = $bdd->prepare("UPDATE `users` SET `E_mail` = :email WHERE `E_mail` = :emailOLD;");

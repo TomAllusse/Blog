@@ -32,7 +32,7 @@
                 }
                 else
                 {
-                    header('Location: ../user.php');
+                    header('Location: ../compte.php');
                     exit();
                 }
                 exit();

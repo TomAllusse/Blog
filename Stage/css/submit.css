@@ -1,0 +1,101 @@
+#button{
+    display: flex;
+    margin: 25px auto;
+    background-color: #F6F1F1;
+    border: none;
+}
+svg{
+    display: flex;
+    overflow: visible;
+}
+
+svg:hover{
+    border: none;
+}
+
+svg:hover .check{
+    animation: check-anim 2.25s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+
+svg:hover .checkNode{
+    animation: checkNode-anim 2.25s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+    display:unset;
+}
+
+.checkNode{
+    display: none;
+}
+
+@keyframes check-anim {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    20% {
+        opacity: 0.6;
+    }
+    30% {
+        opacity: 0.4;
+    }
+    40% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    80%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes checkNode-anim {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.25;
+    }
+    60% {
+        fill: rgb(0, 88, 0);
+        opacity: 0.5;
+    }
+    70% {
+        fill: rgb(0, 88, 0);
+        opacity: 0.75;
+    }
+    80%{
+        fill: rgb(0, 88, 0);
+        opacity: 1;
+    }
+    90%{
+        fill: rgb(0, 88, 0);
+        opacity: 1;
+    }
+    100% {
+        fill: rgb(0, 88, 0);
+        opacity: 0;
+    }
+}

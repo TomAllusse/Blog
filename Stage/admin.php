@@ -171,10 +171,8 @@
                         $prep = $bdd->prepare("SELECT * FROM `post`");
                     }else if($maxArticle <= $idArticle){
                         $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $minArticle AND p.Id_Post<= $maxArticle");
-                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User;");
                     }else{
                         $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $minArticle AND p.Id_Post <= $idArticle");
-                        $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User;");
                     }
 
                     $prep->execute();
@@ -185,10 +183,10 @@
                             <td data-label="ID Post" class="top">' .$user['Id_Post']. '</td>
                             <td data-label="FirstName">' .$user['FirstName']. '</td>
                             <td data-label="Name">' .$user['Name_User']. '</td>
-                            <td data-label="Title">' .$user['Title'].  '</td>
-                            <td data-label="Picture">' .$user['Picture'].  '</td>
-                            <td data-label="Contained">' .$user['Contained'].  '</td>
-                            <td data-label="Created at">' .$user['Created_at'].  '</td>
+                            <td data-label="Title" class="contenue">' .$user['Title'].  '</td>
+                            <td data-label="Picture" class="contenue">' .$user['Picture'].  '</td>
+                            <td data-label="Contained" class="contenue">' .$user['Contained'].  '</td>
+                            <td data-label="Created at" class="contenue">' .$user['Created_at'].  '</td>
                         </tr>';
                     }
                 ?>
