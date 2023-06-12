@@ -2,17 +2,17 @@
     require_once '../BDD/connexionBDD.php';
 
     class user{
-        private $user_id;
-        private $user_firstname;
-        private $user_name;
-        private $user_birth;
-        private $user_mail;
-        private $user_phone;
-        private $user_pass;
-        private $user_role;
-        private $user_picture;
+        private int $user_id;
+        private string $user_firstname;
+        private string $user_name;
+        private string $user_birth;
+        private string $user_mail;
+        private string $user_phone;
+        private string $user_pass;
+        private string $user_role;
+        private string $user_picture;
         
-        public function __construct($firstname, $name, $birth, $mail, $phone, $pass, $role, $picture){
+        public function __construct(string $firstname,string $name,string $birth,string $mail,string $phone,string $pass,string $role,string $picture){
             $this->user_firstname = $firstname;
             $this->user_name = $name;
             $this->user_birth = $birth;
@@ -55,31 +55,31 @@
 
         /*SET*/
 
-        public function setID($new_user_id){
+        public function setID(int $new_user_id){
             $this->user_id = $new_user_id;
         }
-        public function setFirstname($new_user_firstname){
+        public function setFirstname(string $new_user_firstname){
             $this->user_firstname = $new_user_firstname;
         }
-        public function setName($new_user_name){
+        public function setName(string $new_user_name){
             $this->user_name = $new_user_name;
         }
-        public function setBirth($new_user_birth){
+        public function setBirth(string $new_user_birth){
             $this->user_birth = $new_user_birth;
         }
-        public function setPhone($new_user_mail){
+        public function setPhone(string $new_user_mail){
             $this->user_mail = $new_user_mail;
         }
-        public function setMail($new_user_phone){
+        public function setMail(string $new_user_phone){
             $this->user_phone = $new_user_phone;
         }
-        public function setPass($new_user_pass){
+        public function setPass(string $new_user_pass){
             $this->user_pass = $new_user_pass;
         }
-        public function setRole($new_user_role){
+        public function setRole(string $new_user_role){
             $this->user_role = $new_user_role;
         }
-        public function setPicture($new_user_picture){
+        public function setPicture(string $new_user_picture){
             $this->user_picture = $new_user_picture;
         }
 

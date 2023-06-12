@@ -1,9 +1,9 @@
 <?php
     class categories{
-        private $categories_id;
-        private $categories_name;
+        private int $categories_id;
+        private string $categories_name;
         
-        public function __construct($name){
+        public function __construct(string $name){
             $this->categories_name = $name;
         }
         
@@ -18,10 +18,10 @@
 
         /*SET*/
 
-        public function setID($new_categories_id){
+        public function setID(int $new_categories_id){
             $this->categories_id = $new_categories_id;
         }
-        public function setName($new_categories_name){
+        public function setName(string $new_categories_name){
             $this->categories_name = $new_categories_name;
         }
     }
