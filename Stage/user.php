@@ -4,7 +4,6 @@
 
     $bdd = connexionBDD();    
 
-
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +16,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/user.css">
     <link rel="stylesheet" href="css/submit.css">
-
     <?php
         if(isset($_GET['modif'])){
             echo "<link rel=\"stylesheet\" href=\"css/compte.css\">";
@@ -34,9 +32,9 @@
     <main>
         <?php
         if(isset($_GET['modif'])){
-
+            
             session_start();
-
+            
             $prep = $bdd->prepare("SELECT * FROM `users` WHERE `E_mail`=:mail");
             $prep->bindValue(":mail", $_SESSION['user']['mail']);
             $prep->execute();
@@ -54,7 +52,6 @@
                         <label for=\"prenom\"> 
                             Prénom :
                         </label>
-
                         <input type=\"text\" id=\"prenom\" name=\"prenom\" autocomplete=\"on\" placeholder=\"$firstname\"> <br>
                         <label for=\"nom\">
                             Nom :
@@ -76,7 +73,6 @@
                             Charger une image (Max 5Mo) :
                         </label>
                         <input type=\"file\" name=\"image_User\" id=\"image_User\"  accept=\".jpg, .jpeg, .png\">
-
                         <button id=\"button\" type=\"submit\">
                             <svg width=\"196px\" height=\"70px\" viewPort=\"0 0 196 70\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">
                                 <text class=\"check\" x=\"96\" y=\"40\" font-family=\"Montserrat\" font-size=\"22\" fill-opacity=\"1\" text-anchor=\"middle\" fill=#181717>

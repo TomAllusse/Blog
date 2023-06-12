@@ -29,7 +29,6 @@ img{
 
 /*Bouton utilisateur*/
 
-
 #button3 a{
     text-decoration: none;
     border: 5px dotted #F6F1F1;
@@ -37,7 +36,6 @@ img{
     border-radius: 40px;
     padding: 20px;
 }
-
 
 #button3{
     text-align: center;
@@ -48,14 +46,6 @@ img{
 }
 
 #button3 a:hover {
-    text-align: center;
-}
-
-#button a:hover{
-    border: none;
-}
-
-#button a:hover {
     animation: arrow-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
 }
 

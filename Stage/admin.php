@@ -102,22 +102,22 @@
                  ?>
             </tbody>
         </table>
-        <div id="button2"> 
-            <a href="admin.php?before=true">
-                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                        <path class="arrow" d="M12.25 8.25C10.6879 9.8121 9.8121 10.6879 8.25 12.25L12.25 16.25" stroke="#F6F1F1" stroke-width="1.00088" />
-                    </g>
-                </svg>
-            </a>
-            <a href="admin.php?after=true">
-                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                        <path class="arrow2" d="M11.75 8.25C13.3121 9.8121 14.1879 10.6879 15.75 12.25L11.75 16.25" stroke="#F6F1F1" stroke-width="1.00088"/>
-                    </g>
-                </svg>
-            </a>
-        </div>
+        <div class="button2"> 
+                <a href="admin.php?beforeArticle=true">
+                    <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path class="arrow" d="M13.75 8.25C12.1879 9.8121 11.3121 10.6879 9.75 12.25L13.75 16.25" stroke="#F6F1F1" stroke-width="1.00088"/>
+                        </g>
+                    </svg>
+                </a>
+                <a href="admin.php?afterArticle=true">
+                    <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path class="arrow2" d="M10.25 8.25C11.8121 9.8121 12.6879 10.6879 14.25 12.25L10.25 16.25" stroke="#F6F1F1"stroke-width="1.00088" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                </a>
+            </div> 
         <div>
             <table  class="TableResponsive">
                 <thead>
@@ -192,18 +192,18 @@
                 ?>
                 </tbody>
             </table>
-            <div id="button2"> 
+            <div class="button2"> 
                 <a href="admin.php?beforeArticle=true">
                     <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g>
-                            <path class="arrow" d="M12.25 8.25C10.6879 9.8121 9.8121 10.6879 8.25 12.25L12.25 16.25" stroke="#F6F1F1" stroke-width="1.00088" />
+                            <path class="arrow" d="M13.75 8.25C12.1879 9.8121 11.3121 10.6879 9.75 12.25L13.75 16.25" stroke="#F6F1F1" stroke-width="1.00088"/>
                         </g>
                     </svg>
                 </a>
                 <a href="admin.php?afterArticle=true">
                     <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g>
-                            <path class="arrow2" d="M11.75 8.25C13.3121 9.8121 14.1879 10.6879 15.75 12.25L11.75 16.25" stroke="#F6F1F1" stroke-width="1.00088"/>
+                            <path class="arrow2" d="M10.25 8.25C11.8121 9.8121 12.6879 10.6879 14.25 12.25L10.25 16.25" stroke="#F6F1F1"stroke-width="1.00088" stroke-linejoin="round"/>
                         </g>
                     </svg>
                 </a>
