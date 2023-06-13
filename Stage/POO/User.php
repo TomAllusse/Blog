@@ -112,38 +112,43 @@
                 $prep->bindValue(":email", $user_mailOLD);
                 $prep->bindValue(":prenom", $user_firstname);
                 $this->user_firstname = $user_firstname;
+                $prep->execute();
             }
             if($user_name != ''){
                 $prep = $bdd->prepare("UPDATE `users` SET  `Name_User` = :nom WHERE `E_mail` = :email;");
                 $prep->bindValue(":email", $user_mailOLD);
                 $prep->bindValue(":nom", $user_name);
                 $this->user_name = $user_name;
+                $prep->execute();
             }
             if($user_birth != ''){
                 $prep = $bdd->prepare("UPDATE `users` SET `Date_Of_Birth` = :date WHERE `E_mail` = :email;");
                 $prep->bindValue(":email", $user_mailOLD);
                 $prep->bindValue(":date", $user_birth);
                 $this->user_birth = $user_birth;
+                $prep->execute();
             }
             if($user_mail != ''){
                 $prep = $bdd->prepare("UPDATE `users` SET `E_mail` = :email WHERE `E_mail` = :emailOLD;");
                 $prep->bindValue(":emailOLD", $user_mailOLD);
                 $prep->bindValue(":email", $user_mail);
                 $this->user_mail = $user_mail;
+                $prep->execute();
             }
             if($user_phone != ''){
                 $prep = $bdd->prepare("UPDATE `users` SET `Phone` = :numero WHERE `E_mail` = :email;");
                 $prep->bindValue(":email", $user_mailOLD);
                 $prep->bindValue(":numero", $user_phone);
                 $this->user_phone = $user_phone;
+                $prep->execute();
             }
             if($user_picture != ''){
                 $prep = $bdd->prepare("UPDATE `users` SET `Picture_User` = :image WHERE `E_mail` = :email;");
                 $prep->bindValue(":email", $user_mailOLD);
                 $prep->bindValue(":image", $user_picture);
                 $this->user_picture = $user_picture;
+                $prep->execute();
             }
-            $prep->execute();
         }
 
         public function NomPrenom () {
@@ -166,6 +171,14 @@
             $prep = $bdd->prepare("SELECT * FROM `users` WHERE `Id_User`> $min AND `Id_User`<= $max");
             $prep->execute();
             return $prep->fetchall();
+        }
+
+        public function DeleteUser($user_id){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("DELETE FROM `users` WHERE `Id_User`=:id");
+            $prep->bindValue(":id", $user_id);
+            $prep->execute();
         }
     }
 ?>

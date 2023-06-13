@@ -33,6 +33,17 @@ CREATE TABLE Post(
    CONSTRAINT FK_Post_Users FOREIGN KEY (Id_User) REFERENCES Users (Id_User)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+CREATE TABLE Comment(
+   Id_Comment INT NOT NULL AUTO_INCREMENT,
+   Contained_Comment TEXT NOT NULL,
+   Created_at DATETIME NOT NULL,
+   Id_User INT NOT NULL,
+   Id_Post INT NOT NULL,
+   CONSTRAINT PK_Comment PRIMARY KEY(Id_Comment),
+   CONSTRAINT FK_Comment_Users FOREIGN KEY (Id_User) REFERENCES Users (Id_User),
+   CONSTRAINT FK_Comment_Post FOREIGN KEY (Id_Post) REFERENCES Post (Id_Post)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
 CREATE TABLE to_have(
    Id_Categories INT,
    Id_Post INT,
