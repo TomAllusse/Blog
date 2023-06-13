@@ -56,11 +56,11 @@
             $this->post_user_id = $new_post_user_id;
         }
 
-        public function CreationPost(int $id, string $title, string $contained, string $picture){
+        public function CreationPost(int $id_user, string $title, string $contained, string $picture){
             $bdd = connexionBDD();
             
             $prep = $bdd->prepare("INSERT INTO post (Title, Picture, Contained, Created_at, Id_User) VALUES (:title, :images, :Contained, now(),:id_user)");
-            $prep->bindValue(":id_user", $id);
+            $prep->bindValue(":id_user", $id_user);
             $prep->bindValue(":title", $title);
             $prep->bindValue(":Contained", $contained);
             $prep->bindValue(":images", $picture);
@@ -70,9 +70,10 @@
         public function AffichagePost(int $id){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("SELECT * FROM `post` where E_mail=:identifiant");
-            $prep->bindValue(":identifiant", $id);
+            $prep = $bdd->prepare("SELECT * FROM `post` where Id_Post=:id");
+            $prep->bindValue(":id", $id);
             $prep->execute();
+            return $prep->fetch();
         }
 
         public function MaxPostID(){
@@ -89,6 +90,15 @@
             $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $min AND p.Id_Post<= $max");
             $prep->execute();
             return $prep->fetchall();
+        }
+
+        public function VerifTitle(string $title){
+            $bdd = connexionBDD();
+
+            $prep = $bdd->prepare("SELECT * FROM `post` WHERE `Title`=:title");
+            $prep->bindValue(":title", $title);
+            $prep->execute();
+            return $prep->fetch();
         }
     }
 ?>

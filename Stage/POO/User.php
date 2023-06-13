@@ -39,10 +39,10 @@
             return $this->user_birth;
         }
         public function getPhone(){
-            return $this->user_mail;
+            return $this->user_phone;
         }
         public function getMail(){
-            return $this->user_phone;
+            return $this->user_mail;
         }
         public function getPass(){
             return $this->user_pass;
@@ -100,7 +100,7 @@
             $prep = $bdd->prepare("SELECT * FROM `users` where E_mail=:identifiant and Passwords=:passwords");
             $prep->bindValue(":identifiant", $mail);
             $prep->bindValue(":passwords", $pass);
-            $prep->execute();
+            $prep->execute();    
             return $prep->fetch();
         }
         

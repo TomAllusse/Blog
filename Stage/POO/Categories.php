@@ -24,5 +24,13 @@
         public function setName(string $new_categories_name){
             $this->categories_name = $new_categories_name;
         }
+
+        public function DisplayCategories(){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT * FROM `categories`");
+            $prep->execute();
+            return $prep->fetchall();
+        }
     }
 ?>
