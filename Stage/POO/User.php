@@ -12,7 +12,8 @@
         private string $user_role;
         private string $user_picture;
         
-        public function __construct(string $user_firstname,string $user_name,string $user_birth,string $user_mail,string $user_phone,string $user_pass,string $user_role,string $user_picture){
+        public function __construct(int $user_id, string $user_firstname,string $user_name,string $user_birth,string $user_mail,string $user_phone,string $user_pass,string $user_role,string $user_picture){
+            $this->user_id = $user_id;
             $this->user_firstname = $user_firstname;
             $this->user_name = $user_name;
             $this->user_birth = $user_birth;
@@ -100,17 +101,71 @@
             $prep->bindValue(":identifiant", $mail);
             $prep->bindValue(":passwords", $pass);
             $prep->execute();
+            return $prep->fetch();
         }
         
-        /*
-        public function UpdateUser(){
+        public function UpdateUser(string $user_firstname,string $user_name,string $user_birth,string $user_mail, string $user_mailOLD,string $user_phone,string $user_picture){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("UPDATE `users` SET  `Phone` = :numero WHERE `E_mail` = :email;");
-            $prep->bindValue(":email", $this->user_mail);
-            $prep->bindValue(":numero", $this->user_phone);
+            if($user_firstname != ''){
+                $prep = $bdd->prepare("UPDATE `users` SET  `FirstName` = :prenom WHERE `E_mail` = :email;");
+                $prep->bindValue(":email", $user_mailOLD);
+                $prep->bindValue(":prenom", $user_firstname);
+                $this->user_firstname = $user_firstname;
+            }
+            if($user_name != ''){
+                $prep = $bdd->prepare("UPDATE `users` SET  `Name_User` = :nom WHERE `E_mail` = :email;");
+                $prep->bindValue(":email", $user_mailOLD);
+                $prep->bindValue(":nom", $user_name);
+                $this->user_name = $user_name;
+            }
+            if($user_birth != ''){
+                $prep = $bdd->prepare("UPDATE `users` SET `Date_Of_Birth` = :date WHERE `E_mail` = :email;");
+                $prep->bindValue(":email", $user_mailOLD);
+                $prep->bindValue(":date", $user_birth);
+                $this->user_birth = $user_birth;
+            }
+            if($user_mail != ''){
+                $prep = $bdd->prepare("UPDATE `users` SET `E_mail` = :email WHERE `E_mail` = :emailOLD;");
+                $prep->bindValue(":emailOLD", $user_mailOLD);
+                $prep->bindValue(":email", $user_mail);
+                $this->user_mail = $user_mail;
+            }
+            if($user_phone != ''){
+                $prep = $bdd->prepare("UPDATE `users` SET `Phone` = :numero WHERE `E_mail` = :email;");
+                $prep->bindValue(":email", $user_mailOLD);
+                $prep->bindValue(":numero", $user_phone);
+                $this->user_phone = $user_phone;
+            }
+            if($user_picture != ''){
+                $prep = $bdd->prepare("UPDATE `users` SET `Picture_User` = :image WHERE `E_mail` = :email;");
+                $prep->bindValue(":email", $user_mailOLD);
+                $prep->bindValue(":image", $user_picture);
+                $this->user_picture = $user_picture;
+            }
             $prep->execute();
         }
-        */
+
+        public function NomPrenom () {
+
+            return $this->user_firstname.' '.$this->user_name;
+    
+        }
+
+        public function MaxUserID(){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT MAX(Id_User) FROM `users`");
+            $prep->execute();
+            return $prep->fetchColumn();
+        }
+
+        public function DisplayUser(int $min, int $max){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT * FROM `users` WHERE `Id_User`> $min AND `Id_User`<= $max");
+            $prep->execute();
+            return $prep->fetchall();
+        }
     }
 ?>

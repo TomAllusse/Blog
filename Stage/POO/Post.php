@@ -74,5 +74,21 @@
             $prep->bindValue(":identifiant", $id);
             $prep->execute();
         }
+
+        public function MaxPostID(){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT MAX(Id_Post) FROM `post`");
+            $prep->execute();
+            return $prep->fetchColumn();
+        }
+
+        public function DisplayPost(int $min, int $max){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $min AND p.Id_Post<= $max");
+            $prep->execute();
+            return $prep->fetchall();
+        }
     }
 ?>
