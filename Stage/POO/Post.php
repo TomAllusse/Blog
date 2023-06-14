@@ -7,10 +7,12 @@
         private string $post_created_at;
         private int $post_user_id;
         
-        public function __construct(string $post_title,string $post_picture,string $post_contained,int $post_user_id){
+        public function __construct(int $post_id,string $post_title,string $post_picture,string $post_contained,string $post_created_at,int $post_user_id){
+            $this->post_id = $post_id;
             $this->post_title = $post_title;
             $this->post_picture = $post_picture;
             $this->post_contained = $post_contained;
+            $this->post_created_at = $post_created_at;
             $this->post_user_id = $post_user_id;
         }
         
@@ -92,32 +94,32 @@
             return $prep->fetchall();
         }
 
-        public function UpdateComment(int $post_id, string $post_title, string $post_contained, string $post_picture){
+        public function UpdatePost(int $post_id, string $post_title, string $post_contained, string $post_picture){
             $bdd = connexionBDD();
-            
+
             if($post_title != $this->post_title){
-                $prep = $bdd->prepare("UPDATE `users` SET  `Title` = :title WHERE `Id_Post` = :id_post ");
+                $prep = $bdd->prepare("UPDATE `post` SET  `Title` = :title WHERE `Id_Post` = :id_post ");
                 $prep->bindValue(":id_post", $post_id);
                 $prep->bindValue(":title", $post_title);
                 $this->post_title = $post_title;
                 $prep->execute();
             }
             if($post_contained != $this->post_contained){
-                $prep = $bdd->prepare("UPDATE `users` SET `Contained` = :contained WHERE `Id_Post` = :id_post ");
+                $prep = $bdd->prepare("UPDATE `post` SET `Contained` = :contained WHERE `Id_Post` = :id_post ");
                 $prep->bindValue(":id_post", $post_id);
                 $prep->bindValue(":contained", $post_contained);
                 $this->post_contained = $post_contained;
                 $prep->execute();
             }
             if($post_picture != $this->post_picture){
-                $prep = $bdd->prepare("UPDATE `users` SET `Picture` = :images WHERE `Id_Post` = :id_post ");
+                $prep = $bdd->prepare("UPDATE `post` SET `Picture` = :images WHERE `Id_Post` = :id_post ");
                 $prep->bindValue(":id_post", $post_id);
                 $prep->bindValue(":images", $post_picture);
                 $this->post_picture = $post_picture;
                 $prep->execute();
             }
 
-            $prep = $bdd->prepare("UPDATE `users` SET `Created_at` = now() WHERE `Id_Post` = :id_post ");
+            $prep = $bdd->prepare("UPDATE `post` SET `Created_at` = now() WHERE `Id_Post` = :id_post ");
             $prep->bindValue(":id_post", $post_id);
             $prep->execute();
         }
