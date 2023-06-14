@@ -66,43 +66,34 @@
             return $prep->fetchall();
         }
 
-        public function InsertComment(string $Contained_Comment, string $Created_at, int $Id_User, int $Id_Post){
+        public function InsertComment(string $Contained_Comment, int $Id_User, int $Id_Post){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("INSERT INTO post ('Contained_Comment', 'Created_at', 'Id_User', 'Id_Post') VALUES (:contained_comment, :created_at, :id_user, :id_post)");
+            $prep = $bdd->prepare("INSERT INTO `comment` (Contained_Comment, Created_at, Id_User, Id_Post) VALUES (:contained_comment, now(), :id_user, :id_post)");
             $prep->bindValue(":contained_comment", $Contained_Comment);
-            $prep->bindValue(":created_at", $Created_at);
             $prep->bindValue(":id_user", $Id_User);
             $prep->bindValue(":id_post", $Id_Post);
             $prep->execute();
-            return $prep->fetchall();
+
+            $prep2 = $bdd->prepare("SELECT * FROM `comment` WHERE Contained_Comment=:contained_comment AND Id_User=:id_user AND Id_Post=:id_post");
+            $prep2->bindValue(":contained_comment", $Contained_Comment);
+            $prep2->bindValue(":id_user", $Id_User);
+            $prep2->bindValue(":id_post", $Id_Post);
+            $prep2->execute();
+            return $prep2->fetch();
         }
 
-        public function UpdateComment(string $Contained_Comment, int $Id_User, int $Id_Post){
+        public function UpdateComment(string $Contained_Comment){
             $bdd = connexionBDD();
             
             if($Contained_Comment != $this->Contained_Comment){
-                $prep = $bdd->prepare("UPDATE `users` SET  `Contained_Comment` = :contained_comment WHERE `Id_Comment` = :id_comment;");
+                $prep = $bdd->prepare("UPDATE `comment` SET  `Contained_Comment` = :contained_comment WHERE `Id_Comment` = :id_comment;");
                 $prep->bindValue(":id_comment", $this->Id_Comment);
                 $prep->bindValue(":contained_comment", $Contained_Comment);
                 $this->Contained_Comment = $Contained_Comment;
                 $prep->execute();
             }
-            if($Id_User != $this->Id_User){
-                $prep = $bdd->prepare("UPDATE `users` SET `Id_User` = :id_user WHERE `Id_Comment` = :id_comment");
-                $prep->bindValue(":id_comment", $this->Id_Comment);
-                $prep->bindValue(":id_user", $Id_User);
-                $this->Id_User = $Id_User;
-                $prep->execute();
-            }
-            if($Id_Post != $this->Id_Post){
-                $prep = $bdd->prepare("UPDATE `users` SET `Id_Post` = :id_post WHERE `Id_Comment` = :id_comment");
-                $prep->bindValue(":id_comment", $this->Id_Comment);
-                $prep->bindValue(":id_post", $Id_Post);
-                $this->Id_Post = $Id_Post;
-                $prep->execute();
-            }
-            $prep = $bdd->prepare("UPDATE `users` SET  `Created_at` = now() WHERE `Id_Comment` = :id_comment");
+            $prep = $bdd->prepare("UPDATE `comment` SET  `Created_at` = now() WHERE `Id_Comment` = :id_comment");
             $prep->bindValue(":id_comment", $this->Id_Comment);
             $prep->execute();
         }
@@ -110,7 +101,7 @@
         public function DeleteComment($Id_Comment){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("DELETE FROM `comment` WHERE `Id_Categories`=:id");
+            $prep = $bdd->prepare("DELETE FROM `comment` WHERE `Id_Comment`=:id");
             $prep->bindValue(":id", $Id_Comment);
             $prep->execute();
         }

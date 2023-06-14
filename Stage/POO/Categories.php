@@ -3,7 +3,8 @@
         private int $categories_id;
         private string $categories_name;
         
-        public function __construct(string $categories_name){
+        public function __construct(int $categories_id, string $categories_name){
+            $this->categories_id = $categories_id;
             $this->categories_name = $categories_name;
         }
         
@@ -36,17 +37,21 @@
         public function InsertCategories(string $name){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("INSERT INTO post (Name_Categories) VALUES (:name)");
+            $prep = $bdd->prepare("INSERT INTO categories (Name_Categories) VALUES (:name)");
             $prep->bindValue(":name", $name);
             $prep->execute();
-            return $prep->fetchall();
+            
+            $prep = $bdd->prepare("SELECT * FROM `categories` WHERE Name_Categories=:name");
+            $prep->bindValue(":name", $name);
+            $prep->execute();
+            return $prep->fetch();
         }
 
-        public function UpdateCategories(string $name){
+        public function UpdateCategories(int $categories_id,string $name){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("UPDATE `users` SET `Name_Categories` = :name WHERE `Id_Comment` = :id_categories");
-            $prep->bindValue(":id_categories", $this->categories_id);
+            $prep = $bdd->prepare("UPDATE `categories` SET `Name_Categories` = :name WHERE `Id_Categories` = :id_categories");
+            $prep->bindValue(":id_categories", $categories_id);
             $prep->bindValue(":name", $name);
             $this->categories_name = $name;
             $prep->execute();

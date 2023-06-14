@@ -136,7 +136,7 @@
         public function DeletePost($post_id){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("DELETE FROM `post` WHERE `Id_Categories`=:id");
+            $prep = $bdd->prepare("DELETE FROM `post` WHERE `Id_Post`=:id");
             $prep->bindValue(":id", $post_id);
             $prep->execute();
         }

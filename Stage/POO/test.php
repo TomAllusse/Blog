@@ -26,13 +26,13 @@
     */
 
     /*POST*/
-
+/*
     require('Post.php');
+*/
 
-
-    
-    $post_test = new Post(0,'','','','',0);
     /*
+    $post_test = new Post(0,'','','','',0);
+
     $post = $post_test->CreationPost(2,"Titre de l'article2","2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat. Etiam cursus nisl arcu. Sed vel tempus elit, nec finibus quam. Praesent non diam mollis, semper nisl non, convallis lorem. Etiam semper auctor mi, sed pharetra ligula tincidunt sit amet. Phasellus nunc odio, mollis non massa at, mattis volutpat quam. Suspendisse vitae sapien efficitur purus commodo luctus varius quis nunc. In ultrices tellus ex, pulvinar euismod eros cursus a. Donec posuere neque eu iaculis mattis. Nam at sapien faucibus, dictum nibh tristique, eleifend eros. Fusce eget malesuada tortor. Nunc est enim, lobortis vitae neque et, luctus mattis eros.
 
     Suspendisse tellus arcu, eleifend in semper vitae, elementum eget augue. Nulla tempus arcu in quam tincidunt, non interdum tellus feugiat. Donec commodo risus vitae enim vehicula hendrerit. Vestibulum vel enim ut sem scelerisque blandit. Vivamus dignissim maximus lorem nec dapibus. Sed hendrerit libero vitae sagittis dignissim. Sed vitae ultricies nisl.
@@ -73,7 +73,6 @@
     var_dump($post_test->VerifTitle("Titre de l'article"));
     echo '<br>';
     echo '<br>';
-    */
     $post = $post_test->AffichagePost(1);
     echo '<br>';
     echo '<br>';
@@ -81,5 +80,49 @@
     echo '<br>';
     echo '<br>';
     var_dump($post_test->UpdatePost(2,"Titre de l'article2.0","Titre de l'article2.0","images/2account.png"));
+    var_dump($post_test->DeletePost(3));
+    */
+    /*COMMENT*/
 
+    require('Comment.php');
+
+    $comment_test = new Comment(0,"","",0,0);
+
+    $comment = $comment_test->InsertComment("Titre de l'article2",1,1);
+
+    $comment_test = new Comment($comment['Id_Comment'],$comment['Contained_Comment'], $comment['Created_at'], $comment['Id_User'], $comment['Id_Post']);
+
+    /*
+    var_dump($comment_test->DisplayComment());
+    */
+    echo $comment_test->getId_Comment().'/'.$comment_test->getContained_Comment().'/'.$comment_test->getCreated_at().'/'.$comment_test->getId_User().'/'.$comment_test->getId_Post();
+
+    var_dump($comment_test->UpdateComment("Update Comment"));
+
+    echo $comment_test->getId_Comment().'/'.$comment_test->getContained_Comment().'/'.$comment_test->getCreated_at().'/'.$comment_test->getId_User().'/'.$comment_test->getId_Post();
+    /*
+    var_dump($comment_test->DeleteComment(1));
+    */
+
+    /*CATEGORIES*/
+
+    require('Categories.php');
+
+    $Categories_test = new Categories(0,"");
+    /*
+    var_dump($Categories_test->InsertCategories("Romans"));
+    */
+    $categories = $Categories_test->InsertCategories("Article");
+
+    $Categories_test = new Categories($categories['Id_Categories'], $categories['Name_Categories']);
+    /*
+    var_dump($Categories_test->DisplayCategories());
+    */
+    echo $Categories_test->getID().'/'.$Categories_test->getName();
+
+    var_dump($Categories_test->UpdateCategories(2,"Bande dessiné"));
+    echo $Categories_test->getID().'/'.$Categories_test->getName();
+    /*
+    var_dump($Categories_test->DeleteCategories(2));
+    */
 ?>
