@@ -10,7 +10,7 @@
 
     if (!move_uploaded_file(
         $_FILES['image_Article']['tmp_name'],
-        $lien = sprintf('../uploads/%s.%s',
+        $lien = sprintf('../uploads/Articles/%s.%s',
             sha1_file($_FILES['image_Article']['tmp_name']),
             $imageFileType
         )

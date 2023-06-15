@@ -13,7 +13,7 @@
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <title>Accueil</title>
 </head>
-<body>
+<body id='corps'>
     <?php
         $role = "ROLE_USER";
         if(!empty($_SESSION['user']['role'])){
@@ -28,8 +28,9 @@
     <main>
         <article class="texte_article">
             <?php
+                require_once 'BDD/connexionBDD.php';
                 require_once 'POO/Post.php';
-                $affichagPost = new Post(0,"","","","",0);
+                $affichagPost = new Post($_GET['id'],"","","","",0);
 
                 $post = $affichagPost->AffichagePost($_GET['id']);
 

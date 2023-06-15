@@ -1,6 +1,4 @@
 <?php
-    require_once '../BDD/connexionBDD.php';
-
     class User{
         private int $user_id;
         private string $user_firstname;

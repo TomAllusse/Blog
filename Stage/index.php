@@ -29,60 +29,29 @@
     ?>
     <main>
         <h1>Mon Blog</h1>
-        <div class="article_principal">
-            <img src="images/test.jpg" alt="image de l'article">
-            <article class="articlePrincipal">
-                <h2>Titre de l'article</h2>
-                <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
-            </article>
-        </div>
-        <div class="article_principal">
-            <img src="images/test.jpg" alt="image de l'article">
-            <article class="articlePrincipal">
-                <h2>Titre de l'article</h2>
-                <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
-            </article>
-        </div>
-        <div class="article_principal">
-            <img src="images/test.jpg" alt="image de l'article">
-            <article class="articlePrincipal">
-                <h2>Titre de l'article</h2>
-                <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
-            </article>
-        </div>
-        <div class="article_principal">
-            <img src="images/test.jpg" alt="image de l'article">
-            <article class="articlePrincipal">
-                <h2>Titre de l'article</h2>
-                <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
-            </article>
-        </div>
-        <div class="article_principal">
-            <img src="images/test.jpg" alt="image de l'article">
-            <article class="articlePrincipal">
-                <h2>Titre de l'article</h2>
-                <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
-            </article>
-        </div>
-        <div class="article_principal">
-            <img src="images/test.jpg" alt="image de l'article">
-            <article class="articlePrincipal">
-                <h2>Titre de l'article</h2>
-                <h3>Catégorie</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis finibus sem. Sed auctor ipsum nisi, feugiat elementum magna accumsan id. Proin in sollicitudin nisi. Suspendisse urna sem, blandit ac molestie eu, iaculis ut urna. Aliquam erat volutpat.</p>
-                <a class="bouton_index" href="article.php"><button>Lire la suite ...</button></a>
-            </article>
-        </div>
+        <?php
+            require_once 'BDD/connexionBDD.php';
+            require('POO/Post.php');
+
+            $post_test = new Post(0,'','','','',0);
+
+            $post = $post_test->DisplayPostGlobal();
+
+            foreach($post as $resultat){
+                echo "
+                    <div class=\"article_principal\">
+                        <img src=".$resultat['Picture']." alt=\"image de l'article\">
+                        <article class=\"articlePrincipal\">
+                            <h2>".$resultat['Title']."</h2>
+                            <h3>".$resultat['Name_Categories']."</h3>
+                            <p>".$resultat['Contained']."</p>";
+                echo'       <a class="bouton_index" href="New-post.php?id='.$resultat['Id_Post'].'"><button>Lire la suite ...</button></a>
+                        </article>
+                    </div>
+                    ';
+            }
+        ?>
+        
     </main>
     <?php
         require_once('layouts/footer.php');

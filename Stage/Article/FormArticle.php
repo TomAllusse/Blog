@@ -5,7 +5,7 @@
     $role = $_SESSION['user']['role'];
     if ( $role == 'ROLE_ADMIN' || $role == 'ROLE_USER') {
     }else{
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit();
     }
 ?>
