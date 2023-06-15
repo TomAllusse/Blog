@@ -1,4 +1,6 @@
 <?php
+    require_once 'BDD/connexionBDD.php';
+
     class Post{
         private int $post_id;
         private string $post_title;
@@ -72,7 +74,7 @@
         public function AffichagePost(int $post_id){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("SELECT * FROM `post` where Id_Post=:id");
+            $prep = $bdd->prepare("SELECT * FROM `post` p INNER JOIN `categories` c INNER JOIN `to_have` t ON p.Id_Post=t.Id_Post AND c.Id_Categories=t.Id_Categories WHERE p.Id_Post = :id");
             $prep->bindValue(":id", $post_id);
             $prep->execute();
             return $prep->fetch();
@@ -90,6 +92,14 @@
             $bdd = connexionBDD();
             
             $prep = $bdd->prepare("SELECT * FROM `users` u INNER JOIN `post` p WHERE u.Id_User=p.Id_User AND p.Id_Post > $min AND p.Id_Post<= $max");
+            $prep->execute();
+            return $prep->fetchall();
+        }
+
+        public function DisplayPostGlobal(){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT * FROM `post`");
             $prep->execute();
             return $prep->fetchall();
         }

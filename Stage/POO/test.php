@@ -1,6 +1,6 @@
-<?php
+<!--/*
     require('User.php');
-
+*/
     /*USER*/
     
     /*
@@ -83,7 +83,7 @@
     var_dump($post_test->DeletePost(3));
     */
     /*COMMENT*/
-
+/*
     require('Comment.php');
 
     $comment_test = new Comment(0,"","",0,0);
@@ -92,37 +92,68 @@
 
     $comment_test = new Comment($comment['Id_Comment'],$comment['Contained_Comment'], $comment['Created_at'], $comment['Id_User'], $comment['Id_Post']);
 
-    /*
+    
     var_dump($comment_test->DisplayComment());
-    */
+    
     echo $comment_test->getId_Comment().'/'.$comment_test->getContained_Comment().'/'.$comment_test->getCreated_at().'/'.$comment_test->getId_User().'/'.$comment_test->getId_Post();
 
     var_dump($comment_test->UpdateComment("Update Comment"));
 
     echo $comment_test->getId_Comment().'/'.$comment_test->getContained_Comment().'/'.$comment_test->getCreated_at().'/'.$comment_test->getId_User().'/'.$comment_test->getId_Post();
-    /*
+    
     var_dump($comment_test->DeleteComment(1));
     */
 
     /*CATEGORIES*/
-
+/*
     require('Categories.php');
 
     $Categories_test = new Categories(0,"");
-    /*
+    
     var_dump($Categories_test->InsertCategories("Romans"));
-    */
+    
     $categories = $Categories_test->InsertCategories("Article");
 
     $Categories_test = new Categories($categories['Id_Categories'], $categories['Name_Categories']);
-    /*
+    
     var_dump($Categories_test->DisplayCategories());
-    */
+    
     echo $Categories_test->getID().'/'.$Categories_test->getName();
 
     var_dump($Categories_test->UpdateCategories(2,"Bande dessiné"));
     echo $Categories_test->getID().'/'.$Categories_test->getName();
-    /*
+    
     var_dump($Categories_test->DeleteCategories(2));
     */
-?>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="../Article/New-post.php?id=xx">
+        <ul>
+            <li>        
+                <select name="id">
+                    <?php
+                        require_once 'Post.php';
+
+                        $post_test = new Post(0,'','','','',0);
+
+                        $post = $post_test->DisplayPostGlobal();
+
+                        foreach($post as $resultat){
+                            $id = $resultat["Id_Post"];
+                            echo "<option value=\"$id\">$id</option>";
+                        }
+                    ?>
+                </select>   
+            </li>   
+            <input type="submit" value="Valider">
+        </ul>
+    </form>
+</body>
+</html>

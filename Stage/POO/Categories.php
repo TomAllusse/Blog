@@ -1,4 +1,6 @@
 <?php
+    require_once '../BDD/connexionBDD.php';
+
     class Categories{
         private int $categories_id;
         private string $categories_name;

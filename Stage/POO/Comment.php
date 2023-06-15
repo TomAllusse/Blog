@@ -1,4 +1,6 @@
 <?php
+    require_once '../BDD/connexionBDD.php';
+
     class Comment{
         private int $Id_Comment;
         private string $Contained_Comment;
