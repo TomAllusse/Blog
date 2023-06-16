@@ -4,14 +4,16 @@
         private string $post_title;
         private string $post_picture;
         private string $post_contained;
+        private string $post_resume;
         private string $post_created_at;
         private int $post_user_id;
         
-        public function __construct(int $post_id,string $post_title,string $post_picture,string $post_contained,string $post_created_at,int $post_user_id){
+        public function __construct(int $post_id,string $post_title,string $post_picture,string $post_contained,string $post_resume,string $post_created_at,int $post_user_id){
             $this->post_id = $post_id;
             $this->post_title = $post_title;
             $this->post_picture = $post_picture;
             $this->post_contained = $post_contained;
+            $this->post_resume = $post_resume;
             $this->post_created_at = $post_created_at;
             $this->post_user_id = $post_user_id;
         }
@@ -29,6 +31,9 @@
         }
         public function getContained(){
             return $this->post_contained;
+        }
+        public function getResume(){
+            return $this->post_resume;
         }
         public function getCreatedAt(){
             return $this->post_created_at;
@@ -51,6 +56,9 @@
         public function setContained(string $new_post_contained){
             $this->post_contained = $new_post_contained;
         }
+        public function sitResume(){
+            $this->post_resume = $post_resume;
+        }
         public function setCreatedAt(string $new_post_created_at){
             $this->post_created_at = $new_post_created_at;
         }
@@ -58,15 +66,57 @@
             $this->post_user_id = $new_post_user_id;
         }
 
-        public function CreationPost(int $post_user_id, string $post_title, string $post_contained, string $post_picture){
+        public function CreationPost(int $post_user_id, string $post_title, string $post_contained, string $post_resume, string $post_picture){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("INSERT INTO post (Title, Picture, Contained, Created_at, Id_User) VALUES (:title, :images, :contained, now(),:id_user)");
+            $prep = $bdd->prepare("INSERT INTO post (Title, Picture, Contained, Resume, Created_at, Id_User) VALUES (:title, :images, :contained, now(), :id_user, :resume)");
             $prep->bindValue(":id_user", $post_user_id);
             $prep->bindValue(":title", $post_title);
             $prep->bindValue(":contained", $post_contained);
+            $prep->bindValue(":resume", $post_resume);
             $prep->bindValue(":images", $post_picture);
             $prep->execute();
+        }
+
+        public function InsertionImage(){
+            if(!empty($_FILES['image_Article']['size'])){
+                if ($_FILES['image_Article']['size'] > 10000000) {
+                    header('Location:../user.php?modif=true');
+                    exit();
+                    throw new RuntimeException('Exceeded filesize limit.');
+                }
+                $target_dir = "../uploads/";
+                $target_file = $target_dir . basename($_FILES["image_Article"]["name"]);
+            
+                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            
+                if (!move_uploaded_file(
+                    $_FILES['image_Article']['tmp_name'],
+                        $Image = sprintf('../uploads/Articles/%s.%s',
+                        sha1_file($_FILES['image_Article']['tmp_name']),
+                        $imageFileType
+                    )
+                )) {
+                    throw new RuntimeException('Failed to move uploaded file.');
+                }
+                $lienImage='';
+                for($i = 3; $i < strlen($Image); $i++){
+                    $lienImage = $lienImage.$Image[$i];
+                }
+                echo 'File is uploaded successfully.';
+        
+                $pictureLink = LinkPicture();
+                var_dump($pictureLink['Picture']);
+                if (!empty($lienImage)) {
+                    if('../'.$pictureLink['Picture'] != '../images/account.png'){
+                        unlink('../'.$pictureLink['Picture']);
+                    }
+                    $prep = $bdd->prepare("UPDATE `post` SET `Picture` = :image WHERE `Id_Post` = :id;");
+                    $prep->bindValue(":id", $_GET['id']);
+                    $prep->bindValue(":image", $lienImage);
+                    $prep->execute();
+                }
+            }
         }
 
         public function AffichagePost(int $post_id){
@@ -117,10 +167,10 @@
             $prep = $bdd->prepare("SELECT p.Id_User FROM `post` p INNER JOIN `categories` c INNER JOIN `to_have` t ON p.Id_Post=t.Id_Post AND c.Id_Categories=t.Id_Categories WHERE p.Id_Post = :id");
             $prep->bindValue(":id", $post_id);
             $prep->execute();
-            return $prep->fetchColumn();
+            return $prep->fetch();
         }
 
-        public function UpdatePost(int $post_id, string $post_title, string $post_contained, string $post_picture){
+        public function UpdatePost(int $post_id, string $post_title, string $post_contained, string $post_resume, string $post_picture){
             $bdd = connexionBDD();
 
             if($post_title != $this->post_title){
@@ -135,6 +185,13 @@
                 $prep->bindValue(":id_post", $post_id);
                 $prep->bindValue(":contained", $post_contained);
                 $this->post_contained = $post_contained;
+                $prep->execute();
+            }
+            if($post_resume != $this->post_resume){
+                $prep = $bdd->prepare("UPDATE `post` SET `Resume` = :resume WHERE `Id_Post` = :id_post ");
+                $prep->bindValue(":id_post", $post_id);
+                $prep->bindValue(":resume", $post_resume);
+                $this->post_resume = $post_resume;
                 $prep->execute();
             }
             if($post_picture != $this->post_picture){
@@ -155,6 +212,15 @@
 
             $prep = $bdd->prepare("SELECT * FROM `post` WHERE `Title`=:title");
             $prep->bindValue(":title", $post_title);
+            $prep->execute();
+            return $prep->fetch();
+        }
+
+        public function LinkPicture(){
+            $bdd = connexionBDD();
+
+            $prep = $bdd->prepare("SELECT Picture FROM `post` WHERE `Id_Post`=:id_post");
+            $prep->bindValue(":id_post", $this->post_id);
             $prep->execute();
             return $prep->fetch();
         }

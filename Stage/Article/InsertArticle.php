@@ -53,19 +53,19 @@
         $prep->bindValue(":resume", $resume);
         $prep->execute();
         echo "Post ajoutée !<br>";
+        
+        $post = new Post(0,"","","","",0);
+        $post->UpdatePost($id_user, $title, $Contained, $resume, $lien2);
 
-        $prep = $bdd->prepare("SELECT Id_Post FROM post WHERE Title=:title");
-        $prep->bindValue(":title", $title);
-        $prep->execute();
-        $id_post = $prep->fetchColumn();
+        $id_post = $post->VerifTitle($title);
         echo "Id post trouver !<br>";
 
-        echo $id_post;
+        var_dump($id_post['Id_Post']);
         var_dump($ChoixCategories);
 
         $prep = $bdd->prepare("INSERT INTO to_have (Id_Categories, Id_Post) VALUES (:id_categories, :id_post)");
         $prep->bindValue(":id_categories", $ChoixCategories);
-        $prep->bindValue(":id_post", $id_post);
+        $prep->bindValue(":id_post", $id_post['Id_Post']);
         $prep->execute();
         echo "Post et Categories ajoutée !<br>";
     }else{
