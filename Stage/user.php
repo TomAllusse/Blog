@@ -112,7 +112,9 @@
                     <a href="user.php?modif=true">
                         MODIFIER MES DONNÉES
                     </a>
-                </div>';
+                </div>
+                <a href="Article/FormArticle.php">Ajouter un article</a>
+                <a href="Article/DisplayMyPost.php?id='.$user['Id_User'].'">Afficher mes articles</a>';
         }
         ?>
     </main>

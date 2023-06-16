@@ -139,6 +139,7 @@
             <li>        
                 <select name="id">
                     <?php
+                        require_once 'BDD/connexionBDD.php';
                         require_once 'Post.php';
 
                         $post_test = new Post(0,'','','','',0);

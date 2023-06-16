@@ -1,6 +1,4 @@
 <?php
-    require_once 'BDD/connexionBDD.php';
-
     class Post{
         private int $post_id;
         private string $post_title;
@@ -96,12 +94,30 @@
             return $prep->fetchall();
         }
 
+        public function DisplayPostUser(int $post_user_id){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT * FROM `post` p INNER JOIN `categories` c INNER JOIN `to_have` t ON p.Id_Post=t.Id_Post AND c.Id_Categories=t.Id_Categories WHERE p.Id_User = :id ORDER BY p.Id_Post DESC");
+            $prep->bindValue(":id", $post_user_id);
+            $prep->execute();
+            return $prep->fetchall();
+        }
+
         public function DisplayPostGlobal(){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("SELECT * FROM `post`");
+            $prep = $bdd->prepare("SELECT * FROM `post` p INNER JOIN `categories` c INNER JOIN `to_have` t ON p.Id_Post=t.Id_Post AND c.Id_Categories=t.Id_Categories ORDER BY p.Id_Post DESC");
             $prep->execute();
             return $prep->fetchall();
+        }
+
+        public function DisplayUserID(int $post_id){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT p.Id_User FROM `post` p INNER JOIN `categories` c INNER JOIN `to_have` t ON p.Id_Post=t.Id_Post AND c.Id_Categories=t.Id_Categories WHERE p.Id_Post = :id");
+            $prep->bindValue(":id", $post_id);
+            $prep->execute();
+            return $prep->fetchColumn();
         }
 
         public function UpdatePost(int $post_id, string $post_title, string $post_contained, string $post_picture){
