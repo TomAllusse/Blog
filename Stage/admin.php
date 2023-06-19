@@ -11,6 +11,25 @@
         header('Location: index.php');
         exit();
     }
+
+    if(!empty($_GET['idUser'])){
+        require_once 'POO/User.php';
+        $user = new User(0, "", "","", "","", "","", "");
+        $user->DeleteImageUser($_GET['idUser']);
+        $user->DeleteUser($_GET['idUser']);
+    }else if(!empty($_GET['idPost'])){
+        require_once 'POO/Post.php';
+        $post = new Post(0,'','','','','',0);
+
+        $bdd = connexionBDD();
+            
+        $prep = $bdd->prepare("DELETE FROM `to_have` WHERE `Id_Post`=:idPost");
+        $prep->bindValue(":idPost", $_GET['idPost']);
+        $prep->execute();
+
+        $post->DeleteImagePost($_GET['idPost']);
+        $post->DeletePost($_GET['idPost']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +43,8 @@
     <link rel="stylesheet" href="css/admin.css">
     <!--Boostrap CSS-->
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
+    <!--Bouton-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Accueil</title>
 </head>
 <body id="corps">
@@ -34,7 +55,7 @@
         <table class="TableResponsive">
             <thead>
                 <tr>
-                    <th colspan="9">Tous les utilisateurs</th>
+                    <th colspan="10">Tous les utilisateurs</th>
                 <tr>
                 </tr>
                     <th>ID</th>
@@ -45,6 +66,7 @@
                     <th>Phone</th>
                     <th>Roles</th>
                     <th>Picture</th>
+                    <th>Delete</th>
                 </tr>
             </thead>    
             <tbody>
@@ -97,6 +119,7 @@
                             <td data-label="Phone">' .$user['Phone'].  '</td>
                             <td data-label="Roles">' .$user['Roles']. '</td>
                             <td data-label="Picture">' .$user['Picture_User'].  '</td>
+                            <td data-label="Delete" class="contenue"> <a href="admin.php?idUser='.$user['Id_User'].'"> <i class="material-icons button delete">delete</i> </a> </td>
                         </tr>';
                     }
                  ?>
@@ -122,7 +145,7 @@
             <table  class="TableResponsive">
                 <thead>
                     <tr>
-                        <th  colspan="7">Article liées aux utilisateurs</th>
+                        <th  colspan="8">Article liées aux utilisateurs</th>
                     </tr>
                     <tr>
                         <th>ID Post</th>
@@ -130,8 +153,9 @@
                         <th>Name</th>
                         <th>Title</th>
                         <th>Picture</th>
-                        <th>Contained</th>
+                        <th>Resume</th>
                         <th>Created at</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>   
                 <tbody>
@@ -185,8 +209,9 @@
                             <td data-label="Name">' .$user['Name_User']. '</td>
                             <td data-label="Title" class="contenue">' .$user['Title'].  '</td>
                             <td data-label="Picture" class="contenue">' .$user['Picture'].  '</td>
-                            <td data-label="Contained" class="contenue">' .$user['Contained'].  '</td>
+                            <td data-label="Resume" class="contenue">' .$user['Resume'].  '</td>
                             <td data-label="Created at" class="contenue">' .$user['Created_at'].  '</td>
+                            <td data-label="Delete" class="contenue"> <a href="admin.php?idPost='.$user['Id_Post'].'"> <i class="material-icons button delete">delete</i> </a> </td>
                         </tr>';
                     }
                 ?>

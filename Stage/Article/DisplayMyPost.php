@@ -8,6 +8,29 @@
         header('Location: ../index.php');
         exit();
     }
+
+    if(!empty($_GET['idPost'])){
+        require_once '../BDD/connexionBDD.php';
+        require_once '../POO/Post.php';
+        $post = new Post(0,'','','','','',0);
+
+        $bdd = connexionBDD();
+            
+        $prep = $bdd->prepare("DELETE FROM `to_have` WHERE `Id_Post`=:idPost");
+        $prep->bindValue(":idPost", $_GET['idPost']);
+        $prep->execute();
+
+        $idUser = $post->DisplayUserID($_GET['idPost']);
+        $UserId = $idUser['Id_User'];
+        $post->DeleteImagePost($_GET['idPost']);
+        $post->DeletePost($_GET['idPost']);
+
+        var_dump($idUser);
+        var_dump($UserId);
+
+        header("Location: DisplayMyPost.php?id=".$UserId."");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +44,8 @@
     <link rel="stylesheet" href="../css/compte.css">
     <!--Boostrap CSS-->
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
+    <!--Bouton-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Affichage des articles</title>
 </head>
 <body id="corps">
@@ -28,23 +53,29 @@
         require_once '../BDD/connexionBDD.php';
         require('../POO/Post.php');
 
-        $post = new Post(0,'','','','',$_GET['id']);
-    
+        $post = new Post(0,'','','','','',$_GET['id']);
+
+        $MaxPost = $post->MaxPostIDUser($_GET['id']);
         $post2 = $post->DisplayPostUser($_GET['id']);
-    
-        foreach($post2 as $resultat){
-            $lien = '../'.$resultat['Picture'];
-            echo "
-                <div class=\"article_principal\">
-                    <img src=".$lien." alt=\"image de l'article\">
-                    <article class=\"articlePrincipal\">
-                        <h2>".$resultat['Title']."</h2>
-                        <h3>".$resultat['Name_Categories']."</h3>
-                        <p class=\"ContainedPost\">".$resultat['Resume']."</p>";
-            echo'       <a class="bouton_index" href="UpdatePost.php?id='.$resultat['Id_Post'].'"><button>Modifier mon article</button></a>
-                    </article>
-                </div>
-                ';
+
+        if($MaxPost != 0){
+            foreach($post2 as $resultat){
+                $lien = '../'.$resultat['Picture'];
+                echo "
+                    <div class=\"article_principal\">
+                        <img src=".$lien." alt=\"image de l'article\">
+                        <article class=\"articlePrincipal\">
+                            <h2>".$resultat['Title']."</h2>
+                            <h3>".$resultat['Name_Categories']."</h3>
+                            <p class=\"ContainedPost\">".$resultat['Resume']."</p>";
+                echo'       <a class="bouton_index" href="UpdatePost.php?id='.$resultat['Id_Post'].'"><button>Modifier mon article</button></a>
+                            <a href="DisplayMyPost.php?idPost='.$resultat['Id_Post'].'"> <i class="material-icons button delete">delete</i> </a>
+                        </article>
+                    </div>
+                    ';
+            }
+        }else{
+            echo "<h1>Vous n'avez aucun article !</h1>";
         }
     ?>
     <?php

@@ -28,44 +28,36 @@
     session_start();
     $bdd = connexionBDD();
 
-    $title = htmlspecialchars(strip_tags($_POST["title"]));
-    $Contained = htmlspecialchars(strip_tags($_POST["Contained"]));
-    $ChoixCategories = htmlspecialchars(strip_tags($_POST["ChoixCategories"]));
+    $title = strip_tags($_POST["title"]);
+    $Contained = strip_tags($_POST["Contained"]);
+    $ChoixCategories = strip_tags($_POST["ChoixCategories"]);
 
     $prep = $bdd->prepare("SELECT Id_User FROM `users` WHERE `E_mail`=:email");
     $prep->bindValue(":email", $_SESSION['user']['mail']);
     $prep->execute();
     $id_user= $prep->fetchColumn();
 
-    $prep = $bdd->prepare("SELECT * FROM `post` WHERE `Title`=:title");
-    $prep->bindValue(":title", $title);
-    $prep->execute();
-    $post= $prep->fetch();
+    require_once '../POO/Post.php';
+    
+    $post = new Post(0,'','','','','',0);
+    $postVerif= $post->VerifTitle($title);
 
     $resume=substr($Contained,0,500);
 
-    if(empty($post)){
-        $prep = $bdd->prepare("INSERT INTO post (Title, Picture, Contained, Created_at, Id_User, Resume) VALUES (:title, :images, :Contained, now(),:id_user,:resume)");
-        $prep->bindValue(":id_user", $id_user);
-        $prep->bindValue(":title", $title);
-        $prep->bindValue(":Contained", $Contained);
-        $prep->bindValue(":images", $lien2);
-        $prep->bindValue(":resume", $resume);
-        $prep->execute();
-        echo "Post ajoutée !<br>";
+    if(empty($postVerif)){
         
-        $post = new Post(0,"","","","",0);
-        $post->UpdatePost($id_user, $title, $Contained, $resume, $lien2);
+        $post->CreationPost($id_user, $title, $Contained, $resume, $lien2);
+        echo "Post ajoutée !<br>";
 
-        $id_post = $post->VerifTitle($title);
+        $id_post = $post->MaxPostID();
         echo "Id post trouver !<br>";
 
-        var_dump($id_post['Id_Post']);
+        var_dump($id_post);
         var_dump($ChoixCategories);
 
         $prep = $bdd->prepare("INSERT INTO to_have (Id_Categories, Id_Post) VALUES (:id_categories, :id_post)");
         $prep->bindValue(":id_categories", $ChoixCategories);
-        $prep->bindValue(":id_post", $id_post['Id_Post']);
+        $prep->bindValue(":id_post", $id_post);
         $prep->execute();
         echo "Post et Categories ajoutée !<br>";
     }else{
@@ -74,6 +66,6 @@
     }
     // Fermer la connexion à la base de données
     $bdd = null;
-    header('Location:FormArticle.php');
+    header('Location: ../compte.php');
     exit();
 ?>
