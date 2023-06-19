@@ -174,3 +174,11 @@ div svg:hover .arrow2{
         transform: translateX(1rem);
    }
 }
+
+/*Button delete*/
+.delete {
+    color: #181717;
+}
+.delete:hover {
+    color: #dc2a2a;
+}

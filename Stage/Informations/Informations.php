@@ -80,6 +80,7 @@
         $prep = $bdd->prepare("UPDATE `users` SET `E_mail` = :email WHERE `E_mail` = :emailOLD;");
         $prep->bindValue(":email", $_POST['email']);
         $prep->bindValue(":emailOLD", $_SESSION['user']['mail']);
+        $_SESSION['user']['mail'] = $_POST['email'];
         $prep->execute();
     }
 

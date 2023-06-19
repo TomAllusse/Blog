@@ -37,6 +37,25 @@ p{
     text-align: justify;
 }
 
+.ContainedPost{
+    text-overflow: ellipsis;
+    text-align: justify;
+    height: 250px;
+    width: 700px;
+    border: none;
+    padding: 2px 5px;
+    white-space: normal;
+    overflow: auto;
+}
+
+textarea{
+    width: 100%;
+    height: 500px; 
+    overflow: auto;
+    resize: none;
+    margin: 20px auto;
+}
+
 /*Article principal*/
 
 .article_principal h2{

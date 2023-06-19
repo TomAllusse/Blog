@@ -28,23 +28,27 @@
         require_once '../BDD/connexionBDD.php';
         require('../POO/Post.php');
 
-        $post = new Post(0,'','','','',$_GET['id']);
+        $post = new Post(0,'','','','','',$_GET['id']);
     
         $post2 = $post->DisplayPostUser($_GET['id']);
-    
-        foreach($post2 as $resultat){
-            $lien = '../'.$resultat['Picture'];
-            echo "
-                <div class=\"article_principal\">
-                    <img src=".$lien." alt=\"image de l'article\">
-                    <article class=\"articlePrincipal\">
-                        <h2>".$resultat['Title']."</h2>
-                        <h3>".$resultat['Name_Categories']."</h3>
-                        <p>".$resultat['Contained']."</p>";
-            echo'       <a class="bouton_index" href="UpdatePost.php?id='.$resultat['Id_Post'].'"><button>Modifier mon article</button></a>
-                    </article>
-                </div>
-                ';
+
+        if(!isset($post2)){
+            foreach($post2 as $resultat){
+                $lien = '../'.$resultat['Picture'];
+                echo "
+                    <div class=\"article_principal\">
+                        <img src=".$lien." alt=\"image de l'article\">
+                        <article class=\"articlePrincipal\">
+                            <h2>".$resultat['Title']."</h2>
+                            <h3>".$resultat['Name_Categories']."</h3>
+                            <p class=\"ContainedPost\">".$resultat['Resume']."</p>";
+                echo'       <a class="bouton_index" href="UpdatePost.php?id='.$resultat['Id_Post'].'"><button>Modifier mon article</button></a>
+                        </article>
+                    </div>
+                    ';
+            }
+        }else{
+            echo "<h1>Vous n'avez aucun article !</h1>";
         }
     ?>
     <?php

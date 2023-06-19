@@ -23,7 +23,7 @@
 <body>
     <main id='corps'>
         <?php
-            echo "<form method=\"post\" action=\"UpdatePostUser.php?id=".$_GET["id"]."\" enctype=\"multipart/form-data\">
+            echo "<form method=\"post\" action=\"UpdatePostUser.php?id=".$_GET['id']."\" enctype=\"multipart/form-data\">
                 <fieldset>
                     <h2>
                         Modifiez vos Informations de l'article que vous voulez

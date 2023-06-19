@@ -171,9 +171,22 @@
             return $prep->fetchall();
         }
 
-        public function DeleteUser($user_id){
+        public function DeleteImageUser(int $idUser){
             $bdd = connexionBDD();
             
+            $prep = $bdd->prepare("SELECT * FROM `users` WHERE `Id_User`=:id");
+            $prep->bindValue(':id',$idUser);
+            $prep->execute();
+            $img = $prep->fetch();
+
+            if('../'.$img['Picture_User'] != '../images/account.png'){
+                unlink($img['Picture_User']);
+            }
+        }
+
+        public function DeleteUser($user_id){
+            $bdd = connexionBDD();
+
             $prep = $bdd->prepare("DELETE FROM `users` WHERE `Id_User`=:id");
             $prep->bindValue(":id", $user_id);
             $prep->execute();
