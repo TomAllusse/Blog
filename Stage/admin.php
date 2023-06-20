@@ -85,9 +85,9 @@
                     $prep->execute();
                     $id= $prep->fetchColumn();
                     
-                    if(isset($_GET['before'])){
+                    if(isset($_GET['beforeUser'])){
                         before();
-                    }else if (isset($_GET['after'])){
+                    }else if (isset($_GET['afterUser'])){
                         after();
                     }
                     
@@ -126,14 +126,14 @@
             </tbody>
         </table>
         <div class="button2"> 
-                <a href="admin.php?beforeArticle=true">
+                <a href="admin.php?beforeUser=true">
                     <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g>
                             <path class="arrow" d="M13.75 8.25C12.1879 9.8121 11.3121 10.6879 9.75 12.25L13.75 16.25" stroke="#F6F1F1" stroke-width="1.00088"/>
                         </g>
                     </svg>
                 </a>
-                <a href="admin.php?afterArticle=true">
+                <a href="admin.php?afterUser=true">
                     <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g>
                             <path class="arrow2" d="M10.25 8.25C11.8121 9.8121 12.6879 10.6879 14.25 12.25L10.25 16.25" stroke="#F6F1F1"stroke-width="1.00088" stroke-linejoin="round"/>
@@ -169,6 +169,10 @@
                         $_SESSION['minArticle'] = $_SESSION['minArticle'] + 5;
                     }
 
+                    $prep = $bdd->prepare("SELECT MAX(Id_Post) FROM `post`");
+                    $prep->execute();
+                    $idArticle= $prep->fetchColumn();
+
                     if(isset($_GET['beforeArticle'])){
                         beforeArticle();
                     }else if (isset($_GET['afterArticle'])){
@@ -180,7 +184,7 @@
                         $_SESSION['minArticle'] = 0;
                     }
 
-                    if($_SESSION['maxArticle'] <=0 || $_SESSION['maxArticle'] >= $id && ($id % 5) == 0 || $_SESSION['maxArticle'] >= ($id + 5)) {
+                    if($_SESSION['maxArticle'] <=0 || $_SESSION['maxArticle'] >= $idArticle && ($idArticle % 5) == 0 || $_SESSION['maxArticle'] >= ($idArticle + 5)) {
                         $_SESSION['maxArticle'] = 5;
                         $_SESSION['minArticle'] = 0;
                     }
@@ -188,9 +192,6 @@
                     $maxArticle = $_SESSION['maxArticle'];
                     $minArticle = $_SESSION['minArticle'];
 
-                    $prep = $bdd->prepare("SELECT MAX(Id_Post) FROM `post`");
-                    $prep->execute();
-                    $idArticle= $prep->fetchColumn();
                     if($idArticle == 0){
                         $prep = $bdd->prepare("SELECT * FROM `post`");
                     }else if($maxArticle <= $idArticle){

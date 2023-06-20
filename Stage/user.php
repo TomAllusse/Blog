@@ -23,6 +23,8 @@
     ?>
     <!--Boostrap CSS-->
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
+    <!--Bouton-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Accueil</title>
 </head>
 <body id="corps">
@@ -114,7 +116,8 @@
                     </a>
                 </div>
                 <a href="Article/FormArticle.php">Ajouter un article</a>
-                <a href="Article/DisplayMyPost.php?id='.$user['Id_User'].'">Afficher mes articles</a>';
+                <a href="Article/DisplayMyPost.php?id='.$user['Id_User'].'">Afficher mes articles</a>
+                <a href="DeleteMyAccount.php?idUser='.$user['Id_User'].'"> <i class="material-icons button delete">delete</i> </a>';
         }
         ?>
     </main>

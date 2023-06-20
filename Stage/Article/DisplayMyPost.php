@@ -13,6 +13,9 @@
         require_once '../BDD/connexionBDD.php';
         require_once '../POO/Post.php';
         $post = new Post(0,'','','','','',0);
+        
+        $idUser = $post->DisplayUserID($_GET['idPost']);
+        $UserId = $idUser['Id_User'];
 
         $bdd = connexionBDD();
             
@@ -20,13 +23,8 @@
         $prep->bindValue(":idPost", $_GET['idPost']);
         $prep->execute();
 
-        $idUser = $post->DisplayUserID($_GET['idPost']);
-        $UserId = $idUser['Id_User'];
         $post->DeleteImagePost($_GET['idPost']);
         $post->DeletePost($_GET['idPost']);
-
-        var_dump($idUser);
-        var_dump($UserId);
 
         header("Location: DisplayMyPost.php?id=".$UserId."");
         exit();

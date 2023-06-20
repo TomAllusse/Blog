@@ -242,7 +242,11 @@
             $img = $prep->fetch();
 
             if('../'.$img['Picture'] != '../images/account.png'){
-                unlink($img['Picture']);
+                if(file_exists('../'.$img['Picture'])){
+                    unlink('../'.$img['Picture']);
+                }else{
+                    unlink($img['Picture']);
+                }
             }
         }
 

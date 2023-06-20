@@ -1,6 +1,10 @@
 <?php
 
     session_start();
+    
+    if($_GET['delete'] == true){
+        session_destroy();
+    }
 ?>
 
 <!DOCTYPE html>
