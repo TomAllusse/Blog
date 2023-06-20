@@ -2,9 +2,6 @@
 
     session_start();
     
-    if($_GET['delete'] == true){
-        session_destroy();
-    }
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +29,7 @@
         }
     ?>
     <main>
-        <h1>Mon Blog</h1>
+        <h1 id="TitreIndex">Mon Blog</h1>
         <?php
             require_once 'BDD/connexionBDD.php';
             require('POO/Post.php');
@@ -46,11 +43,11 @@
                 foreach($post as $resultat){
                     echo "
                         <div class=\"article_principal\">
-                            <img src=".$resultat['Picture']." alt=\"image de l'article\">
+                            <img class=\"image\" src=".$resultat['Picture']." alt=\"image de l'article\">
                             <article class=\"articlePrincipal\">
                                 <h2>".$resultat['Title']."</h2>
                                 <h3>".$resultat['Name_Categories']."</h3>
-                                <p>".$resultat['Resume']."</p>";
+                                <p id=\"marge\">".$resultat['Resume']."</p>";
                     echo'       <a class="bouton_index" href="New-post.php?id='.$resultat['Id_Post'].'"><button>Lire la suite ...</button></a>
                             </article>
                         </div>

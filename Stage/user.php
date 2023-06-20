@@ -106,7 +106,7 @@
                     <h2>Téléphone :</h2>
                     <p>'.$user['Phone'].'</p>
                 </div>
-                <div class="user">
+                <div class="imgUser">
                     <h1>Image de profil</h1>
                     <img src='.$user['Picture_User'].' alt="image de l`article">
                 </div>
@@ -115,9 +115,10 @@
                         MODIFIER MES DONNÉES
                     </a>
                 </div>
-                <a href="Article/FormArticle.php">Ajouter un article</a>
-                <a href="Article/DisplayMyPost.php?id='.$user['Id_User'].'">Afficher mes articles</a>
-                <a href="DeleteMyAccount.php?idUser='.$user['Id_User'].'"> <i class="material-icons button delete">delete</i> </a>';
+                <div id="buttonDisplayADD">
+                    <a id="buttonADD" href="Article/FormArticle.php">Ajouter un article</a>
+                    <a id="buttonDisplay" href="Article/DisplayMyPost.php?id='.$user['Id_User'].'">Afficher mes articles</a>
+                </div>';
         }
         ?>
     </main>

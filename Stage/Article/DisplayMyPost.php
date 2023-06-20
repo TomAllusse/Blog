@@ -39,8 +39,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/compte.css">
-    <!--Boostrap CSS-->
+    <!--<link rel="stylesheet" href="../css/compte.css">
+    Boostrap CSS-->
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <!--Bouton-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -61,13 +61,13 @@
                 $lien = '../'.$resultat['Picture'];
                 echo "
                     <div class=\"article_principal\">
-                        <img src=".$lien." alt=\"image de l'article\">
+                        <img class=\"image\" src=".$lien." alt=\"image de l'article\">
                         <article class=\"articlePrincipal\">
                             <h2>".$resultat['Title']."</h2>
                             <h3>".$resultat['Name_Categories']."</h3>
-                            <p class=\"ContainedPost\">".$resultat['Resume']."</p>";
+                            <p id=\"marge\">".$resultat['Resume']."</p>";
                 echo'       <a class="bouton_index" href="UpdatePost.php?id='.$resultat['Id_Post'].'"><button>Modifier mon article</button></a>
-                            <a href="DisplayMyPost.php?idPost='.$resultat['Id_Post'].'"> <i class="material-icons button delete">delete</i> </a>
+                            <a id="bouton_delete" href="DisplayMyPost.php?idPost='.$resultat['Id_Post'].'"> <i class="material-icons button delete">delete</i> </a>
                         </article>
                     </div>
                     ';

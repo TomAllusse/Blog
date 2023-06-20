@@ -40,7 +40,7 @@ p{
 .ContainedPost{
     text-overflow: ellipsis;
     text-align: justify;
-    height: 250px;
+    height: auto;
     width: 700px;
     border: none;
     padding: 2px 5px;
@@ -54,6 +54,16 @@ textarea{
     overflow: auto;
     resize: none;
     margin: 20px auto;
+}
+
+#marge{
+    margin-bottom: 10px;
+}
+
+#bouton_delete{
+    text-decoration: none;
+    display: flex;
+    float: right;
 }
 
 /*Article principal*/
@@ -102,6 +112,10 @@ textarea{
 
 .articlePrincipal{
     padding: 4%;
+}
+
+.image{
+    box-shadow: 0px 0px 15px 5px rgba(24,23,23,0.5);
 }
 
 /*Article secondaire*/
@@ -230,6 +244,9 @@ footer{
 
             @media only screen and (max-width: 380px)
             {
+            #TitreIndex{
+                margin-top: 25%;
+            }
             .article_principal h2{
                 font-size: 8px;
             }

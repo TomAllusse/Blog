@@ -22,7 +22,13 @@ p{
     text-align: center;
 }
 
+.imgUser{
+    width: 100%;
+    text-align: center;
+}
+
 img{
+    width: 500px;
     margin: 5% auto;
     border: 1px solid #F6F1F1;
 }
@@ -35,10 +41,14 @@ img{
     color: #F6F1F1;
     border-radius: 40px;
     padding: 20px;
+    margin: auto;
 }
 
 #button3{
-    text-align: center;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    padding: 200px auto;
 }
 
 #button3 a:hover{
@@ -62,4 +72,64 @@ img{
         opacity: 1;
         font-size: xx-large;
     }
+}
+
+/*Button Display / Button Add*/
+
+#buttonDisplayADD{
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 100px auto;
+}
+
+#buttonDisplay, #buttonADD{
+    text-decoration: none;
+    border: 5px inset #F6F1F1;
+    color: #F6F1F1;
+    border-radius: 40px;
+    padding: 20px;
+    display: inline-block;
+    margin: 50px auto;
+}
+
+#buttonDisplay:hover, #buttonADD:hover{
+    border-style: outset;
+}
+
+/*Test Mobile*/
+
+@media only screen and (max-width:700px)
+{
+    img{
+        width: 200px;
+    }
+    #buttonDisplay, #buttonADD, #button3 a{
+        font-size: 10px;
+        border-width: 2px;
+        margin: 5px auto;
+    }
+    h2{
+        width: 300px !important;
+    }
+    p{
+        height: 40px !important;
+        width: 300px !important;
+    }
+    @media only screen and (max-width:300px)
+    {
+        img{
+            width: 125px;
+        }
+        h2,h1{
+            width: 100px !important;
+            font-size: 10px !important;
+        }
+        p{
+            height: 30px !important;
+            width: 100px !important;
+            font-size: 8px !important;
+        }
+    }
+
 }
