@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    
 ?>
 
 <!DOCTYPE html>
@@ -28,24 +29,25 @@
         }
     ?>
     <main>
-        <h1>Mon Blog</h1>
+        <h1 id="TitreIndex">Mon Blog</h1>
         <?php
             require_once 'BDD/connexionBDD.php';
             require('POO/Post.php');
 
             $post_test = new Post(0,'','','','','',0);
 
+            $MaxPost = $post_test->MaxPostID();
             $post = $post_test->DisplayPostGlobal();
 
-            if(!isset($post)){
+            if($MaxPost != 0){
                 foreach($post as $resultat){
                     echo "
                         <div class=\"article_principal\">
-                            <img src=".$resultat['Picture']." alt=\"image de l'article\">
+                            <img class=\"image\" src=".$resultat['Picture']." alt=\"image de l'article\">
                             <article class=\"articlePrincipal\">
                                 <h2>".$resultat['Title']."</h2>
                                 <h3>".$resultat['Name_Categories']."</h3>
-                                <p>".$resultat['Resume']."</p>";
+                                <p id=\"marge\">".$resultat['Resume']."</p>";
                     echo'       <a class="bouton_index" href="New-post.php?id='.$resultat['Id_Post'].'"><button>Lire la suite ...</button></a>
                             </article>
                         </div>

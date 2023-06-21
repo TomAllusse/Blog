@@ -30,7 +30,7 @@
             <?php
                 require_once 'BDD/connexionBDD.php';
                 require_once 'POO/Post.php';
-                $affichagPost = new Post($_GET['id'],"","","","",0);
+                $affichagPost = new Post($_GET['id'],"","","","","",0);
 
                 $post = $affichagPost->AffichagePost($_GET['id']);
 

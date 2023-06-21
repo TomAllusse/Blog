@@ -69,7 +69,7 @@
         public function CreationPost(int $post_user_id, string $post_title, string $post_contained, string $post_resume, string $post_picture){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("INSERT INTO post (Title, Picture, Contained, Resume, Created_at, Id_User) VALUES (:title, :images, :contained, now(), :id_user, :resume)");
+            $prep = $bdd->prepare("INSERT INTO post (Title, Picture, Contained, Created_at, Id_User, Resume) VALUES (:title, :images, :contained, now(), :id_user, :resume)");
             $prep->bindValue(":id_user", $post_user_id);
             $prep->bindValue(":title", $post_title);
             $prep->bindValue(":contained", $post_contained);
@@ -132,6 +132,15 @@
             $bdd = connexionBDD();
             
             $prep = $bdd->prepare("SELECT MAX(Id_Post) FROM `post`");
+            $prep->execute();
+            return $prep->fetchColumn();
+        }
+
+        public function MaxPostIDUser($post_user_id){
+            $bdd = connexionBDD();
+            
+            $prep = $bdd->prepare("SELECT MAX(Id_Post) FROM `post` WHERE `Id_User`=:id");
+            $prep->bindValue(":id", $post_user_id);
             $prep->execute();
             return $prep->fetchColumn();
         }
@@ -224,16 +233,20 @@
             return $prep->fetch();
         }
 
-        public function DeleteImagePost(int $idPost){
+        public function DeleteImagePost(int $post_id){
             $bdd = connexionBDD();
             
             $prep = $bdd->prepare("SELECT * FROM `post` WHERE `Id_Post`=:id_post");
-            $prep->bindValue(":id_post", $this->post_id);
+            $prep->bindValue(":id_post", $post_id);
             $prep->execute();
             $img = $prep->fetch();
 
             if('../'.$img['Picture'] != '../images/account.png'){
-                unlink($img['Picture']);
+                if(file_exists('../'.$img['Picture'])){
+                    unlink('../'.$img['Picture']);
+                }else{
+                    unlink($img['Picture']);
+                }
             }
         }
 
