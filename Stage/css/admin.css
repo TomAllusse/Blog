@@ -6,6 +6,10 @@ body{
     font-family: sans-serif;
 }
 
+main{
+    margin-top: 200px;
+}
+
 table{
     font-size: small;
     width: 80%;
@@ -44,7 +48,10 @@ td{
 }
 
 @media only screen  and (max-width:900px){
-
+           
+    main{
+        margin-top: 100px;
+    }
     .top{
         margin-top: 10%;
     }
