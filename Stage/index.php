@@ -43,7 +43,9 @@
                 foreach($post as $resultat){
                     echo "
                         <div class=\"article_principal\">
-                            <img class=\"image\" src=".$resultat['Picture']." alt=\"image de l'article\">
+                            <div class=\"img\">
+                                <img class=\"image\" src=".$resultat['Picture']." alt=\"image de l'article\">
+                            </div>    
                             <article class=\"articlePrincipal\">
                                 <h2>".$resultat['Title']."</h2>
                                 <h3>".$resultat['Name_Categories']."</h3>

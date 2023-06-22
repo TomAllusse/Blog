@@ -1,5 +1,11 @@
 <?php
 
+    session_start();
+
+    if(empty($_SESSION['user']['role'])){
+        header('Location: compte.php');
+    }
+
     require_once 'BDD/connexionBDD.php';
 
     $bdd = connexionBDD();    
@@ -29,7 +35,7 @@
 </head>
 <body id="corps">
     <?php
-        require_once('layouts/nav-bar-admin.php');
+        require_once('layouts/nav-bar.php');
     ?>
     <main>
         <?php
