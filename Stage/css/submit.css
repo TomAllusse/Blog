@@ -1,3 +1,7 @@
+*, *::before, *::after {
+    box-sizing:content-box !important;
+}
+
 #button{
     display: flex;
     margin: 25px auto;

@@ -97,15 +97,15 @@
                 <div class="user">
                     <h1>Vos Informations personnelles</h1>
                     <h2>Prénom :</h2>
-                    <p>'.$user['FirstName'].'</p>
+                    <p class="p_user">'.$user['FirstName'].'</p>
                     <h2>Nom :</h2>
-                    <p>'.$user['Name_User'].'</p>
+                    <p class="p_user">'.$user['Name_User'].'</p>
                     <h2>Date de naissance :</h2>
-                    <p>'.$user['Date_Of_Birth'].'</p>
+                    <p class="p_user">'.$user['Date_Of_Birth'].'</p>
                     <h2>Mail :</h2>
-                    <p>'.$user['E_mail'].'</p>
+                    <p class="p_user">'.$user['E_mail'].'</p>
                     <h2>Téléphone :</h2>
-                    <p>'.$user['Phone'].'</p>
+                    <p class="p_user">'.$user['Phone'].'</p>
                 </div>
                 <div class="imgUser">
                     <h1>Image de profil</h1>

@@ -25,19 +25,19 @@
         <div class="options-container">
             <a class="item" href="index.php">
                 <div class="bar"></div>
-                <p class="categorieBar">Home</p>
+                <p>Home</p>
             </a>
             <a class="item" href="page2.php">
                 <div class="bar"></div>
-                <p class="categorieBar">Page 2</p>
+                <p>Page 2</p>
             </a>
             <a class="item" href="admin.php">
                 <div class="bar"></div>
-                <p class="categorieBar">Admin</p>
+                <p>Admin</p>
             </a>
             <a class="item" href="compte.php">
                 <div class="bar"></div>
-                <p class="categorieBar">Mon compte</p>
+                <p>Mon compte</p>
             </a>
         </div>
     </nav>
