@@ -1,0 +1,103 @@
+h3{
+    font-size: 30px!important;
+}
+label{
+    font-size: 25px;
+}
+@media only screen and (max-width: 1440px) {
+    h2{
+        font-size: 25px!important;
+    }
+    h3{
+        font-size: 25px!important;
+    }
+    label{
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 768px) {
+        h2{
+            font-size: 20px!important;
+        }
+        h3{
+            font-size: 20px!important;
+        }
+        label{
+            font-size: 10px;
+        }
+        @media only screen and (max-width: 525px) {
+            h2{
+                font-size: 15px!important;
+            }
+            h3{
+                font-size: 15px!important;
+            }
+            label{
+                font-size: 8px;
+            }
+            @media only screen and (max-width: 425px) {
+                h2{
+                    font-size: 8px!important;
+                }
+                h3{
+                    font-size: 10px!important;
+                }
+                label{
+                    font-size: 7px;
+                }
+                #prenom{
+                    font-size: 6px;
+                }
+                #nom{
+                    font-size: 6px;
+                }
+                #date{
+                    font-size: 6px;
+                }
+                #email{
+                    font-size: 6px;
+                }
+                #numero{
+                    font-size: 6px;
+                }
+                #numero{
+                    font-size: 6px;
+                }
+                #image_User{
+                    font-size: 6px;
+                }
+                @media only screen and (max-width: 300px) {
+                    h2{
+                        font-size: 7px!important;
+                    }
+
+                    @media only screen and (max-width: 200px) {
+                        label{
+                            font-size: 6px;
+                        }
+                        #prenom{
+                            font-size: 5px;
+                        }
+                        #nom{
+                            font-size: 5px;
+                        }
+                        #date{
+                            font-size: 5px;
+                        }
+                        #email{
+                            font-size: 5px;
+                        }
+                        #numero{
+                            font-size: 5px;
+                        }
+                        #numero{
+                            font-size: 5px;
+                        }
+                        #image_User{
+                            font-size: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

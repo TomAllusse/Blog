@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     require_once 'BDD/connexionBDD.php';
 
@@ -19,6 +20,7 @@
     <?php
         if(isset($_GET['modif'])){
             echo "<link rel=\"stylesheet\" href=\"css/compte.css\">";
+            echo "<link rel=\"stylesheet\" href=\"css/formModif.css\">";
         }
     ?>
     <!--Boostrap CSS-->
@@ -29,13 +31,11 @@
 </head>
 <body id="corps">
     <?php
-        require_once('layouts/nav-bar-admin.php');
+        require_once('layouts/nav-bar.php');
     ?>
     <main>
         <?php
         if(isset($_GET['modif'])){
-            
-            session_start();
             
             $prep = $bdd->prepare("SELECT * FROM `users` WHERE `E_mail`=:mail");
             $prep->bindValue(":mail", $_SESSION['user']['mail']);
@@ -88,6 +88,7 @@
                     </fieldset>
                 </form>";
         }else{
+
             $prep = $bdd->prepare("SELECT * FROM `users` WHERE `E_mail`=:mail");
             $prep->bindValue(":mail", $_SESSION['user']['mail']);
             $prep->execute();

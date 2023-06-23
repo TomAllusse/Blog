@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/styles.css">
-    <!--Boostrap CSS
-    <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet"> -->
+    <!--Boostrap CSS-->
+    <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <title>Accueil</title>
 </head>
 <body>
@@ -43,7 +43,9 @@
                 foreach($post as $resultat){
                     echo "
                         <div class=\"article_principal\">
-                            <img class=\"image\" src=".$resultat['Picture']." alt=\"image de l'article\">
+                            <div class=\"img\">
+                                <img class=\"image\" src=".$resultat['Picture']." alt=\"image de l'article\">
+                            </div>    
                             <article class=\"articlePrincipal\">
                                 <h2>".$resultat['Title']."</h2>
                                 <h3>".$resultat['Name_Categories']."</h3>

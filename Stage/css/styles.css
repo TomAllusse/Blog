@@ -87,8 +87,7 @@ textarea{
 
 .article_principal img{
     margin: 4%;
-    border-radius: 40px 40px 40px 40px;
-    width: 25%;
+    border-radius: 20%;
 }
 
 /*Article principal : Boutton*/
@@ -114,8 +113,17 @@ textarea{
     padding: 4%;
 }
 
+.img{
+    margin: auto;
+    margin: auto 10px;
+}
+
 .image{
     box-shadow: 0px 0px 15px 5px rgba(24,23,23,0.5);
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: scale-down;
+    object-position: center;
 }
 
 /*Article secondaire*/
@@ -136,13 +144,13 @@ textarea{
 .texte_article img{
     display: flex;
     margin: 4% auto;
-    border-radius: 40px 40px 40px 40px;
+    border-radius: 40px;
     width: 40%;
     height: auto;
 }
 
 .texte_article{
-    margin: 5% auto;
+    margin: 20px;
 }
 
 /*footer*/
@@ -158,8 +166,12 @@ footer{
 }
 
 /*Test Mobile*/
-@media only screen and (max-width: 1000px)
+@media only screen and (max-width: 1024px)
 {
+    .image{
+        max-width: 200px;
+        max-height: 200px;
+    }
     .article_principal h2{
         font-size: 20px;
     }
@@ -174,6 +186,10 @@ footer{
 
     @media only screen and (max-width: 760px)
     {
+        .image{
+            max-width: 150px;
+            max-height: 150px;
+        }
         .article_principal h2{
             font-size: 16px;
         }
@@ -205,6 +221,10 @@ footer{
 
         @media only screen and (max-width: 500px)
         {
+            .image{
+                max-width: 100px;
+                max-height: 100px;
+            }
             .article_principal h2{
                 font-size: 10px;
             }
@@ -275,6 +295,9 @@ footer{
                 color:#181717;
                 padding: 0 5%;
                 border-radius: 40px;
+            }
+            .user{
+                margin-top: 100px!important;
             }
             }
         }

@@ -1,6 +1,7 @@
 <?php    
     if(isset($_SESSION['user'])){
-        require_once('user.php');
+        header('Location: user.php');
+        exit();
     }else{
         echo "
             <form id=\"formCompte\" method=\"post\" action=\"Inscription/formInscription.php\" >

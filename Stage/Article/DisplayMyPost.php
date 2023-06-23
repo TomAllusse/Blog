@@ -61,7 +61,9 @@
                 $lien = '../'.$resultat['Picture'];
                 echo "
                     <div class=\"article_principal\">
-                        <img class=\"image\" src=".$lien." alt=\"image de l'article\">
+                        <div class=\"img\">
+                            <img class=\"image\" src=".$lien." alt=\"image de l'article\">
+                        </div>    
                         <article class=\"articlePrincipal\">
                             <h2>".$resultat['Title']."</h2>
                             <h3>".$resultat['Name_Categories']."</h3>

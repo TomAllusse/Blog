@@ -45,6 +45,14 @@
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <!--Bouton-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        header{
+
+        }
+        main{
+            
+        }
+    </style>
     <title>Accueil</title>
 </head>
 <body id="corps">
