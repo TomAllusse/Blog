@@ -1,0 +1,84 @@
+#ChoixCategories{
+    text-align: center;
+    margin: 10px auto;
+    background-color: #F6F1F1;
+    width: 100%;
+    color:#181717;
+    border: 2px solid #181717;
+}
+
+option:nth-child(5):hover{
+    background: red;
+}
+
+/*Test Mobile*/
+
+@media only screen and (max-width: 500px) {
+    h2{
+        font-size: 20px;
+    }
+    label{
+        font-size: 10px;
+    }
+    #title{
+        font-size: 8px;
+    }
+    #ChoixCategories{
+        font-size: 8px;
+    }
+    #image_Article{
+        font-size: 8px;
+    }
+    #Contained{
+        font-size: 8px;
+    }
+    #buttonform{
+        font-size: 8px;
+    }
+    @media only screen and (max-width: 305px) {
+        h2{
+            font-size: 15px;
+        }
+        label{
+            font-size: 8px;
+        }
+        #title{
+            font-size: 5px;
+        }
+        #ChoixCategories{
+            font-size: 5px;
+        }
+        #image_Article{
+            font-size: 5px;
+        }
+        #Contained{
+            font-size: 5px;
+        }
+        #buttonform{
+            font-size: 5px;
+        }
+        @media only screen and (max-width: 200px) {
+            h2{
+                font-size: 12px;
+            }
+            label{
+                font-size: 6px;
+            }
+            #title{
+                font-size: 3px;
+            }
+            #ChoixCategories{
+                font-size: 3px;
+            }
+            #image_Article{
+                font-size: 3px;
+            }
+            #Contained{
+                font-size: 3px;
+            }
+            #buttonform{
+                font-size: 3px;
+            }
+        }
+    }
+}
