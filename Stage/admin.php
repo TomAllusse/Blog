@@ -32,8 +32,8 @@
     }
 
     $userRole = new User(0,'','','','','','','','');
-    if (isset($_GET["role"]) && isset($_GET["userID"])) {
-        $userRole->UpdateUserRole($_GET["userID"],$_GET["role"]);
+    if (isset($_GET["role"]) && isset($_GET["userid"])) {
+        $userRole->UpdateUserRole($_GET["userid"],$_GET["role"]);
     }
 ?>
 
@@ -130,14 +130,14 @@
                             <td data-label="Date Of Birth">' .$user['Date_Of_Birth']. '</td>
                             <td data-label="Email">' .$user['E_mail']. '</td>
                             <td data-label="Phone">' .$user['Phone'].  '</td>
-                            <td data-label="Roles" onclick="myRole(this,'.$user['Id_User'].')" value="'.$user['Roles'].'"';
+                            <td id="UserRole" data-label="Roles"><input type="submit" onclick="ChangeRole(this,'.$user['Id_User'].')" value="'.$user['Roles'].'"';
                         if($user['Roles'] == "ROLE_USER"){
                             echo 'style="background-color:green">';
                         }
                         if($user['Roles'] == "ROLE_ADMIN"){
                             echo 'style="background-color:orange">';
                         }
-                        echo $user['Roles']. '</td>
+                        echo '</td>
                             <td data-label="Picture">' .$user['Picture_User'].  '</td>
                             <td data-label="Delete" class="contenue"> <a href="admin.php?idUser='.$user['Id_User'].'"> <i class="material-icons button delete">delete</i> </a> </td>
                         </tr>';

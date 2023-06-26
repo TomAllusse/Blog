@@ -102,11 +102,11 @@
             return $prep->fetch();
         }
 
-        public function UpdateUserRole(string $user_mail, string $user_role){
+        public function UpdateUserRole(string $user_id, string $user_role){
             $bdd = connexionBDD();
             
-            $prep = $bdd->prepare("UPDATE `users` SET  `Roles` = :role WHERE `E_mail` = :email;");
-            $prep->bindValue(":email", $user_mail);
+            $prep = $bdd->prepare("UPDATE `users` SET  `Roles` = :role WHERE `Id_User` = :user_id;");
+            $prep->bindValue(":user_id", $user_id);
             $prep->bindValue(":role", $user_role);
             $this->user_role = $user_role;
             $prep->execute();

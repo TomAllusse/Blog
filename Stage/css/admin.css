@@ -40,6 +40,10 @@ td{
     color: #181717;
 }
 
+#UserRole{
+    cursor: pointer;
+}
+
 .contenue{
     height: 60px;
     overflow-y: auto;
