@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     session_start();
 
@@ -25,6 +26,7 @@
     <?php
         if(isset($_GET['modif'])){
             echo "<link rel=\"stylesheet\" href=\"css/compte.css\">";
+            echo "<link rel=\"stylesheet\" href=\"css/formModif.css\">";
         }
     ?>
     <!--Boostrap CSS-->
@@ -40,8 +42,6 @@
     <main>
         <?php
         if(isset($_GET['modif'])){
-            
-            session_start();
             
             $prep = $bdd->prepare("SELECT * FROM `users` WHERE `E_mail`=:mail");
             $prep->bindValue(":mail", $_SESSION['user']['mail']);
@@ -94,6 +94,7 @@
                     </fieldset>
                 </form>";
         }else{
+
             $prep = $bdd->prepare("SELECT * FROM `users` WHERE `E_mail`=:mail");
             $prep->bindValue(":mail", $_SESSION['user']['mail']);
             $prep->execute();
@@ -102,15 +103,15 @@
                 <div class="user">
                     <h1>Vos Informations personnelles</h1>
                     <h2>Prénom :</h2>
-                    <p>'.$user['FirstName'].'</p>
+                    <p class="p_user">'.$user['FirstName'].'</p>
                     <h2>Nom :</h2>
-                    <p>'.$user['Name_User'].'</p>
+                    <p class="p_user">'.$user['Name_User'].'</p>
                     <h2>Date de naissance :</h2>
-                    <p>'.$user['Date_Of_Birth'].'</p>
+                    <p class="p_user">'.$user['Date_Of_Birth'].'</p>
                     <h2>Mail :</h2>
-                    <p>'.$user['E_mail'].'</p>
+                    <p class="p_user">'.$user['E_mail'].'</p>
                     <h2>Téléphone :</h2>
-                    <p>'.$user['Phone'].'</p>
+                    <p class="p_user">'.$user['Phone'].'</p>
                 </div>
                 <div class="imgUser">
                     <h1>Image de profil</h1>

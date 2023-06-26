@@ -45,11 +45,6 @@ header{
     margin-right: 3%;
 }
 
-.categorieBar{
-    background-color: #181717;
-    color: #F6F1F1;
-}
-
 .categorieBar:hover{
     background-color: #F6F1F1;
     color: #181717;
