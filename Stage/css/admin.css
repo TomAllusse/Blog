@@ -36,8 +36,14 @@ th{
 }
 
 td{
-    background-color: #f6f1f1bd;
     color: #181717;
+}
+tbody tr{
+    background-color: white;
+}
+
+tbody tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0.719);
 }
 
 #DisplayLogo{
@@ -46,8 +52,10 @@ td{
 }
 
 #img{
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    margin: 10px;
     object-fit: scale-down;
     object-position: center;
 }
@@ -85,6 +93,22 @@ td{
 }
 
 @media only screen  and (max-width:900px){
+    tbody tr:nth-child(even){
+        background-color: #181717;
+    }
+    
+    tbody tr{
+        background-color: #181717;
+    }
+    #Role{
+        padding-left: 130px;
+        justify-content: center;
+    }
+
+    .NoDisplayMobile{
+        display: none !important;
+    }
+
     #DisplayLogo{
         display: none;
     }       
@@ -104,6 +128,7 @@ td{
     }
 
     .TableResponsive td{
+        background-color: white;
         margin-top: -1px;
         margin-left: auto;
         margin-right: auto;
@@ -111,6 +136,7 @@ td{
         padding-left: 130px;
         position: relative;
         overflow-x: auto;
+        justify-content: center;
     }
 
     .TableResponsive td::before{
@@ -126,7 +152,6 @@ td{
         display: flex;
         align-items: center;
         font-weight: bold;
-
     }
 
     .TableResponsive tr{
