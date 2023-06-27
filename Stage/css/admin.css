@@ -40,14 +40,34 @@ td{
     color: #181717;
 }
 
+#DisplayLogo{
+    width: 100px;
+    padding: 0;
+}
+
+#img{
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: scale-down;
+    object-position: center;
+}
+
 #Role{
     width: 100%;
     height: 100%;
+    padding: 10px;
     border: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+#Role:hover{
+    color: red;
+    font-weight: bold;
 }
 
 #UserRole{
-    margin: 0;
+    margin: auto;
     padding: 0;
     cursor: pointer;
 }
@@ -65,7 +85,9 @@ td{
 }
 
 @media only screen  and (max-width:900px){
-           
+    #DisplayLogo{
+        display: none;
+    }       
     main{
         margin-top: 100px;
     }

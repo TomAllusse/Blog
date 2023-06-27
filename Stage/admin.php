@@ -60,9 +60,10 @@
         <table class="TableResponsive">
             <thead>
                 <tr>
-                    <th colspan="10">Tous les utilisateurs</th>
+                    <th colspan="11">Tous les utilisateurs</th>
                 <tr>
                 </tr>
+                    <th>LOGO</th>
                     <th>ID</th>
                     <th>FirstName</th>
                     <th>Name</th>
@@ -116,6 +117,7 @@
                     foreach($users as $user){
                         echo '
                         <tr>
+                            <td data-label="LOGO" id="DisplayLogo"><img id="img" src="'.$user['Picture_User'].'" alt="image de l article"></td>
                             <td data-label="ID" class="top">' .$user['Id_User']. '</td>
                             <td data-label="FirstName">' .$user['FirstName']. '</td>
                             <td data-label="Name">' .$user['Name_User']. '</td>
