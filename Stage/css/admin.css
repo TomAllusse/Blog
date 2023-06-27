@@ -40,7 +40,15 @@ td{
     color: #181717;
 }
 
+#Role{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 #UserRole{
+    margin: 0;
+    padding: 0;
     cursor: pointer;
 }
 

@@ -50,14 +50,6 @@
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <!--Bouton-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        header{
-
-        }
-        main{
-            
-        }
-    </style>
     <title>Accueil</title>
 </head>
 <body id="corps">
@@ -130,7 +122,7 @@
                             <td data-label="Date Of Birth">' .$user['Date_Of_Birth']. '</td>
                             <td data-label="Email">' .$user['E_mail']. '</td>
                             <td data-label="Phone">' .$user['Phone'].  '</td>
-                            <td id="UserRole" data-label="Roles"><input type="submit" onclick="ChangeRole(this,'.$user['Id_User'].')" value="'.$user['Roles'].'"';
+                            <td id="UserRole" data-label="Roles"><input id="Role" type="submit" onclick="ChangeRole(this,'.$user['Id_User'].')" value="'.$user['Roles'].'"';
                         if($user['Roles'] == "ROLE_USER"){
                             echo 'style="background-color:green">';
                         }
