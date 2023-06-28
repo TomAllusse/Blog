@@ -118,12 +118,12 @@
                         echo '
                         <tr>
                             <td data-label="LOGO" id="DisplayLogo"><img id="img" src="'.$user['Picture_User'].'" alt="image de l article"></td>
-                            <td data-label="ID" class="top">' .$user['Id_User']. '</td>
-                            <td data-label="FirstName">' .$user['FirstName']. '</td>
-                            <td data-label="Name">' .$user['Name_User']. '</td>
-                            <td class="NoDisplayMobile">' .$user['Date_Of_Birth']. '</td>
-                            <td data-label="Email">' .$user['E_mail']. '</td>
-                            <td data-label="Phone">' .$user['Phone'].  '</td>
+                            <td data-label="ID" class="top"><p class="contenueAdmin">' .$user['Id_User']. '</p></td>
+                            <td data-label="FirstName"><p class="contenueAdmin">' .$user['FirstName']. '</p></td>
+                            <td data-label="Name"><p class="contenueAdmin">' .$user['Name_User']. '</p></td>
+                            <td class="NoDisplayMobile"><p class="contenueAdmin">' .$user['Date_Of_Birth']. '</p></td>
+                            <td data-label="Email"><p class="contenueAdmin">' .$user['E_mail']. '</p></td>
+                            <td data-label="Phone"><p class="contenueAdmin">' .$user['Phone'].  '</p></td>
                             <td id="UserRole" data-label="Roles"><input id="Role" type="submit" onclick="ChangeRole(this,'.$user['Id_User'].')" value="'.$user['Roles'].'"';
                         if($user['Roles'] == "ROLE_USER"){
                             echo 'style="background-color:#50E250">';
@@ -132,8 +132,8 @@
                             echo 'style="background-color:#FDA533">';
                         }
                         echo '</td>
-                            <td class="NoDisplayMobile">' .$user['Picture_User'].  '</td>
-                            <td data-label="Delete" class="contenue"> <a href="admin.php?idUser='.$user['Id_User'].'"> <i class="material-icons button delete">delete</i> </a> </td>
+                            <td class="NoDisplayMobile"><p class="contenueAdmin">' .$user['Picture_User'].  '</p></td>
+                            <td data-label="Delete"> <a href="admin.php?idUser='.$user['Id_User'].'"> <i class="material-icons button delete">delete</i> </a> </td>
                         </tr>';
                     }
                  ?>
@@ -219,13 +219,13 @@
                     foreach($users as $user){
                         echo '
                         <tr class="LigneTab">
-                            <td data-label="ID Post" class="top">' .$user['Id_Post']. '</td>
-                            <td data-label="FirstName">' .$user['FirstName']. '</td>
-                            <td data-label="Name">' .$user['Name_User']. '</td>
-                            <td data-label="Title" class="contenue">' .$user['Title'].  '</td>
-                            <td data-label="Picture" class="contenue">' .$user['Picture'].  '</td>
-                            <td data-label="Resume" class="contenue">' .$user['Resume'].  '</td>
-                            <td data-label="Created at" class="contenue">' .$user['Created_at'].  '</td>
+                            <td data-label="ID Post" class="top"><p class="contenueAdmin">' .$user['Id_Post']. '</p></td>
+                            <td data-label="FirstName"><p class="contenueAdmin">' .$user['FirstName']. '</p></td>
+                            <td data-label="Name"><p class="contenueAdmin">' .$user['Name_User']. '</p></td>
+                            <td data-label="Title" class="contenue"><p class="contenueAdmin">' .$user['Title']. '</p></td>
+                            <td data-label="Picture" class="contenue NoDisplayMobile"><p class="contenueAdmin">' .$user['Picture']. '</p></td>
+                            <td data-label="Resume" class="contenue"><p class="contenueAdmin">' .$user['Resume']. '</p></td>
+                            <td data-label="Created at" class="contenue NoDisplayMobile"><p class="contenueAdmin">' .$user['Created_at']. '</p></td>
                             <td data-label="Delete" class="contenue"> <a href="admin.php?idPost='.$user['Id_Post'].'"> <i class="material-icons button delete">delete</i> </a> </td>
                         </tr>';
                     }
