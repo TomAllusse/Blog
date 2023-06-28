@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/compte.css">
     <link rel="stylesheet" href="../css/formModif.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <!--Boostrap CSS-->
     <link href="../bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <title>Accueil</title>

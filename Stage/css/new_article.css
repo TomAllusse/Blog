@@ -3,8 +3,13 @@ img{
 }
 
 /*Test Mobile*/
-@media only screen and (max-width: 1440px)
+@media only screen and (max-width: 1480px)
 {
+    footer{
+        position: fixed;
+        right: 0;
+        left: 0;
+    }
     h1{
         font-size: 25px!important;
     }

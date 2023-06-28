@@ -17,6 +17,13 @@
     <link rel="stylesheet" href="css/footer.css">
     <!--Boostrap CSS-->
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        footer{
+            position: fixed;
+            right: 0;
+            left: 0;
+        }
+    </style>
     <title>Accueil</title>
 </head>
 <body>

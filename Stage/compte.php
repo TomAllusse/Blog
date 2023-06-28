@@ -15,6 +15,20 @@
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <!--Bouton-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <?php
+        if(!isset($_SESSION['user'])){
+            echo '<style>
+                    @media only screen  and (max-width:425px){
+                        footer{
+                            position: fixed;
+                            right: 0;
+                            left: 0;
+                        }
+                    }
+                </style>';
+        }
+    ?>
     <title>Accueil</title>
 </head>
 <body id="corps">

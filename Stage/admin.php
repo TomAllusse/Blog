@@ -225,7 +225,7 @@
                             <td data-label="Title" class="contenue"><p class="contenueAdmin">' .$user['Title']. '</p></td>
                             <td data-label="Picture" class="contenue NoDisplayMobile"><p class="contenueAdmin">' .$user['Picture']. '</p></td>
                             <td data-label="Resume" class="contenue"><p class="contenueAdmin">' .$user['Resume']. '</p></td>
-                            <td data-label="Created at" class="contenue NoDisplayMobile"><p class="contenueAdmin">' .$user['Created_at']. '</p></td>
+                            <td data-label="Created at" class="contenue"><p class="contenueAdmin">' .$user['Created_at']. '</p></td>
                             <td data-label="Delete" class="contenue"> <a href="admin.php?idPost='.$user['Id_Post'].'"> <i class="material-icons button delete">delete</i> </a> </td>
                         </tr>';
                     }

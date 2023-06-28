@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/compte.css">
     <link rel="stylesheet" href="../css/submit.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <!--Boostrap CSS-->
     <link href="bootstrap-5.2.2-dist/css/bootstrap.css" rel="stylesheet">
     <title>Formulaire inscription</title>

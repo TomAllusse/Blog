@@ -110,7 +110,7 @@ i{
     text-align: center;
 }
 
-@media only screen  and (max-width:900px){
+@media only screen  and (max-width:1500px){
     tbody tr:nth-child(even){
         background-color: #181717;
     }
@@ -131,7 +131,7 @@ i{
         display: none;
     }       
     main{
-        margin-top: 100px;
+        margin-top: 150px;
     }
     .top{
         margin-top: 10%;
@@ -176,6 +176,7 @@ i{
     }
 
     @media only screen  and (max-width:700px){
+
        .TableResponsive td{
            width: 300px;
        }
@@ -193,6 +194,7 @@ i{
        @media only screen  and (max-width:300px){
            .TableResponsive td{
                width: 220px;
+               height: 60px;
            }
        }
     }
