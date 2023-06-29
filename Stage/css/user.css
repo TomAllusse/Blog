@@ -8,8 +8,7 @@ h2{
 }
 .p_user{
     margin: auto;
-    padding: 10px;
-    height: 50px;
+    padding: 25px 10px;
     background-color: #F6F1F1;
     color: #181717;
     width: 500px;
@@ -112,7 +111,7 @@ img{
         width: 300px !important;
     }
     .p_user{
-        height: 40px !important;
+        padding: 15px 10px;
         width: 300px !important;
     }
     @media only screen and (max-width:500px)
@@ -125,7 +124,6 @@ img{
             font-size: 15px !important;
         }
         .p_user{
-            height: 30px !important;
             width: 200px !important;
         }
         @media only screen and (max-width:375px)
@@ -141,7 +139,7 @@ img{
                 font-size: 10px !important;
             }
             .p_user{
-                height: 30px !important;
+                padding: 10px;
                 width: 150px !important;
                 font-size: 10px !important;
             }
@@ -155,7 +153,6 @@ img{
                     font-size: 10px !important;
                 }
                 .p_user{
-                    height: 30px !important;
                     width: 125px !important;
                     font-size: 8px !important;
                 }
@@ -169,9 +166,15 @@ img{
                         font-size: 8px !important;
                     }
                     .p_user{
-                        height: 30px !important;
                         width: 90px !important;
                         font-size: 5px !important;
+                    }
+                    #buttonDisplay, #buttonADD, #button3 a{
+                        font-size: 5px;
+                        padding: 10px;
+                    }
+                    img{
+                        width: 100px;
                     }
                 }
             }
