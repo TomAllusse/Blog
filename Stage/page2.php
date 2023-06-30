@@ -52,16 +52,18 @@
     ?>
     <main>
         <?php
-            var_dump($_SESSION);
-            echo"<br>";
-            var_dump($_SESSION['user']);
-            echo"<br>";
+            if(!empty($_SESSION) && !empty($_SESSION['user'])){
+                var_dump($_SESSION);
+                echo"<br>";
+                var_dump($_SESSION['user']);
+                echo"<br>";
+            }
             var_dump(session_id());
+            echo"<br>";
         ?>
     </main>
     <?php
         require_once('layouts/footer.php');
-        echo '<a href="page2.php?deconnexion=true"><button id="deconnexion" type="submit">Deconnexion</button></a>'
     ?>
 </body>
 <script src="js/javascript.js"></script>

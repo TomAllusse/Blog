@@ -6,6 +6,7 @@
             <li><a href="page2.php">Page 2</a></li>
             <li><a href="admin.php">Admin</a></li>
             <li class="compte"><a href="compte.php">Mon compte</a></li>
+            <li class="deconnection"><a href="deconnection.php" title="deconnection" class="text-secondary text-decoration-none">Deconnexion</a></li>
             <li class="droite"><img src="images/account.png" alt="logo compte"></li>
         </ul> 
     </nav>
@@ -38,6 +39,10 @@
             <a class="item" href="compte.php">
                 <div class="bar"></div>
                 <p>Mon compte</p>
+            </a>
+            <a class="item" href="deconnection.php">
+                <div class="bar"></div>
+                <p>Deconnexion</p>
             </a>
         </div>
     </nav>

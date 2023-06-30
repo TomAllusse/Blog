@@ -28,7 +28,7 @@ header{
 .menu a{
     font-weight: bolder;
     text-decoration: none;
-    color : #181717;
+    color : #181717 !important;
     padding: 1% 4% 4% 4%;
     text-align: center;
     margin: 0 auto;
@@ -36,12 +36,12 @@ header{
 
 .menu a:hover{
     background-color: #181717;
-    color: #F6F1F1;
+    color: #F6F1F1 !important;
     border-radius: 40px 40px 0px 0px;
     padding: 1% 4% 4% 4%;
 }
 
-.compte{
+.deconnection{
     margin-right: 3%;
 }
 
@@ -75,102 +75,109 @@ header{
 
 /*Test Mobile / Menu 2*/
 
-@media only screen and (max-width: 760px)
+@media only screen and (max-width: 850px)
 {
-    #nav{
-        display: none;
+    .menu li{
+        display: inline;
+        font-size: 90%;
     }
-    #nav2{
-        display: unset;
-        padding: 1%;
-    }
-    .burger {
-        background-color: #181717;
-        margin-top: 5px;
-        margin-left: 35px;
-        width: 60px;
-        height: 60px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        position: relative;
-    }
-      
-    .container-lignes {
-        width: 50px;
-        height: 40px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-    }
-      
-    .ligne {
-        background-color: #F6F1F1;
-        position: absolute;
-        border-radius: 10px;
-        width: 50px;
-        height: 7px;
-    }
-      
-    .burger .ligne:nth-child(1) { top: 0px; }
-    .burger .ligne:nth-child(2) { top: 15px; }
-    .burger .ligne:nth-child(3) { top: 30px; }
-      
-    .burger .ligne:nth-child(1), .ligne:nth-child(3) {
-        transform: rotate(0deg);
-        transition: transform 0.3s ease-in-out,
-        top 0.3s 0.3s ease-in-out;
-    }
-      
-    .burger.active .ligne:nth-child(1) {
-        top: 15px;
-        transform: rotate(45deg);
-        transition: top 0.3s ease-in-out,
-        transform 0.3s 0.3s ease-in-out;
-    }
-      .burger.active .ligne:nth-child(2) {
-        opacity: 0;
-    }
-    .burger.active .ligne:nth-child(3) {
-        top: 15px;
-        transform: rotate(-45deg);
-        transition: top 0.3s ease-in-out,
-        transform 0.3s 0.3s ease-in-out;
-    }
-      
-    .options-container {
-        display: none;
-        top: 100%;
-        left: 0;
-        position: absolute;
-        background-color: #181717;
-        opacity: 100%;
-        width: 100%;
-    }
-      
-    .options-container.active {
-        display: block;
-    }
-      
-    .item {
-        font-size: 23px;
-        text-decoration: none;
-        color: #F6F1F1;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        margin: 1rem;
-    }
-    
-    .item:hover{
-        background-color: #F6F1F1;
-        color: #181717;
-        border-radius: 40px 40px 40px 40px;
-    }
-    
-    p{
-        margin:2% auto;
+    @media only screen and (max-width: 760px)
+    {
+        #nav{
+            display: none;
+        }
+        #nav2{
+            display: unset;
+            padding: 1%;
+        }
+        .burger {
+            background-color: #181717;
+            margin-top: 5px;
+            margin-left: 35px;
+            width: 60px;
+            height: 60px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .container-lignes {
+            width: 50px;
+            height: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .ligne {
+            background-color: #F6F1F1;
+            position: absolute;
+            border-radius: 10px;
+            width: 50px;
+            height: 7px;
+        }
+
+        .burger .ligne:nth-child(1) { top: 0px; }
+        .burger .ligne:nth-child(2) { top: 15px; }
+        .burger .ligne:nth-child(3) { top: 30px; }
+
+        .burger .ligne:nth-child(1), .ligne:nth-child(3) {
+            transform: rotate(0deg);
+            transition: transform 0.3s ease-in-out,
+            top 0.3s 0.3s ease-in-out;
+        }
+
+        .burger.active .ligne:nth-child(1) {
+            top: 15px;
+            transform: rotate(45deg);
+            transition: top 0.3s ease-in-out,
+            transform 0.3s 0.3s ease-in-out;
+        }
+          .burger.active .ligne:nth-child(2) {
+            opacity: 0;
+        }
+        .burger.active .ligne:nth-child(3) {
+            top: 15px;
+            transform: rotate(-45deg);
+            transition: top 0.3s ease-in-out,
+            transform 0.3s 0.3s ease-in-out;
+        }
+
+        .options-container {
+            display: none;
+            top: 100%;
+            left: 0;
+            position: absolute;
+            background-color: #181717;
+            opacity: 100%;
+            width: 100%;
+        }
+
+        .options-container.active {
+            display: block;
+        }
+
+        .item {
+            font-size: 23px;
+            text-decoration: none;
+            color: #F6F1F1;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin: 1rem;
+        }
+
+        .item:hover{
+            background-color: #F6F1F1;
+            color: #181717;
+            border-radius: 40px 40px 40px 40px;
+        }
+
+        p{
+            margin:2% auto;
+        }
     }
 }
